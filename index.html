@@ -585,6 +585,20 @@
     .about-card { grid-template-columns: 1fr; }
     .nav-links { gap: 1rem; }
   }
+
+  /* ── Project screenshot preview ── */
+  .project-screenshot {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    margin-bottom: 1.25rem;
+    display: block;
+    transition: transform 0.2s;
+  }
+  .project-screenshot:hover { transform: scale(1.01); }
 </style>
 </head>
 <body>
@@ -685,6 +699,7 @@
 
     <!-- DumplingThoughts -->
     <div class="project-card">
+      <img class="project-screenshot" src="screenshot-dashboard-charts.png" alt="DumplingThoughts dashboard preview">
       <div class="project-header">
         <div class="project-title-group">
           <h3>🥟 DumplingThoughts</h3>
@@ -715,6 +730,7 @@
       <div class="project-links">
         <a class="project-link" href="https://dumpling-thoughts.streamlit.app" target="_blank">📊 View Dashboard →</a>
         <a class="project-link" href="https://github.com/ladibog88/dumpling-thoughts" target="_blank">💻 GitHub →</a>
+        <a class="project-link" href="dumpling-thoughts.html">📖 Read More →</a>
       </div>
     </div>
 
@@ -876,12 +892,10 @@
       <h2>Let's work together</h2>
       <p>Open to working with you on on improving your processes through automation and data</p>
       <div class="contact-links">
-        <a class="contact-btn btn-white" href="https://www.linkedin.com/in/melissa-yong-1baaa047
-
-" target="_blank">
+        <a class="contact-btn btn-white" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">
           💼 LinkedIn
         </a>
-        <a class="contact-btn btn-outline" href="mailto:yong.melissa@gmail.com">
+        <a class="contact-btn btn-outline" href="/cdn-cgi/l/email-protection#077e686960296a626b6e74746647606a666e6b2964686a">
           ✉️ Email me
         </a>
         <a class="contact-btn btn-outline" href="https://github.com/ladibog88" target="_blank">
@@ -894,8 +908,4 @@
 </main>
 
 <footer>
-  <p>coded with Python by Melissa · Singapore · 2026</p>
-</footer>
-
-</body>
-</html>
+  <p>coded with Python by Melissa · Singapo
