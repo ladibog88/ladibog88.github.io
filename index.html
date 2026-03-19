@@ -4,81 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Melissa Yong — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #fdf8f0;
-    --paper: #faf4e8;
-    --ink: #2c2416;
-    --ink-light: #5c4f3a;
-    --red: #c0392b;
-    --red-light: #e74c3c;
-    --red-pale: #fde8e6;
-    --blue: #2980b9;
-    --blue-pale: #e8f4fd;
-    --green: #27ae60;
-    --green-pale: #e8f8ef;
-    --yellow: #f39c12;
-    --yellow-pale: #fef9e7;
-    --purple: #8e44ad;
-    --border: #d4c4a8;
-    --shadow: rgba(44, 36, 22, 0.12);
+    --cream: #f5efe6;
+    --paper: #ede6da;
+    --ink: #2a2118;
+    --ink-light: #6b5e4e;
+    --ink-faint: #9e8e7e;
+    --terracotta: #b5522a;
+    --terracotta-pale: #f2e4da;
+    --sage: #5c7a5e;
+    --sage-pale: #dfe8df;
+    --dusk: #5c6b8a;
+    --dusk-pale: #dde3ee;
+    --ochre: #b5892a;
+    --ochre-pale: #f0e8d0;
+    --mauve: #7a5c7a;
+    --mauve-pale: #ece0ec;
+    --border: #cbbfa8;
+    --border-light: #ddd4c2;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     background-color: var(--cream);
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(192,57,43,0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(41,128,185,0.03) 0%, transparent 50%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4c4a8' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    font-family: 'Nunito', sans-serif;
+    background-image:
+      radial-gradient(circle at 15% 60%, rgba(181,82,42,0.04) 0%, transparent 55%),
+      radial-gradient(circle at 85% 15%, rgba(92,107,138,0.04) 0%, transparent 55%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cbbfa8' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'DM Sans', sans-serif;
     color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  /* ── Notebook lines effect ── */
   body::before {
     content: '';
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: repeating-linear-gradient(
-      transparent,
-      transparent 27px,
-      rgba(212, 196, 168, 0.2) 27px,
-      rgba(212, 196, 168, 0.2) 28px
+      transparent, transparent 27px,
+      rgba(203, 191, 168, 0.18) 27px,
+      rgba(203, 191, 168, 0.18) 28px
     );
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ── Navigation ── */
+  /* ── Nav ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(253, 248, 240, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 2px solid var(--border);
-    padding: 0.75rem 2rem;
+    background: rgba(245, 239, 230, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1.5px solid var(--border);
+    padding: 0.85rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   .nav-logo {
-    font-family: 'Caveat', cursive;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--red);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--terracotta);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    letter-spacing: 0.01em;
   }
 
   .nav-links {
@@ -88,9 +83,10 @@
   }
 
   .nav-links a {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--ink-light);
     text-decoration: none;
     transition: color 0.2s;
@@ -100,17 +96,17 @@
   .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -2px; left: 0; right: 0;
-    height: 2px;
-    background: var(--red);
+    bottom: -3px; left: 0; right: 0;
+    height: 1.5px;
+    background: var(--terracotta);
     transform: scaleX(0);
     transition: transform 0.2s;
   }
 
-  .nav-links a:hover { color: var(--red); }
+  .nav-links a:hover { color: var(--terracotta); }
   .nav-links a:hover::after { transform: scaleX(1); }
 
-  /* ── Main container ── */
+  /* ── Main ── */
   main {
     position: relative;
     z-index: 1;
@@ -119,7 +115,7 @@
     padding: 6rem 2rem 4rem;
   }
 
-  /* ── Hero section ── */
+  /* ── Hero ── */
   .hero {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -127,40 +123,41 @@
     align-items: center;
     margin-bottom: 5rem;
     padding-bottom: 4rem;
-    border-bottom: 2px dashed var(--border);
+    border-bottom: 1.5px dashed var(--border);
     animation: fadeUp 0.8s ease both;
   }
 
   .hero-text h1 {
-    font-family: 'Fraunces', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 3.2rem;
-    font-weight: 300;
-    line-height: 1.15;
-    margin-bottom: 0.5rem;
+    font-weight: 400;
+    line-height: 1.12;
+    margin-bottom: 0.6rem;
     color: var(--ink);
   }
 
   .hero-text h1 em {
     font-style: italic;
-    color: var(--red);
+    color: var(--terracotta);
   }
 
   .hero-subtitle {
-    font-family: 'Caveat', cursive;
-    font-size: 1.35rem;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--ink-light);
     margin-bottom: 1.5rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
   }
 
   .hero-bio {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.975rem;
+    line-height: 1.8;
     color: var(--ink-light);
     max-width: 520px;
   }
 
-  .hero-bio strong { color: var(--ink); font-weight: 700; }
+  .hero-bio strong { color: var(--ink); font-weight: 600; }
 
   .hero-tags {
     display: flex;
@@ -169,22 +166,22 @@
     margin-top: 1.5rem;
   }
 
+  /* Square chips — small, rectangular, muted */
   .tag {
-    font-family: 'Caveat', cursive;
-    font-size: 0.95rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    border: 1.5px solid;
+    font-size: 0.78rem;
     font-weight: 600;
+    padding: 0.3rem 0.65rem;
+    border-radius: 5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  .tag-red    { background: var(--red-pale);    border-color: var(--red);    color: var(--red); }
-  .tag-blue   { background: var(--blue-pale);   border-color: var(--blue);   color: var(--blue); }
-  .tag-green  { background: var(--green-pale);  border-color: var(--green);  color: var(--green); }
-  .tag-yellow { background: var(--yellow-pale); border-color: var(--yellow); color: var(--yellow); }
-  .tag-purple { background: #f5eef8;            border-color: var(--purple); color: var(--purple); }
+  .tag-red    { background: var(--terracotta-pale); color: var(--terracotta); }
+  .tag-blue   { background: var(--dusk-pale);       color: var(--dusk); }
+  .tag-green  { background: var(--sage-pale);       color: var(--sage); }
+  .tag-yellow { background: var(--ochre-pale);      color: var(--ochre); }
+  .tag-purple { background: var(--mauve-pale);      color: var(--mauve); }
 
-  /* ── Chopper monster illustration ── */
   .hero-monster {
     width: 180px;
     height: 180px;
@@ -201,25 +198,22 @@
   }
 
   .section-header h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 2rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
     font-weight: 400;
     color: var(--ink);
+    white-space: nowrap;
   }
 
-  .section-header .section-icon {
-    font-size: 1.8rem;
-  }
+  .section-header .section-icon { font-size: 1.6rem; }
 
   .section-doodle {
     flex: 1;
-    height: 2px;
+    height: 1.5px;
     background: repeating-linear-gradient(
       90deg,
-      var(--border) 0px,
-      var(--border) 6px,
-      transparent 6px,
-      transparent 12px
+      var(--border) 0px, var(--border) 5px,
+      transparent 5px, transparent 11px
     );
   }
 
@@ -231,129 +225,138 @@
 
   .project-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
     padding: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     position: relative;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 4px 4px 0px var(--border);
+    box-shadow: 3px 3px 0px var(--border-light);
   }
 
   .project-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--border);
+    box-shadow: 5px 5px 0px var(--border);
   }
 
   .project-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 5px;
-    height: 100%;
-    background: var(--accent, var(--red));
-    border-radius: 16px 0 0 16px;
+    width: 4px; height: 100%;
+    background: var(--accent, var(--terracotta));
+    border-radius: 14px 0 0 14px;
   }
 
-  .project-card.accent-blue   { --accent: var(--blue); }
-  .project-card.accent-green  { --accent: var(--green); }
-  .project-card.accent-purple { --accent: var(--purple); }
-  .project-card.accent-yellow { --accent: var(--yellow); }
+  .project-card.accent-blue   { --accent: var(--dusk); }
+  .project-card.accent-green  { --accent: var(--sage); }
+  .project-card.accent-purple { --accent: var(--mauve); }
+  .project-card.accent-yellow { --accent: var(--ochre); }
+
+  /* ── Project screenshot preview ── */
+  .project-screenshot {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    border: 1.5px solid var(--border-light);
+    margin-bottom: 1.25rem;
+    display: block;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover .project-screenshot { opacity: 0.95; }
 
   .project-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     gap: 1rem;
   }
 
   .project-title-group h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
     font-weight: 400;
     color: var(--ink);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
 
   .project-subtitle {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    color: var(--ink-light);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--ink-faint);
+    letter-spacing: 0.01em;
   }
 
   .project-status {
-    font-family: 'Caveat', cursive;
-    font-size: 0.9rem;
-    padding: 0.2rem 0.75rem;
-    border-radius: 20px;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
-  .status-live    { background: var(--green-pale);  color: var(--green); border: 1.5px solid var(--green); }
-  .status-wip     { background: var(--yellow-pale); color: var(--yellow); border: 1.5px solid var(--yellow); }
-  .status-planned { background: #f0f0f0;             color: #888; border: 1.5px solid #ccc; }
+  .status-live    { background: var(--sage-pale);  color: var(--sage); }
+  .status-wip     { background: var(--ochre-pale); color: var(--ochre); }
+  .status-planned { background: #ece8e2;            color: var(--ink-faint); }
 
   .project-description {
-    font-size: 0.975rem;
-    line-height: 1.75;
+    font-size: 0.925rem;
+    line-height: 1.8;
     color: var(--ink-light);
     margin-bottom: 1.25rem;
   }
 
-  .project-description strong { color: var(--ink); }
+  .project-description strong { color: var(--ink); font-weight: 600; }
 
   .project-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.35rem;
     margin-bottom: 1.25rem;
   }
 
   .stack-tag {
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
-    background: rgba(44, 36, 22, 0.07);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    background: rgba(42, 33, 24, 0.07);
     color: var(--ink-light);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
   }
 
-  .project-links {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
+  .project-links { display: flex; gap: 0.75rem; }
 
   .project-link {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--red);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--terracotta);
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    border-bottom: 1.5px dashed var(--red);
-    transition: color 0.2s;
+    border-bottom: 1.5px solid var(--terracotta-pale);
+    padding-bottom: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    letter-spacing: 0.01em;
   }
 
-  .project-link:hover { color: var(--red-light); }
+  .project-link:hover { border-color: var(--terracotta); }
 
-  /* ── Monster doodles as dividers ── */
+  /* ── Monster divider ── */
   .monster-divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
     margin: 3rem 0;
-    color: var(--border);
-    font-size: 1.5rem;
   }
 
   .monster-divider::before,
@@ -361,79 +364,72 @@
     content: '';
     flex: 1;
     height: 1.5px;
-    background: var(--border);
+    background: var(--border-light);
   }
 
-  /* ── Skills section ── */
+  /* ── Skills ── */
   .skills {
     margin-bottom: 5rem;
-    animation: fadeUp 0.8s ease 0.4s both;
+    animation: fadeUp 0.8s ease 0.3s both;
   }
 
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.25rem;
+    gap: 1.1rem;
   }
 
   .skill-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
     padding: 1.25rem;
-    box-shadow: 3px 3px 0px var(--border);
+    box-shadow: 2px 2px 0px var(--border-light);
     transition: transform 0.2s;
   }
 
-  .skill-card:hover {
-    transform: translate(-1px, -1px);
-  }
+  .skill-card:hover { transform: translate(-1px, -1px); }
 
   .skill-card h4 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
     color: var(--ink);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    margin-bottom: 0.85rem;
   }
 
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
 
   .skill-list li {
-    font-size: 0.875rem;
+    font-size: 0.855rem;
     color: var(--ink-light);
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
 
   .skill-list li::before {
-    content: '→';
-    color: var(--red);
-    font-weight: 700;
-    font-size: 0.8rem;
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    flex-shrink: 0;
+    opacity: 0.6;
   }
 
-  /* ── About section ── */
+  /* ── About ── */
   .about {
     margin-bottom: 5rem;
-    animation: fadeUp 0.8s ease 0.5s both;
+    animation: fadeUp 0.8s ease 0.4s both;
   }
 
   .about-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 16px;
-    padding: 2.5rem;
-    box-shadow: 4px 4px 0px var(--border);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 2.25rem;
+    box-shadow: 3px 3px 0px var(--border-light);
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
@@ -441,43 +437,44 @@
   }
 
   .about-text p {
-    font-size: 0.975rem;
-    line-height: 1.8;
+    font-size: 0.925rem;
+    line-height: 1.85;
     color: var(--ink-light);
     margin-bottom: 1rem;
   }
 
-  .about-text p strong { color: var(--ink); }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
 
   .about-facts {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    min-width: 180px;
+    gap: 0.6rem;
+    min-width: 170px;
   }
 
   .fact {
     background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 0.6rem 1rem;
-    font-family: 'Caveat', cursive;
-    font-size: 0.95rem;
+    border: 1.5px solid var(--border-light);
+    border-radius: 7px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.835rem;
     color: var(--ink-light);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-weight: 500;
   }
 
-  /* ── Contact section ── */
+  /* ── Contact ── */
   .contact {
     margin-bottom: 4rem;
-    animation: fadeUp 0.8s ease 0.6s both;
+    animation: fadeUp 0.8s ease 0.5s both;
   }
 
   .contact-card {
-    background: var(--red);
-    border-radius: 16px;
+    background: var(--terracotta);
+    border-radius: 14px;
     padding: 2.5rem;
     text-align: center;
     position: relative;
@@ -490,16 +487,13 @@
     top: -50%; left: -50%;
     width: 200%; height: 200%;
     background: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(255,255,255,0.03) 10px,
-      rgba(255,255,255,0.03) 20px
+      45deg, transparent, transparent 10px,
+      rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px
     );
   }
 
   .contact-card h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 2rem;
     font-weight: 400;
     color: white;
@@ -508,62 +502,52 @@
   }
 
   .contact-card p {
-    font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
-    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
     margin-bottom: 1.75rem;
     position: relative;
   }
 
   .contact-links {
     display: flex;
-    gap: 1rem;
+    gap: 0.85rem;
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
   }
 
   .contact-btn {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 0.6rem 1.5rem;
-    border-radius: 30px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.6rem 1.4rem;
+    border-radius: 7px;
     text-decoration: none;
-    transition: transform 0.2s, background 0.2s;
-    display: flex;
+    transition: transform 0.2s, opacity 0.2s;
+    display: inline-flex;
     align-items: center;
     gap: 0.4rem;
   }
 
-  .btn-white {
-    background: white;
-    color: var(--red);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255,255,255,0.6);
-  }
-
-  .contact-btn:hover { transform: translateY(-2px); }
+  .contact-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+  .btn-white { background: white; color: var(--terracotta); }
+  .btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.5); }
 
   /* ── Footer ── */
   footer {
     text-align: center;
     padding: 2rem;
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
+    font-size: 0.82rem;
     color: var(--border);
-    border-top: 1.5px dashed var(--border);
+    border-top: 1.5px dashed var(--border-light);
     position: relative;
     z-index: 1;
+    letter-spacing: 0.04em;
   }
 
   /* ── Animations ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
@@ -572,38 +556,18 @@
     50%       { transform: translateY(-12px) rotate(2deg); }
   }
 
-  @keyframes wobble {
-    0%, 100% { transform: rotate(-1deg); }
-    50%       { transform: rotate(1deg); }
-  }
-
-  /* ── Responsive ── */
   @media (max-width: 640px) {
     .hero { grid-template-columns: 1fr; }
     .hero-monster { display: none; }
     .hero-text h1 { font-size: 2.2rem; }
     .about-card { grid-template-columns: 1fr; }
     .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.78rem; }
   }
-
-  /* ── Project screenshot preview ── */
-  .project-screenshot {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 10px;
-    border: 1.5px solid var(--border);
-    margin-bottom: 1.25rem;
-    display: block;
-    transition: transform 0.2s;
-  }
-  .project-screenshot:hover { transform: scale(1.01); }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
   <a class="nav-logo" href="#">🐧 mel.codes</a>
   <ul class="nav-links">
@@ -621,13 +585,13 @@
     <div class="hero-text">
       <h1>Hi, I'm <em>Melissa</em> —<br>Tax meets Technology.</h1>
       <p class="hero-subtitle">
-        14 years in transfer pricing → sabbatical → building things with Python ✨
+        14 years in transfer pricing → sabbatical → building things and learning to code
       </p>
       <p class="hero-bio">
-        I'm a senior tax professional deliberately taking time off from the office, and using the time to  
-        explore <strong>automation</strong>, <strong>coding</strong>, and <strong>data analytics</strong>. 
-        I build tools that solve real problems — starting with my own.
-        Currently learning Python, automation, and how to deploy things 
+        I'm a senior tax professional deliberately taking a break from the office, and using the time to explore, 
+        learn, and build things that interest me. For now, that means building
+        tools that solve everyday problems — starting with my own.
+        Currently learning Python, automation, and how to deploy things
         that work in the wild.
       </p>
       <div class="hero-tags">
@@ -639,51 +603,33 @@
       </div>
     </div>
 
-    <!-- Cute Chopper-inspired monster SVG -->
+    <!-- Chopper SVG -->
     <svg class="hero-monster" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hat -->
-      <ellipse cx="100" cy="72" rx="52" ry="10" fill="#c0392b"/>
-      <rect x="68" y="32" width="64" height="42" rx="8" fill="#c0392b"/>
-      <!-- Hat band -->
+      <ellipse cx="100" cy="72" rx="52" ry="10" fill="#b5522a"/>
+      <rect x="68" y="32" width="64" height="42" rx="8" fill="#b5522a"/>
       <rect x="60" y="66" width="80" height="12" rx="4" fill="#e8d5b7"/>
-      <!-- Musical note on hat -->
-      <!-- Note stem -->
       <rect x="104" y="36" width="5" height="22" rx="2" fill="white" opacity="0.9"/>
-      <!-- Note head -->
       <ellipse cx="100" cy="59" rx="9" ry="7" fill="white" opacity="0.9" transform="rotate(-15 100 59)"/>
-      <!-- Second note stem -->
       <rect x="116" y="36" width="5" height="18" rx="2" fill="white" opacity="0.9"/>
-      <!-- Second note head -->
       <ellipse cx="112" cy="55" rx="8" ry="6" fill="white" opacity="0.9" transform="rotate(-15 112 55)"/>
-      <!-- Beam connecting the two notes -->
       <rect x="104" y="36" width="17" height="4" rx="2" fill="white" opacity="0.9"/>
-      <!-- Head -->
       <ellipse cx="100" cy="120" rx="52" ry="48" fill="#f5deb3"/>
-      <!-- Ears/horns -->
       <ellipse cx="52" cy="108" rx="14" ry="18" fill="#f5deb3" stroke="#d4a76a" stroke-width="2"/>
       <ellipse cx="148" cy="108" rx="14" ry="18" fill="#f5deb3" stroke="#d4a76a" stroke-width="2"/>
-      <!-- Inner ears -->
       <ellipse cx="52" cy="108" rx="8" ry="11" fill="#e8a0a0"/>
       <ellipse cx="148" cy="108" rx="8" ry="11" fill="#e8a0a0"/>
-      <!-- Eyes -->
       <ellipse cx="84" cy="112" rx="14" ry="15" fill="white"/>
       <ellipse cx="116" cy="112" rx="14" ry="15" fill="white"/>
       <ellipse cx="84" cy="112" rx="8" ry="9" fill="#2c2416"/>
       <ellipse cx="116" cy="112" rx="8" ry="9" fill="#2c2416"/>
-      <!-- Eye shine -->
       <circle cx="88" cy="108" r="3" fill="white"/>
       <circle cx="120" cy="108" r="3" fill="white"/>
-      <!-- Nose -->
       <ellipse cx="100" cy="128" rx="8" ry="6" fill="#d4a76a"/>
       <ellipse cx="100" cy="128" rx="5" ry="4" fill="#c49050"/>
-      <!-- Mouth - happy -->
       <path d="M 86 140 Q 100 155 114 140" stroke="#2c2416" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <!-- Cheek blush -->
       <ellipse cx="72" cy="132" rx="10" ry="7" fill="#e8a0a0" opacity="0.5"/>
       <ellipse cx="128" cy="132" rx="10" ry="7" fill="#e8a0a0" opacity="0.5"/>
-      <!-- Body hint -->
       <ellipse cx="100" cy="175" rx="35" ry="18" fill="#e8d5b7" opacity="0.6"/>
-      <!-- Little paws up -->
       <ellipse cx="62" cy="158" rx="12" ry="10" fill="#f5deb3" stroke="#d4a76a" stroke-width="1.5"/>
       <ellipse cx="138" cy="158" rx="12" ry="10" fill="#f5deb3" stroke="#d4a76a" stroke-width="1.5"/>
     </svg>
@@ -699,21 +645,21 @@
 
     <!-- DumplingThoughts -->
     <div class="project-card">
-      <img class="project-screenshot" src="screenshot-dashboard-todo.png" alt="DumplingThoughts dashboard preview">
+      <img class="project-screenshot" src="screenshot-dashboard-charts.png" alt="DumplingThoughts dashboard preview">
       <div class="project-header">
         <div class="project-title-group">
           <h3>🥟 DumplingThoughts</h3>
           <div class="project-subtitle">Personal Second Brain — Telegram Bot + Dashboard</div>
         </div>
-        <span class="project-status status-live">✦ Live</span>
+        <span class="project-status status-live">Live</span>
       </div>
       <p class="project-description">
-        My thoughts used to live everywhere and nowhere — Telegram messages to myself, 
-        forgotten browser tabs, a notes app graveyard. So I built a second brain from scratch.
+        My thoughts used to live everywhere — Telegram messages to myself,
+        multiple open browser tabs, a notes app graveyard. So I built a second brain to track everything.
         <br><br>
-        <strong>DumplingThoughts</strong> is a Telegram bot that captures anything I send it — 
-        reflections, to-dos, Thai vocabulary, links, photos — categorises it with one tap, 
-        and stores it in a Google Sheets file, which is then visualized through a searchable web dashboard. It runs 24/7 on Railway so it works 
+        <strong>DumplingThoughts</strong> is a Telegram bot that captures anything I send it —
+        reflections, to-dos, Thai vocabulary, links, photos — categorises it with one tap, sends it to a Google Sheet,
+        and visualizes it in a searchable web dashboard. It runs 24/7 on Railway so it works
         whether my laptop is open or not.
       </p>
       <div class="project-stack">
@@ -728,52 +674,48 @@
         <span class="stack-tag">Streamlit Cloud</span>
       </div>
       <div class="project-links">
-        <a class="project-link" href="https://demo-dumplings.streamlit.app" target="_blank">📊 View Dashboard →</a>
-        <a class="project-link" href="https://github.com/ladibog88/dumpling-thoughts" target="_blank">💻 GitHub →</a>
-        <a class="project-link" href="dumpling-thoughts.html">📖 Read More →</a>
+        <a class="project-link" href="dumpling-thoughts.html">Read More →</a>
       </div>
     </div>
 
-   
-
   </section>
 
+  <!-- ── Monster divider ── -->
   <div class="monster-divider">
-    <!-- Mini monster doodle 1 -->
-    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="24" cy="28" rx="16" ry="14" fill="#fde8e6"/>
-      <ellipse cx="24" cy="28" rx="16" ry="14" fill="none" stroke="#d4c4a8" stroke-width="1.5"/>
+    <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="24" cy="28" rx="16" ry="14" fill="#f2e4da"/>
+      <ellipse cx="24" cy="28" rx="16" ry="14" fill="none" stroke="#cbbfa8" stroke-width="1.5"/>
       <circle cx="19" cy="25" r="3" fill="#2c2416"/>
       <circle cx="29" cy="25" r="3" fill="#2c2416"/>
       <circle cx="20" cy="24" r="1" fill="white"/>
       <circle cx="30" cy="24" r="1" fill="white"/>
       <path d="M 18 33 Q 24 39 30 33" stroke="#2c2416" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="14" cy="20" rx="5" ry="7" fill="#fde8e6" stroke="#d4c4a8" stroke-width="1.5"/>
-      <ellipse cx="34" cy="20" rx="5" ry="7" fill="#fde8e6" stroke="#d4c4a8" stroke-width="1.5"/>
-      <ellipse cx="14" cy="24" rx="2" ry="3" fill="#e8a0a0" opacity="0.6"/>
-      <ellipse cx="34" cy="24" rx="2" ry="3" fill="#e8a0a0" opacity="0.6"/>
+      <ellipse cx="14" cy="20" rx="5" ry="7" fill="#f2e4da" stroke="#cbbfa8" stroke-width="1.5"/>
+      <ellipse cx="34" cy="20" rx="5" ry="7" fill="#f2e4da" stroke="#cbbfa8" stroke-width="1.5"/>
+      <ellipse cx="14" cy="24" rx="2" ry="3" fill="#e8a0a0" opacity="0.5"/>
+      <ellipse cx="34" cy="24" rx="2" ry="3" fill="#e8a0a0" opacity="0.5"/>
     </svg>
-    <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="18" cy="20" rx="12" ry="11" fill="#e8f4fd"/>
-      <ellipse cx="18" cy="20" rx="12" ry="11" fill="none" stroke="#d4c4a8" stroke-width="1.5"/>
+    <svg width="32" height="32" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="18" cy="20" rx="12" ry="11" fill="#dde3ee"/>
+      <ellipse cx="18" cy="20" rx="12" ry="11" fill="none" stroke="#cbbfa8" stroke-width="1.5"/>
       <circle cx="14" cy="18" r="2.5" fill="#2c2416"/>
       <circle cx="22" cy="18" r="2.5" fill="#2c2416"/>
       <circle cx="15" cy="17" r="1" fill="white"/>
       <circle cx="23" cy="17" r="1" fill="white"/>
       <path d="M 13 25 Q 18 30 23 25" stroke="#2c2416" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <rect x="12" y="8" width="5" height="8" rx="2" fill="#e8f4fd" stroke="#d4c4a8" stroke-width="1.5"/>
-      <rect x="19" y="6" width="5" height="10" rx="2" fill="#e8f4fd" stroke="#d4c4a8" stroke-width="1.5"/>
+      <rect x="12" y="8" width="5" height="8" rx="2" fill="#dde3ee" stroke="#cbbfa8" stroke-width="1.5"/>
+      <rect x="19" y="6" width="5" height="10" rx="2" fill="#dde3ee" stroke="#cbbfa8" stroke-width="1.5"/>
     </svg>
-    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="24" cy="30" rx="14" ry="12" fill="#e8f8ef"/>
-      <ellipse cx="24" cy="30" rx="14" ry="12" fill="none" stroke="#d4c4a8" stroke-width="1.5"/>
+    <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="24" cy="30" rx="14" ry="12" fill="#dfe8df"/>
+      <ellipse cx="24" cy="30" rx="14" ry="12" fill="none" stroke="#cbbfa8" stroke-width="1.5"/>
       <circle cx="20" cy="28" r="2.5" fill="#2c2416"/>
       <circle cx="28" cy="28" r="2.5" fill="#2c2416"/>
       <circle cx="21" cy="27" r="1" fill="white"/>
       <circle cx="29" cy="27" r="1" fill="white"/>
       <path d="M 19 35 Q 24 40 29 35" stroke="#2c2416" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <polygon points="18,18 22,10 26,18" fill="#e8f8ef" stroke="#d4c4a8" stroke-width="1.5"/>
-      <polygon points="26,16 30,8 34,16" fill="#e8f8ef" stroke="#d4c4a8" stroke-width="1.5"/>
+      <polygon points="18,18 22,10 26,18" fill="#dfe8df" stroke="#cbbfa8" stroke-width="1.5"/>
+      <polygon points="26,16 30,8 34,16" fill="#dfe8df" stroke="#cbbfa8" stroke-width="1.5"/>
     </svg>
   </div>
 
@@ -784,7 +726,6 @@
       <h2>Skills</h2>
       <div class="section-doodle"></div>
     </div>
-
     <div class="skills-grid">
       <div class="skill-card">
         <h4>🐍 Python</h4>
@@ -812,7 +753,7 @@
           <li>Transfer Pricing</li>
           <li>BEPS & Pillar Two</li>
           <li>Arm's length analysis</li>
-          <li>OECD framework</li>
+          
         </ul>
       </div>
       <div class="skill-card">
@@ -840,7 +781,7 @@
           <li>FastAPI</li>
           <li>PostgreSQL / Supabase</li>
           <li>Flask & HTML/CSS</li>
-          <li>React (coming soon)</li>
+          <li>React </li>
           <li>Tax Technology stack</li>
         </ul>
       </div>
@@ -854,19 +795,21 @@
       <h2>About</h2>
       <div class="section-doodle"></div>
     </div>
-
     <div class="about-card">
       <div class="about-text">
         <p>
-          I spent <strong>14 years as a transfer pricing specialist</strong> in Canada and across Southeast Asia. I enjoyed my Transfer Pricing career, but I kept bumping into a ceiling: the tools weren't keeping up with what the 
-          problems needed and I was getting drowned by manual processes. On top of that (and maybe because of that), I was losing my passion for work and knew I needed to make a change.
+          I spent <strong>14 years as a transfer pricing specialist</strong> in Canada and Singapore in both consulting and in-house roles. 
+          While I enjoyed the work, I kept bumping into a ceiling: the tools 
+          just weren't keeping up with the work and I was feeling drowned in manual, repetitive tasks that were taking up more and more of my time. On top of 
+          (and possible because of?!) that, I started to lose my passion for the work itself and wanted to explore where my interests were heading. 
+          
         </p>
         <p>
-          So I quit my job with the aim to to rest, travel, explore and learn and seeing where that takes me - whether it's in tax technology or beyond. 
+          So I stepped away from my full-time job with the goal to rest, travel, explore and deliberately build the technical skills to face the future of work — whether that's in tax technology or outside of that.
         </p>
         <p>
-          I'm based in <strong>Singapore</strong>, learning Python, building real tools, 
-          studying languages and music on the side, and documenting everything so others 
+          I'm based in <strong>Singapore</strong>, learning how to code (currently focusing on Python), building real tools,
+          studying languages and music on the side, and documenting everything so others
           making similar transitions can learn from it too.
         </p>
         <p>
@@ -874,7 +817,7 @@
         </p>
       </div>
       <div class="about-facts">
-        <div class="fact">📍 Based inSingapore</div>
+        <div class="fact">📍 Based in Singapore</div>
         <div class="fact">⚖️ 14 yrs in TP</div>
         <div class="fact">🦉 Forever learner</div>
         <div class="fact">🚀 Travel enthusiast</div>
@@ -893,7 +836,7 @@
         <a class="contact-btn btn-white" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">
           💼 LinkedIn
         </a>
-        <a class="contact-btn btn-outline" href="mailto:yong.melissa@gmail.com">
+        <a class="contact-btn btn-outline" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">
           ✉️ Email me
         </a>
         <a class="contact-btn btn-outline" href="https://github.com/ladibog88" target="_blank">
@@ -906,7 +849,7 @@
 </main>
 
 <footer>
-  <p>coded with Python by Melissa · Singapore · 2026</p> 
+  <p>coded with Python by Melissa · Singapore · 2026</p>
 </footer>
 
 </body>

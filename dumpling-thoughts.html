@@ -4,24 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DumplingThoughts 🥟 — Melissa Yong</title>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #fdf8f0;
-    --paper: #faf4e8;
-    --ink: #2c2416;
-    --ink-light: #5c4f3a;
-    --red: #c0392b;
-    --red-light: #e74c3c;
-    --red-pale: #fde8e6;
-    --blue: #2980b9;
-    --blue-pale: #e8f4fd;
-    --green: #27ae60;
-    --green-pale: #e8f8ef;
-    --yellow: #f39c12;
-    --yellow-pale: #fef9e7;
-    --purple: #8e44ad;
-    --border: #d4c4a8;
+    --cream: #f5efe6;
+    --paper: #ede6da;
+    --ink: #2a2118;
+    --ink-light: #6b5e4e;
+    --ink-faint: #9e8e7e;
+    --terracotta: #b5522a;
+    --terracotta-pale: #f2e4da;
+    --sage: #5c7a5e;
+    --sage-pale: #dfe8df;
+    --dusk: #5c6b8a;
+    --dusk-pale: #dde3ee;
+    --ochre: #b5892a;
+    --ochre-pale: #f0e8d0;
+    --mauve: #7a5c7a;
+    --mauve-pale: #ece0ec;
+    --border: #cbbfa8;
+    --border-light: #ddd4c2;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,10 +32,10 @@
   body {
     background-color: var(--cream);
     background-image:
-      radial-gradient(circle at 20% 50%, rgba(192,57,43,0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(41,128,185,0.03) 0%, transparent 50%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4c4a8' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    font-family: 'Nunito', sans-serif;
+      radial-gradient(circle at 15% 60%, rgba(181,82,42,0.04) 0%, transparent 55%),
+      radial-gradient(circle at 85% 15%, rgba(92,107,138,0.04) 0%, transparent 55%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cbbfa8' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'DM Sans', sans-serif;
     color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
@@ -45,8 +47,8 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: repeating-linear-gradient(
       transparent, transparent 27px,
-      rgba(212, 196, 168, 0.2) 27px,
-      rgba(212, 196, 168, 0.2) 28px
+      rgba(203,191,168,0.18) 27px,
+      rgba(203,191,168,0.18) 28px
     );
     pointer-events: none;
     z-index: 0;
@@ -57,27 +59,28 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(253, 248, 240, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 2px solid var(--border);
-    padding: 0.75rem 2rem;
+    background: rgba(245, 239, 230, 0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1.5px solid var(--border);
+    padding: 0.85rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   .nav-logo {
-    font-family: 'Caveat', cursive;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--red);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--terracotta);
     text-decoration: none;
+    letter-spacing: 0.01em;
   }
 
   .nav-back {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--ink-light);
     text-decoration: none;
     display: flex;
@@ -85,7 +88,7 @@
     gap: 0.4rem;
     transition: color 0.2s;
   }
-  .nav-back:hover { color: var(--red); }
+  .nav-back:hover { color: var(--terracotta); }
 
   /* ── Main ── */
   main {
@@ -99,11 +102,11 @@
   /* ── Hero banner ── */
   .project-hero {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
     padding: 2.5rem;
     margin-bottom: 3rem;
-    box-shadow: 6px 6px 0px var(--border);
+    box-shadow: 4px 4px 0px var(--border-light);
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
@@ -117,53 +120,54 @@
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 6px; height: 100%;
-    background: var(--red);
-    border-radius: 20px 0 0 20px;
+    width: 5px; height: 100%;
+    background: var(--terracotta);
+    border-radius: 16px 0 0 16px;
   }
 
   .project-hero h1 {
-    font-family: 'Fraunces', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
     color: var(--ink);
     line-height: 1.1;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .project-hero h1 em {
     font-style: italic;
-    color: var(--red);
+    color: var(--terracotta);
   }
 
   .project-tagline {
-    font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
-    color: var(--ink-light);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink-faint);
     margin-bottom: 1.25rem;
+    letter-spacing: 0.01em;
   }
 
   .hero-badges {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-bottom: 1.5rem;
   }
 
   .badge {
-    font-family: 'Caveat', cursive;
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 0.2rem 0.75rem;
-    border-radius: 20px;
-    border: 1.5px solid;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
   }
 
-  .badge-red    { background: var(--red-pale);    border-color: var(--red);    color: var(--red); }
-  .badge-green  { background: var(--green-pale);  border-color: var(--green);  color: var(--green); }
-  .badge-blue   { background: var(--blue-pale);   border-color: var(--blue);   color: var(--blue); }
-  .badge-yellow { background: var(--yellow-pale); border-color: var(--yellow); color: var(--yellow); }
-  .badge-purple { background: #f5eef8;            border-color: var(--purple); color: var(--purple); }
+  .badge-green  { background: var(--sage-pale);       color: var(--sage); }
+  .badge-red    { background: var(--terracotta-pale);  color: var(--terracotta); }
+  .badge-blue   { background: var(--dusk-pale);        color: var(--dusk); }
+  .badge-yellow { background: var(--ochre-pale);       color: var(--ochre); }
+  .badge-purple { background: var(--mauve-pale);       color: var(--mauve); }
 
   .hero-links {
     display: flex;
@@ -172,35 +176,35 @@
   }
 
   .hero-btn {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.45rem 1.1rem;
-    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
     text-decoration: none;
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
   }
-  .hero-btn:hover { transform: translateY(-2px); }
-  .hero-btn-red     { background: var(--red); color: white; }
-  .hero-btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--border); }
+  .hero-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .hero-btn-red     { background: var(--terracotta); color: white; }
+  .hero-btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
 
-  /* ── Section styles ── */
+  /* ── Sections ── */
   .section {
-    margin-bottom: 3rem;
+    margin-bottom: 2.75rem;
     animation: fadeUp 0.7s ease 0.15s both;
   }
 
   .section-title {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
     font-weight: 400;
     color: var(--ink);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px dashed var(--border);
+    border-bottom: 1.5px dashed var(--border);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -208,123 +212,116 @@
 
   .content-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 3px 3px 0px var(--border);
+    box-shadow: 2px 2px 0px var(--border-light);
   }
 
   .content-card p {
-    font-size: 0.975rem;
-    line-height: 1.8;
+    font-size: 0.925rem;
+    line-height: 1.85;
     color: var(--ink-light);
     margin-bottom: 0.85rem;
   }
   .content-card p:last-child { margin-bottom: 0; }
-  .content-card p strong { color: var(--ink); }
+  .content-card p strong { color: var(--ink); font-weight: 600; }
 
   /* ── Flow diagram ── */
   .flow {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem 2rem;
-    box-shadow: 3px 3px 0px var(--border);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 2px 2px 0px var(--border-light);
   }
 
   .flow-step {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 0.5rem 0;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s;
   }
 
-  .flow-step:not(:last-child) {
-    border-bottom: 1px dashed var(--border);
-  }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-step:hover { background: rgba(181,82,42,0.03); }
 
-  .flow-icon {
-    font-size: 1.3rem;
-    min-width: 2rem;
-    text-align: center;
-  }
+  .flow-icon { font-size: 1.2rem; min-width: 1.8rem; text-align: center; margin-top: 0.1rem; }
 
   .flow-text {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
+    font-size: 0.925rem;
+    font-weight: 500;
     color: var(--ink);
-    line-height: 1.5;
-    padding-top: 0.1rem;
+    line-height: 1.4;
   }
 
   .flow-text span {
-    font-size: 0.85rem;
-    color: var(--ink-light);
-    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--ink-faint);
     display: block;
-    margin-top: 0.1rem;
+    margin-top: 0.15rem;
   }
 
   /* ── Categories grid ── */
   .cat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.85rem;
+    gap: 0.75rem;
   }
 
   .cat-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    box-shadow: 2px 2px 0px var(--border);
-    transition: transform 0.2s;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    box-shadow: 2px 2px 0px var(--border-light);
+    transition: transform 0.15s;
   }
 
   .cat-card:hover { transform: translate(-1px, -1px); }
 
   .cat-card h4 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 0.875rem;
+    font-weight: 600;
     color: var(--ink);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
   }
 
   .cat-card p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--ink-light);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
-  /* ── Tech stack grid ── */
+  /* ── Stack grid ── */
   .stack-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 0.65rem;
   }
 
   .stack-item {
     background: var(--paper);
     border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
   }
 
-  .stack-item .stack-layer {
-    font-family: 'Caveat', cursive;
-    font-size: 0.82rem;
-    color: var(--ink-light);
+  .stack-layer {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    margin-bottom: 0.2rem;
   }
 
-  .stack-item .stack-name {
-    font-size: 0.9rem;
-    font-weight: 700;
+  .stack-name {
+    font-size: 0.875rem;
+    font-weight: 600;
     color: var(--ink);
   }
 
@@ -332,200 +329,92 @@
   .skills-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.45rem;
   }
 
   .skill-tag {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 0.3rem 0.8rem;
-    border-radius: 8px;
-    background: rgba(44, 36, 22, 0.07);
+    letter-spacing: 0.03em;
+    padding: 0.28rem 0.65rem;
+    border-radius: 4px;
+    background: rgba(42, 33, 24, 0.07);
     color: var(--ink-light);
   }
 
-  /* ── Lessons cards ── */
-  .lessons-grid {
-    display: grid;
-    gap: 0.85rem;
-  }
+  /* ── Lessons ── */
+  .lessons-grid { display: grid; gap: 0.75rem; }
 
   .lesson-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 1.1rem 1.25rem;
-    box-shadow: 2px 2px 0px var(--border);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    box-shadow: 2px 2px 0px var(--border-light);
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.85rem;
     align-items: start;
   }
 
-  .lesson-icon {
-    font-size: 1.4rem;
-    margin-top: 0.1rem;
-  }
+  .lesson-icon { font-size: 1.3rem; margin-top: 0.05rem; }
 
   .lesson-content h4 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 0.875rem;
+    font-weight: 600;
     color: var(--ink);
     margin-bottom: 0.3rem;
   }
 
   .lesson-content p {
-    font-size: 0.875rem;
+    font-size: 0.845rem;
     line-height: 1.65;
     color: var(--ink-light);
-  }
-
-  /* ── Roadmap ── */
-  .roadmap {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .roadmap-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--paper);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    font-size: 0.9rem;
-    color: var(--ink-light);
-  }
-
-  .roadmap-item.done {
-    opacity: 0.5;
-    text-decoration: line-through;
-  }
-
-  /* ── Bottom CTA ── */
-  .bottom-cta {
-    background: var(--red);
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    animation: fadeUp 0.7s ease 0.3s both;
-  }
-
-  .bottom-cta h2 {
-    font-family: 'Fraunces', serif;
-    font-size: 1.6rem;
-    font-weight: 300;
-    color: white;
-    margin-bottom: 0.4rem;
-  }
-
-  .bottom-cta p {
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 1.25rem;
-  }
-
-  .cta-links {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .cta-btn {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.5rem 1.25rem;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: transform 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .cta-btn:hover { transform: translateY(-2px); }
-  .cta-btn-white   { background: white; color: var(--red); }
-  .cta-btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.6); }
-
-  footer {
-    text-align: center;
-    padding: 1.5rem;
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    color: var(--border);
-    border-top: 1.5px dashed var(--border);
-    position: relative;
-    z-index: 1;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50%       { transform: translateY(-10px) rotate(2deg); }
-  }
-
-  @media (max-width: 640px) {
-    .project-hero { grid-template-columns: 1fr; }
-    .hero-monster-sm { display: none; }
-    .project-hero h1 { font-size: 2rem; }
   }
 
   /* ── Screenshots ── */
   .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .screenshot-card {
     background: var(--paper);
-    border: 2px solid var(--border);
-    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 3px 3px 0px var(--border);
+    box-shadow: 2px 2px 0px var(--border-light);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .screenshot-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px var(--border);
+    box-shadow: 4px 4px 0px var(--border);
   }
 
   .screenshot-card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
     object-position: top;
     display: block;
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1.5px solid var(--border-light);
   }
 
-  .screenshot-caption {
-    padding: 0.75rem 1rem;
-  }
+  .screenshot-caption { padding: 0.7rem 0.9rem; }
 
   .screenshot-caption h4 {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--ink);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
   }
 
   .screenshot-caption p {
-    font-size: 0.8rem;
-    color: var(--ink-light);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
     line-height: 1.4;
   }
 
@@ -534,7 +423,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(44, 36, 22, 0.85);
+    background: rgba(42, 33, 24, 0.85);
     backdrop-filter: blur(6px);
     z-index: 300;
     align-items: center;
@@ -543,16 +432,13 @@
     cursor: pointer;
   }
 
-  .lightbox.open {
-    display: flex;
-    animation: fadeIn 0.2s ease;
-  }
+  .lightbox.open { display: flex; animation: fadeIn 0.2s ease; }
 
   .lightbox img {
     max-width: 90vw;
     max-height: 85vh;
-    border-radius: 12px;
-    border: 3px solid var(--border);
+    border-radius: 10px;
+    border: 2px solid var(--border);
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     cursor: default;
     animation: scaleIn 0.25s ease;
@@ -560,15 +446,13 @@
 
   .lightbox-close {
     position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: var(--red);
+    top: 1.5rem; right: 1.5rem;
+    background: var(--terracotta);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 38px; height: 38px;
+    font-size: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -584,21 +468,128 @@
     bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(44, 36, 22, 0.8);
+    background: rgba(42, 33, 24, 0.85);
     color: white;
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
+    font-size: 0.875rem;
     padding: 0.4rem 1.2rem;
-    border-radius: 20px;
+    border-radius: 6px;
     white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Roadmap ── */
+  .roadmap { display: flex; flex-direction: column; gap: 0.55rem; }
+
+  .roadmap-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--paper);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 0.875rem;
+    color: var(--ink-light);
+  }
+
+  /* ── Bottom CTA ── */
+  .bottom-cta {
+    background: var(--terracotta);
+    border-radius: 14px;
+    padding: 2.25rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s ease 0.3s both;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 10px,
+      rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px
+    );
+  }
+
+  .bottom-cta h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 0.4rem;
+    position: relative;
+  }
+
+  .bottom-cta p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .cta-links {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .cta-btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.55rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .cta-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .cta-btn-white   { background: white; color: var(--terracotta); }
+  .cta-btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.5); }
+
+  footer {
+    text-align: center;
+    padding: 1.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--border);
+    border-top: 1.5px dashed var(--border-light);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
   @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.9); }
+    from { opacity: 0; transform: scale(0.92); }
     to   { opacity: 1; transform: scale(1); }
   }
 
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%       { transform: translateY(-10px) rotate(2deg); }
+  }
+
   @media (max-width: 640px) {
+    .project-hero { grid-template-columns: 1fr; }
+    .hero-monster-sm { display: none; }
+    .project-hero h1 { font-size: 1.9rem; }
     .screenshots-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -607,7 +598,7 @@
 
 <nav>
   <a class="nav-logo" href="index.html">🥟 mel.codes</a>
-  <a class="nav-back" href="index.html">← Back to Portfolio</a>
+  <a class="nav-back" href="index.html">← Portfolio</a>
 </nav>
 
 <main>
@@ -618,21 +609,20 @@
       <h1>🥟 Dumpling<em>Thoughts</em></h1>
       <div class="project-tagline">Personal Second Brain — Telegram Bot + Web Dashboard</div>
       <div class="hero-badges">
-        <span class="badge badge-green">✦ Live</span>
+        <span class="badge badge-green">Live</span>
         <span class="badge badge-red">Python</span>
         <span class="badge badge-blue">Telegram Bot</span>
         <span class="badge badge-yellow">Streamlit</span>
         <span class="badge badge-purple">Google Sheets</span>
       </div>
       <div class="hero-links">
-        <a class="hero-btn hero-btn-red" href="https://demo-dumplings.streamlit.app" target="_blank">📊 View Dashboard</a>
+        <a class="hero-btn hero-btn-red" href="https://demo-dumplings.streamlit.com" target="_blank">📊 View Demo</a>
         <a class="hero-btn hero-btn-outline" href="https://github.com/ladibog88/dumpling-thoughts" target="_blank">💻 GitHub</a>
       </div>
     </div>
-    <!-- Mini Chopper -->
-    <svg class="hero-monster-sm" style="width:130px;height:130px;animation:float 4s ease-in-out infinite;flex-shrink:0" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="100" cy="72" rx="52" ry="10" fill="#c0392b"/>
-      <rect x="68" y="32" width="64" height="42" rx="8" fill="#c0392b"/>
+    <svg class="hero-monster-sm" style="width:120px;height:120px;animation:float 4s ease-in-out infinite;flex-shrink:0" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="72" rx="52" ry="10" fill="#b5522a"/>
+      <rect x="68" y="32" width="64" height="42" rx="8" fill="#b5522a"/>
       <rect x="60" y="66" width="80" height="12" rx="4" fill="#e8d5b7"/>
       <rect x="104" y="36" width="5" height="22" rx="2" fill="white" opacity="0.9"/>
       <ellipse cx="100" cy="59" rx="9" ry="7" fill="white" opacity="0.9" transform="rotate(-15 100 59)"/>
@@ -657,20 +647,12 @@
     </svg>
   </div>
 
-  <!-- ── The Problem ── -->
+  <!-- ── Problem ── -->
   <div class="section">
     <h2 class="section-title">🧩 The Problem</h2>
     <div class="content-card">
-      <p>
-        As someone on a year-long sabbatical juggling career development, language learning,
-        personal reflection, and constant curiosity — my thoughts lived everywhere and nowhere.
-        Ideas in Telegram messages to myself. Resources buried in browser tabs. Thai vocabulary
-        disappearing into the notes app. To-dos spread across three different tools.
-      </p>
-      <p>
-        I had no single place where everything lived — and no way to look back at how my
-        thinking had evolved over time. I needed a <strong>second brain</strong>. So I built one.
-      </p>
+      <p>As someone on a sabbatical juggling career development, language learning, personal reflection, and constant curiosity — my thoughts lived everywhere. Ideas in Telegram messages to myself. Buried in multiple browser tabs. Thai vocabulary disappearing into the notes app. To-dos spread across three different tools.</p>
+      <p>I had no single place where everything lived — and no way to look back at how my thinking had evolved over time. I needed a <strong>second brain</strong>. So I built one.</p>
     </div>
   </div>
 
@@ -739,7 +721,7 @@
       </div>
       <div class="cat-card">
         <h4>🌏 Language</h4>
-        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary. Keyword "thai" or "spanish" auto-flags the right flag in the dashboard.</p>
+        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary. Keyword "thai" or "spanish" auto-flags the right flag.</p>
       </div>
       <div class="cat-card">
         <h4>📌 Reference</h4>
@@ -751,20 +733,14 @@
   <!-- ── Dashboard ── -->
   <div class="section">
     <h2 class="section-title">📊 The Dashboard</h2>
-    <div class="content-card">
-      <p>
-        The Streamlit dashboard has four pages, each designed around how I actually review my captures:
-      </p>
-    </div>
-    <br>
     <div class="cat-grid">
       <div class="cat-card">
         <h4>📋 Main Table</h4>
-        <p>Every entry filterable by category, keyword, and status. Mark anything done with one click — completed entries strike through and collapse.</p>
+        <p>Every entry filterable by category, keyword, and status. Mark anything done with one click — completed entries strike through.</p>
       </div>
       <div class="cat-card">
         <h4>✅ To-Do Tracker</h4>
-        <p>Tasks grouped into 🚨 Overdue, 🔴 High, 🟡 Medium, 🟢 Low. Due dates calculated dynamically — nothing gets lost.</p>
+        <p>Tasks grouped by priority. Overdue items surface automatically based on due date. Completed items collapse.</p>
       </div>
       <div class="cat-card">
         <h4>🌏 Language Log</h4>
@@ -777,58 +753,64 @@
     </div>
   </div>
 
+  <!-- ── Screenshots ── -->
+  <div class="section">
+    <h2 class="section-title">📸 Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-card" onclick="openLightbox('screenshot-telegram.png', 'Telegram Bot — category selection')">
+        <img src="screenshot-telegram.png" alt="Telegram bot">
+        <div class="screenshot-caption">
+          <h4>📲 Telegram Bot</h4>
+          <p>Sending a message and selecting a category with one tap</p>
+        </div>
+      </div>
+      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-table.png', 'Main Table — all entries with filters')">
+        <img src="screenshot-dashboard-table.png" alt="Main table view">
+        <div class="screenshot-caption">
+          <h4>📋 Main Table</h4>
+          <p>All entries filterable by category, keyword, and status</p>
+        </div>
+      </div>
+      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-todo.png', 'To-Do Tracker — tasks by priority')">
+        <img src="screenshot-dashboard-todo.png" alt="To-do tracker">
+        <div class="screenshot-caption">
+          <h4>✅ To-Do Tracker</h4>
+          <p>Tasks grouped by priority with overdue items surfaced automatically</p>
+        </div>
+      </div>
+      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-charts.png', 'Category Breakdown — charts and keywords')">
+        <img src="screenshot-dashboard-charts.png" alt="Charts">
+        <div class="screenshot-caption">
+          <h4>📊 Category Breakdown</h4>
+          <p>Visual charts showing entry distribution and top keywords over time</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnOverlay(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
   <!-- ── Tech Stack ── -->
   <div class="section">
     <h2 class="section-title">🛠 Tech Stack</h2>
     <div class="stack-grid">
-      <div class="stack-item">
-        <div class="stack-layer">Capture</div>
-        <div class="stack-name">Telegram Bot API</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Bot Framework</div>
-        <div class="stack-name">python-telegram-bot</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Photo Hosting</div>
-        <div class="stack-name">Cloudinary</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Database</div>
-        <div class="stack-name">Google Sheets + gspread</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Dashboard</div>
-        <div class="stack-name">Streamlit</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Charts</div>
-        <div class="stack-name">Plotly</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Data</div>
-        <div class="stack-name">Pandas</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Bot Hosting</div>
-        <div class="stack-name">Railway.app</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Dashboard Hosting</div>
-        <div class="stack-name">Streamlit Cloud</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Version Control</div>
-        <div class="stack-name">Git + GitHub</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Config</div>
-        <div class="stack-name">python-dotenv</div>
-      </div>
-      <div class="stack-item">
-        <div class="stack-layer">Language</div>
-        <div class="stack-name">Python 3.11</div>
-      </div>
+      <div class="stack-item"><div class="stack-layer">Capture</div><div class="stack-name">Telegram Bot API</div></div>
+      <div class="stack-item"><div class="stack-layer">Bot Framework</div><div class="stack-name">python-telegram-bot</div></div>
+      <div class="stack-item"><div class="stack-layer">Photo Hosting</div><div class="stack-name">Cloudinary</div></div>
+      <div class="stack-item"><div class="stack-layer">Database</div><div class="stack-name">Google Sheets + gspread</div></div>
+      <div class="stack-item"><div class="stack-layer">Dashboard</div><div class="stack-name">Streamlit</div></div>
+      <div class="stack-item"><div class="stack-layer">Charts</div><div class="stack-name">Plotly</div></div>
+      <div class="stack-item"><div class="stack-layer">Data</div><div class="stack-name">Pandas</div></div>
+      <div class="stack-item"><div class="stack-layer">Bot Hosting</div><div class="stack-name">Railway.app</div></div>
+      <div class="stack-item"><div class="stack-layer">Dashboard Hosting</div><div class="stack-name">Streamlit Cloud</div></div>
+      <div class="stack-item"><div class="stack-layer">Version Control</div><div class="stack-name">Git + GitHub</div></div>
+      <div class="stack-item"><div class="stack-layer">Config</div><div class="stack-name">python-dotenv</div></div>
+      <div class="stack-item"><div class="stack-layer">Language</div><div class="stack-name">Python 3.11</div></div>
     </div>
   </div>
 
@@ -859,7 +841,7 @@
     </div>
   </div>
 
-  <!-- ── Lessons Learned ── -->
+  <!-- ── Lessons ── -->
   <div class="section">
     <h2 class="section-title">🧠 What I Learned</h2>
     <div class="lessons-grid">
@@ -867,7 +849,7 @@
         <div class="lesson-icon">🔐</div>
         <div class="lesson-content">
           <h4>Secrets Management — The Hard Way</h4>
-          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch. A painful but unforgettable lesson in .gitignore and environment variables.</p>
+          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch.</p>
         </div>
       </div>
       <div class="lesson-card">
@@ -881,66 +863,24 @@
         <div class="lesson-icon">🌐</div>
         <div class="lesson-content">
           <h4>Multi-Environment Deployment</h4>
-          <p>Getting identical code to run on Windows locally, Railway (Linux), and Streamlit Cloud (Linux) required understanding how each platform handles Python versions, dependencies, and secrets differently.</p>
+          <p>Getting identical code to run on Windows locally, Railway (Linux), and Streamlit Cloud (Linux) required understanding how each platform handles Python versions and secrets differently.</p>
         </div>
       </div>
       <div class="lesson-card">
         <div class="lesson-icon">🏗</div>
         <div class="lesson-content">
           <h4>Building in Phases</h4>
-          <p>Starting with raw capture only — no AI, no fancy features — meant I had something working and usable from day one. Each phase built on a stable foundation rather than trying to build everything at once.</p>
+          <p>Starting with raw capture only meant I had something working from day one. Each phase built on a stable foundation rather than trying to build everything at once.</p>
         </div>
       </div>
       <div class="lesson-card">
         <div class="lesson-icon">🔌</div>
         <div class="lesson-content">
           <h4>API Limitations Are Real</h4>
-          <p>Google service accounts can't upload to Drive due to storage quota restrictions. Discovered this the hard way and pivoted to Cloudinary — a good lesson in reading API documentation before building.</p>
+          <p>Google service accounts can't upload to Drive due to storage quota restrictions. Pivoted to Cloudinary — a good lesson in reading API documentation before building.</p>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- ── Screenshots ── -->
-  <div class="section">
-    <h2 class="section-title">📸 Screenshots</h2>
-    <div class="screenshots-grid">
-      <div class="screenshot-card" onclick="openLightbox('screenshot-telegram.png', '📲 Telegram Bot — category selection')">
-        <img src="screenshot-telegram.png" alt="Telegram bot showing category buttons">
-        <div class="screenshot-caption">
-          <h4>📲 Telegram Bot</h4>
-          <p>Sending a message and selecting a category with one tap</p>
-        </div>
-      </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-table.png', '📋 Main Table — all entries with filters')">
-        <img src="screenshot-dashboard-table.png" alt="Dashboard main table view">
-        <div class="screenshot-caption">
-          <h4>📋 Main Table</h4>
-          <p>All entries filterable by category, keyword, and status</p>
-        </div>
-      </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-todo.png', '✅ To-Do Tracker — tasks by priority')">
-        <img src="screenshot-dashboard-todo.png" alt="Dashboard to-do tracker">
-        <div class="screenshot-caption">
-          <h4>✅ To-Do Tracker</h4>
-          <p>Tasks grouped by priority with overdue items surfaced automatically</p>
-        </div>
-      </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-charts.png', '📊 Category Breakdown — charts and keywords')">
-        <img src="screenshot-dashboard-charts.png" alt="Dashboard charts and analytics">
-        <div class="screenshot-caption">
-          <h4>📊 Category Breakdown</h4>
-          <p>Visual charts showing entry distribution and top keywords over time</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightboxOnOverlay(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightbox-img" src="" alt="">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
   </div>
 
   <!-- ── Roadmap ── -->
@@ -957,9 +897,9 @@
   <!-- ── CTA ── -->
   <div class="bottom-cta">
     <h2>Try it yourself</h2>
-    <p>The dashboard is live — or browse the source code on GitHub</p>
+    <p>Explore the demo dashboard with sample data</p>
     <div class="cta-links">
-      <a class="cta-btn cta-btn-white" href="https://dumpling-thoughts.streamlit.app" target="_blank">📊 View Dashboard</a>
+      <a class="cta-btn cta-btn-white" href="https://demo-dumplings.streamlit.com" target="_blank">📊 View Demo</a>
       <a class="cta-btn cta-btn-outline" href="https://github.com/ladibog88/dumpling-thoughts" target="_blank">💻 GitHub</a>
       <a class="cta-btn cta-btn-outline" href="index.html">← Back to Portfolio</a>
     </div>
@@ -970,7 +910,6 @@
 <footer>
   <p>coded with Python by Melissa · Singapore · 2026</p>
 </footer>
-
 
 <script>
   function openLightbox(src, caption) {
