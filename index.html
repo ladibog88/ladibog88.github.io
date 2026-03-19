@@ -564,6 +564,82 @@
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.78rem; }
   }
+
+  /* ── Deploy date label ── */
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .deploy-date {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    padding: 0.22rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(42,33,24,0.05);
+    border: 1px solid var(--border-light);
+  }
+
+  /* ── Coming soon card ── */
+  .project-card-soon {
+    background: var(--cream);
+    border: 1.5px dashed var(--border);
+    border-radius: 14px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.75rem;
+    opacity: 0.65;
+    position: relative;
+  }
+
+  .project-card-soon::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--border);
+    border-radius: 14px 0 0 14px;
+  }
+
+  .soon-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+  }
+
+  .soon-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink-light);
+  }
+
+  .soon-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 4px;
+    background: var(--border-light);
+    color: var(--ink-faint);
+  }
+
+  .soon-subtitle {
+    font-size: 0.875rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+
+  .soon-desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-faint);
+  }
 </style>
 </head>
 <body>
@@ -651,7 +727,10 @@
           <h3>🥟 DumplingThoughts</h3>
           <div class="project-subtitle">Personal Second Brain — Telegram Bot + Dashboard</div>
         </div>
-        <span class="project-status status-live">Live</span>
+        <div class="project-meta">
+          <span class="deploy-date">Mar 2026</span>
+          <span class="project-status status-live">Live</span>
+        </div>
       </div>
       <p class="project-description">
         My thoughts used to live everywhere — Telegram messages to myself,
@@ -676,6 +755,19 @@
       <div class="project-links">
         <a class="project-link" href="dumpling-thoughts.html">Read More →</a>
       </div>
+    </div>
+
+    <!-- PyPath — Coming Soon -->
+    <div class="project-card-soon">
+      <div class="soon-header">
+        <h3>🐍 PyPath</h3>
+        <span class="soon-badge">Coming Soon</span>
+      </div>
+      <div class="soon-subtitle">An AI-Powered Python Learning Companion</div>
+      <p class="soon-desc">
+        A NotebookLLM-style tool that turns my learning notes and experiments into 
+        structured course materials, quizzes, and bite-sized exercises — built and customized for how I learn.
+      </p>
     </div>
 
   </section>
