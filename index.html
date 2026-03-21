@@ -419,12 +419,12 @@
     opacity: 0.6;
   }
 
-  /* ── About ── */
+   /* ── About ── */
   .about {
     margin-bottom: 5rem;
     animation: fadeUp 0.8s ease 0.4s both;
   }
-
+ 
   .about-card {
     background: var(--paper);
     border: 1.5px solid var(--border);
@@ -432,26 +432,46 @@
     padding: 2.25rem;
     box-shadow: 3px 3px 0px var(--border-light);
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 180px;
     gap: 2rem;
     align-items: start;
   }
-
+ 
   .about-text p {
     font-size: 0.925rem;
     line-height: 1.85;
     color: var(--ink-light);
     margin-bottom: 1rem;
   }
-
+ 
   .about-text p:last-child { margin-bottom: 0; }
   .about-text p strong { color: var(--ink); font-weight: 600; }
-
+ 
+  /* Right column: photo on top, chips below */
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+  }
+ 
+  .about-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 3px solid var(--border);
+    box-shadow: 3px 3px 0px var(--border-light);
+    display: block;
+    flex-shrink: 0;
+  }
+ 
   .about-facts {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    min-width: 170px;
+    gap: 0.5rem;
+    width: 100%;
   }
 
   .fact {
@@ -647,7 +667,7 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">🐧 mel.codes</a>
+  <a class="nav-logo" href="#">🐧 mel.builds</a>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -891,14 +911,15 @@
     <div class="about-card">
       <div class="about-text">
         <p>
-          I spent 14 years working in transfer pricing in both consulting and in-house roles.
+          I spent <strong>14 years working in transfer pricing</strong> in both consulting and in-house roles.
         </p>
         <p>
           In my most recent role, I took on a tax automation scope, focusing on improving processes, reducing manual work, and integrating technology into tax workflows. That experience made it clear how much opportunity there is to build better tools, and I developed a real passion for data, automation, and system design.
         </p>
         <p>
-          I'm now using this sabbatical to push further in that direction - upskilling and building practical tools. </p>
-        <p>I'm based in Singapore and currently spending my time:</p>
+          I'm now using this sabbatical to push further in that direction — upskilling and building practical tools. This shift was a natural extension of the work I was already moving towards.
+        </p>
+        <p>I'm based in <strong>Singapore</strong> and currently spending my time:</p>
         <ul style="list-style:none;margin:0.6rem 0 0.85rem 0;display:flex;flex-direction:column;gap:0.4rem">
           <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Building small tools and experimenting with automation and AI</li>
           <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Developing my coding skills (primarily Python)</li>
@@ -909,7 +930,10 @@
           Right now, I'm especially interested in projects that make work simpler, more efficient, or just more fun.
         </p>
       </div>
-      <div class="about-facts">
+      <!-- Right column: photo on top, fact chips below -->
+      <div class="about-right">
+        <img class="about-photo" src="me.jpg" alt="Melissa on a beach in Spain">
+        <div class="about-facts">
         <div class="fact">🍁 Canadian</div>
         <div class="fact">📍 Based in Singapore</div>
         <div class="fact">⚖️ 14 yrs in TP</div>
@@ -922,7 +946,7 @@
   <!-- ── Contact ── -->
   <section class="contact" id="contact">
     <div class="contact-card">
-      <h2>Let's collaborate</h2>
+      <h2>Let's talk</h2>
       <p>Open to brainstorming with you on how to improve your processes through automation and data</p>
       <div class="contact-links">
         <a class="contact-btn btn-white" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">
