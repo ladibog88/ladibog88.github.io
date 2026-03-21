@@ -564,82 +564,6 @@
     .nav-links { gap: 1rem; }
     .nav-links a { font-size: 0.78rem; }
   }
-
-  /* ── Deploy date label ── */
-  .project-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    flex-wrap: wrap;
-  }
-
-  .deploy-date {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--ink-faint);
-    padding: 0.22rem 0.6rem;
-    border-radius: 4px;
-    background: rgba(42,33,24,0.05);
-    border: 1px solid var(--border-light);
-  }
-
-  /* ── Coming soon card ── */
-  .project-card-soon {
-    background: var(--cream);
-    border: 1.5px dashed var(--border);
-    border-radius: 14px;
-    padding: 1.75rem 2rem;
-    margin-bottom: 1.75rem;
-    opacity: 0.65;
-    position: relative;
-  }
-
-  .project-card-soon::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px; height: 100%;
-    background: var(--border);
-    border-radius: 14px 0 0 14px;
-  }
-
-  .soon-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.6rem;
-  }
-
-  .soon-header h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink-light);
-  }
-
-  .soon-badge {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.6rem;
-    border-radius: 4px;
-    background: var(--border-light);
-    color: var(--ink-faint);
-  }
-
-  .soon-subtitle {
-    font-size: 0.875rem;
-    color: var(--ink-faint);
-    margin-bottom: 0.75rem;
-  }
-
-  .soon-desc {
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: var(--ink-faint);
-  }
 </style>
 </head>
 <body>
@@ -659,23 +583,21 @@
   <!-- ── Hero ── -->
   <section class="hero">
     <div class="hero-text">
-      <h1>Hi, I'm <em>Melissa</em> —<br>Tax meets Technology.</h1>
+      <h1>Hi, I'm <em>Melissa</em> —<br>building and exploring</h1>
       <p class="hero-subtitle">
-        14 years in transfer pricing → sabbatical → building things and learning to code
+        On a sabbatical after 14 years in transfer pricing.
       </p>
       <p class="hero-bio">
-        I'm a senior tax professional deliberately taking a break from the office, and using the time to explore, 
-        learn, and build things that interest me. For now, that means building
-        tools that solve everyday problems — starting with my own.
-        Currently learning Python, automation, and how to deploy things
-        that work in the wild.
+        I'm an ex-senior tax professional turned builder, currently taking time off from the office to explore, learn, and build tools that interest me - starting with everyday problems in my own life and those around me.
+        <br><br>
+        Right now, I'm focused on improving my coding skills (primarily Python), automation, and deploying things that work in the real world. AI is a core part of my workflow - I use it to move faster, think more clearly, and build things I wouldn't have been able to build alone.
       </p>
       <div class="hero-tags">
         <span class="tag tag-red">Python</span>
-        <span class="tag tag-blue">Tax Technology</span>
-        <span class="tag tag-green">Data Analytics</span>
-        <span class="tag tag-yellow">Automation</span>
-        <span class="tag tag-purple">Transfer Pricing</span>
+        <span class="tag tag-blue">Automation</span>
+        <span class="tag tag-green">AI Tools</span>
+        <span class="tag tag-yellow">Data Analytics</span>
+        <span class="tag tag-purple">Tax Tech</span>
       </div>
     </div>
 
@@ -727,10 +649,7 @@
           <h3>🥟 DumplingThoughts</h3>
           <div class="project-subtitle">Personal Second Brain — Telegram Bot + Dashboard</div>
         </div>
-        <div class="project-meta">
-          <span class="deploy-date">Mar 2026</span>
-          <span class="project-status status-live">Live</span>
-        </div>
+        <span class="project-status status-live">Live</span>
       </div>
       <p class="project-description">
         My thoughts used to live everywhere — Telegram messages to myself,
@@ -755,19 +674,6 @@
       <div class="project-links">
         <a class="project-link" href="dumpling-thoughts.html">Read More →</a>
       </div>
-    </div>
-
-    <!-- PyPath — Coming Soon -->
-    <div class="project-card-soon">
-      <div class="soon-header">
-        <h3>🐍 PyPath</h3>
-        <span class="soon-badge">Coming Soon</span>
-      </div>
-      <div class="soon-subtitle">An AI-Powered Python Learning Companion</div>
-      <p class="soon-desc">
-        A NotebookLLM-style tool that turns my learning notes and experiments into 
-        structured course materials, quizzes, and bite-sized exercises — built and customized for how I learn.
-      </p>
     </div>
 
   </section>
@@ -836,18 +742,10 @@
           <li>Tableau</li>
           <li>Power BI</li>
           <li>Plotly visualisation</li>
-          <li>SQL (learning)</li>
+          <li>SQL</li>
         </ul>
       </div>
-      <div class="skill-card">
-        <h4>⚖️ Tax Domain</h4>
-        <ul class="skill-list">
-          <li>Transfer Pricing</li>
-          <li>BEPS & Pillar Two</li>
-          <li>Arm's length analysis</li>
-          
-        </ul>
-      </div>
+
       <div class="skill-card">
         <h4>🚀 DevOps & Tools</h4>
         <ul class="skill-list">
@@ -859,10 +757,18 @@
         </ul>
       </div>
       <div class="skill-card">
+        <h4>🤖 AI Tools</h4>
+        <ul class="skill-list">
+          <li>Prompt design</li>
+          <li>LLM integration</li>
+          <li>AI-assisted workflows</li>
+        </ul>
+      </div>
+      <div class="skill-card">
         <h4>🌏 Languages</h4>
         <ul class="skill-list">
           <li>English (native)</li>
-          <li>Mandarin (basic)</li>
+          <li>Mandarin (Conversational)</li>
           <li>Thai (learning 🇹🇭)</li>
           <li>Spanish (learning 🇪🇸)</li>
         </ul>
@@ -890,31 +796,32 @@
     <div class="about-card">
       <div class="about-text">
         <p>
-          I spent <strong>14 years as a transfer pricing specialist</strong> in Canada and Singapore in both consulting and in-house roles. 
-          While I enjoyed the work, I kept bumping into a ceiling: the tools 
-          just weren't keeping up with the work and I was feeling drowned in manual, repetitive tasks that were taking up more and more of my time. On top of 
-          (and possible because of?!) that, I started to lose my passion for the work itself and wanted to explore where my interests were heading. 
-          
+          I spent <strong>14 years working in transfer pricing</strong> in both consulting and in-house roles.
         </p>
         <p>
-          So I stepped away from my full-time job with the goal to rest, travel, explore and deliberately build the technical skills to face the future of work — whether that's in tax technology or outside of that.
+          In my most recent role, I took on a tax automation scope, focusing on improving processes, reducing manual work, and integrating technology into tax workflows. That experience made it clear how much opportunity there is to build better tools, and I developed a real passion for data, automation, and system design.
         </p>
         <p>
-          I'm based in <strong>Singapore</strong>, learning how to code (currently focusing on Python), building real tools,
-          studying languages and music on the side, and documenting everything so others
-          making similar transitions can learn from it too.
+          I'm now using this sabbatical to push further in that direction - upskilling and building practical tools. This shift was a natural extension of the work I was already moving towards.
         </p>
+        <p>I'm based in <strong>Singapore</strong> and currently spending my time:</p>
+        <ul style="list-style:none;margin:0.6rem 0 0.85rem 0;display:flex;flex-direction:column;gap:0.4rem">
+          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Building small tools and experimenting with automation and AI</li>
+          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Developing my coding skills (primarily Python)</li>
+          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Exploring interests outside of work — travel, languages, and music</li>
+          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Documenting the process for others navigating similar transitions</li>
+        </ul>
         <p>
-          I'm currently interested in <strong>automation projects</strong> and tools to make our lives easier and fun.
+          Right now, I'm especially interested in projects that make work simpler, more efficient, or just more fun.
         </p>
       </div>
       <div class="about-facts">
+        <div class="fact">🍁 Canadian <div>
         <div class="fact">📍 Based in Singapore</div>
         <div class="fact">⚖️ 14 yrs in TP</div>
-        <div class="fact">🦉 Forever learner</div>
-        <div class="fact">🚀 Travel enthusiast</div>
-        <div class="fact">🐒 Friend of animals</div>
-        <div class="fact">🎵 Handpan beginner</div>
+        <div class="fact">🎾 Tennis player</div>
+        <div class="fact">🐒 Really like animals</div>
+        
       </div>
     </div>
   </section>
