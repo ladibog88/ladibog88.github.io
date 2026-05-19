@@ -4,52 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Melissa Yong — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* ── Design tokens ── */
   :root {
-    --cream: #f5efe6;
-    --paper: #ede6da;
-    --ink: #2a2118;
-    --ink-light: #6b5e4e;
-    --ink-faint: #9e8e7e;
-    --terracotta: #b5522a;
-    --terracotta-pale: #f2e4da;
-    --sage: #5c7a5e;
-    --sage-pale: #dfe8df;
-    --dusk: #5c6b8a;
-    --dusk-pale: #dde3ee;
-    --ochre: #b5892a;
-    --ochre-pale: #f0e8d0;
-    --mauve: #7a5c7a;
-    --mauve-pale: #ece0ec;
-    --border: #cbbfa8;
-    --border-light: #ddd4c2;
+    --paper: #fdfbf7;
+    --ink: #423f3a;
+    --ink-dark: #2d2a26;
+    --ink-muted: #6b645c;
+    --border: #ece7e1;
+    --accent-pink: #f4e4e9;
+    --accent-blue: #e2eaf3;
+    --accent-green: #e9f3e2;
+    --sage-dark: #7a9a88;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    background-color: var(--cream);
-    background-image:
-      radial-gradient(circle at 15% 60%, rgba(181,82,42,0.04) 0%, transparent 55%),
-      radial-gradient(circle at 85% 15%, rgba(92,107,138,0.04) 0%, transparent 55%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23cbbfa8' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    font-family: 'DM Sans', sans-serif;
+    background-color: var(--paper);
+    font-family: 'Outfit', sans-serif;
     color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  body::before {
-    content: '';
+  /* ── Background blobs ── */
+  .blob {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: repeating-linear-gradient(
-      transparent, transparent 27px,
-      rgba(203, 191, 168, 0.18) 27px,
-      rgba(203, 191, 168, 0.18) 28px
-    );
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .blob-pink  { top: -80px; left: -80px; width: 320px; height: 320px; background: var(--accent-pink); opacity: 0.4; }
+  .blob-blue  { top: 40%; right: -80px; width: 380px; height: 380px; background: var(--accent-blue); opacity: 0.35; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  .blob-green { bottom: -80px; left: 33%; width: 260px; height: 260px; background: var(--accent-green); opacity: 0.4; }
+
+  /* ── Paper texture ── */
+  .paper-texture {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.03;
     pointer-events: none;
     z-index: 0;
   }
@@ -59,22 +57,27 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(245, 239, 230, 0.94);
-    backdrop-filter: blur(10px);
-    border-bottom: 1.5px solid var(--border);
-    padding: 0.85rem 2rem;
+    padding: 1.5rem 3rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    backdrop-filter: blur(4px);
   }
 
   .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    color: var(--terracotta);
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--ink-dark);
     text-decoration: none;
-    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
+
+  .nav-logo svg { width: 20px; height: 20px; flex-shrink: 0; }
 
   .nav-links {
     display: flex;
@@ -83,594 +86,549 @@
   }
 
   .nav-links a {
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--ink-light);
+    color: var(--ink-muted);
     text-decoration: none;
-    transition: color 0.2s;
-    position: relative;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
   }
 
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px; left: 0; right: 0;
-    height: 1.5px;
-    background: var(--terracotta);
-    transform: scaleX(0);
-    transition: transform 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--terracotta); }
-  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a:hover { color: var(--ink-dark); border-color: var(--ink-dark); }
 
   /* ── Main ── */
   main {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 6rem 2rem 4rem;
+    padding: 10rem 3rem 6rem;
   }
 
   /* ── Hero ── */
   .hero {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 3rem;
-    align-items: center;
-    margin-bottom: 5rem;
-    padding-bottom: 4rem;
-    border-bottom: 1.5px dashed var(--border);
-    animation: fadeUp 0.8s ease both;
+    margin-bottom: 6rem;
+    animation: fadeUp 0.7s ease both;
   }
 
-  .hero-text h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 3.2rem;
-    font-weight: 400;
-    line-height: 1.12;
-    margin-bottom: 0.6rem;
-    color: var(--ink);
-  }
-
-  .hero-text h1 em {
-    font-style: italic;
-    color: var(--terracotta);
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--ink-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-  }
-
-  .hero-bio {
-    font-size: 0.975rem;
-    line-height: 1.8;
-    color: var(--ink-light);
-    max-width: 520px;
-  }
-
-  .hero-bio strong { color: var(--ink); font-weight: 600; }
-
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-  }
-
-  /* Square chips — small, rectangular, muted */
-  .tag {
-    font-size: 0.78rem;
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 600;
-    padding: 0.3rem 0.65rem;
-    border-radius: 5px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink-dark);
+    margin-bottom: 1.5rem;
   }
 
-  .tag-red    { background: var(--terracotta-pale); color: var(--terracotta); }
-  .tag-blue   { background: var(--dusk-pale);       color: var(--dusk); }
-  .tag-green  { background: var(--sage-pale);       color: var(--sage); }
-  .tag-yellow { background: var(--ochre-pale);      color: var(--ochre); }
-  .tag-purple { background: var(--mauve-pale);      color: var(--mauve); }
-
-  .hero-monster {
-    width: 180px;
-    height: 180px;
-    flex-shrink: 0;
-    animation: float 4s ease-in-out infinite;
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.8;
   }
 
-  /* ── Section headers ── */
-  .section-header {
+  .hero-lead {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    max-width: 700px;
+    margin-bottom: 1.75rem;
+  }
+
+  .hl-pink { background: var(--accent-pink); padding: 0 5px; border-radius: 3px; color: var(--ink-dark); }
+  .hl-blue { background: var(--accent-blue); padding: 0 5px; border-radius: 3px; color: var(--ink-dark); white-space: nowrap; }
+  .hl-green { background: var(--accent-green); padding: 0 5px; border-radius: 3px; color: var(--ink-dark); }
+
+  .hero-pills {
     display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
   }
 
-  .section-header h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.9rem;
-    font-weight: 400;
-    color: var(--ink);
-    white-space: nowrap;
+  .pill-pink  { background: rgba(244,228,233,0.4); border: 1px solid rgba(244,228,233,0.6); }
+  .pill-blue  { background: rgba(226,234,243,0.4); border: 1px solid rgba(226,234,243,0.6); }
+
+  /* ── Content grid ── */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .section-header .section-icon { font-size: 1.6rem; }
-
-  .section-doodle {
-    flex: 1;
-    height: 1.5px;
-    background: repeating-linear-gradient(
-      90deg,
-      var(--border) 0px, var(--border) 5px,
-      transparent 5px, transparent 11px
-    );
+  @media (min-width: 768px) {
+    .content-grid {
+      grid-template-columns: 8fr 4fr;
+      gap: 4rem;
+    }
   }
 
-  /* ── Project cards ── */
-  .projects {
-    margin-bottom: 5rem;
-    animation: fadeUp 0.8s ease 0.2s both;
+  /* ── Projects column ── */
+  .section-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px dashed rgba(66,63,58,0.2);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(66,63,58,0.4);
+  }
+
+  .section-hint {
+    font-family: 'Fraunces', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgba(66,63,58,0.4);
+  }
+
+  /* ── Project cards grid ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 520px) {
+    .projects-grid { grid-template-columns: 1fr 1fr; }
   }
 
   .project-card {
-    background: var(--paper);
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
-    padding: 2rem;
-    margin-bottom: 1.75rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 24px 12px 32px 16px;
+    box-shadow: 0 1px 3px rgba(66,63,58,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 3px 3px 0px var(--border-light);
+    cursor: default;
+    animation: fadeUp 0.6s ease both;
   }
+
+  .project-card:nth-child(1) { animation-delay: 0.05s; }
+  .project-card:nth-child(2) { animation-delay: 0.15s; }
+  .project-card:nth-child(3) { animation-delay: 0.25s; }
+  .project-card:nth-child(4) { animation-delay: 0.35s; }
 
   .project-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px var(--border);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(66,63,58,0.1);
   }
 
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px; height: 100%;
-    background: var(--accent, var(--terracotta));
-    border-radius: 14px 0 0 14px;
-  }
-
-  .project-card.accent-blue   { --accent: var(--dusk); }
-  .project-card.accent-green  { --accent: var(--sage); }
-  .project-card.accent-purple { --accent: var(--mauve); }
-  .project-card.accent-yellow { --accent: var(--ochre); }
-
-  /* ── Project screenshot preview ── */
-  .project-screenshot {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 8px;
-    border: 1.5px solid var(--border-light);
-    margin-bottom: 1.25rem;
-    display: block;
-    transition: opacity 0.2s;
-  }
-  .project-card:hover .project-screenshot { opacity: 0.95; }
-
-  .project-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 0.85rem;
-    gap: 1rem;
-  }
-
-  .project-title-group h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 0.2rem;
-  }
-
-  .project-subtitle {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--ink-faint);
-    letter-spacing: 0.01em;
-  }
-
-  .project-status {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .status-live    { background: var(--sage-pale);  color: var(--sage); }
-  .status-wip     { background: var(--ochre-pale); color: var(--ochre); }
-  .status-planned { background: #ece8e2;            color: var(--ink-faint); }
-
-  .project-description {
-    font-size: 0.925rem;
-    line-height: 1.8;
-    color: var(--ink-light);
-    margin-bottom: 1.25rem;
-  }
-
-  .project-description strong { color: var(--ink); font-weight: 600; }
-
-  .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .stack-tag {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.2rem 0.55rem;
-    border-radius: 4px;
-    background: rgba(42, 33, 24, 0.07);
-    color: var(--ink-light);
-    letter-spacing: 0.03em;
-  }
-
-  .project-links { display: flex; gap: 0.75rem; }
-
-  .project-link {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--terracotta);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    border-bottom: 1.5px solid var(--terracotta-pale);
-    padding-bottom: 1px;
-    transition: border-color 0.2s, color 0.2s;
-    letter-spacing: 0.01em;
-  }
-
-  .project-link:hover { border-color: var(--terracotta); }
-
-  /* ── Monster divider ── */
-  .monster-divider {
+  /* Card banner */
+  .card-banner {
+    height: 7rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
-    margin: 3rem 0;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    overflow: hidden;
   }
 
-  .monster-divider::before,
-  .monster-divider::after {
-    content: '';
-    flex: 1;
-    height: 1.5px;
-    background: var(--border-light);
-  }
+  .project-card:hover .card-banner { opacity: 1; }
+  .banner-pink  { background: rgba(244,228,233,0.5); }
+  .banner-blue  { background: rgba(226,234,243,0.5); }
+  .banner-green { background: rgba(233,243,226,0.5); }
 
-  /* ── Skills ── */
-  .skills {
-    margin-bottom: 5rem;
-    animation: fadeUp 0.8s ease 0.3s both;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.1rem;
-  }
-
-  .skill-card {
-    background: var(--paper);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem;
-    box-shadow: 2px 2px 0px var(--border-light);
-    transition: transform 0.2s;
-  }
-
-  .skill-card:hover { transform: translate(-1px, -1px); }
-
-  .skill-card h4 {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
+  .banner-icon {
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.25;
     color: var(--ink);
+  }
+
+  /* Card content */
+  .card-top { position: relative; z-index: 1; }
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink-dark);
+    margin: 0;
+  }
+
+  .card-status {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    color: var(--ink-muted);
+  }
+
+  .card-subtitle {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(66,63,58,0.35);
     margin-bottom: 0.85rem;
   }
 
-  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .card-description {
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+  }
 
-  .skill-list li {
-    font-size: 0.855rem;
-    color: var(--ink-light);
+  .card-tags {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    position: relative;
+    z-index: 1;
   }
 
-  .skill-list li::before {
-    content: '';
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--terracotta);
-    flex-shrink: 0;
-    opacity: 0.6;
+  .card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.67rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    background: rgba(253,251,247,0.6);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
   }
 
-   /* ── About ── */
-  .about {
-    margin-bottom: 5rem;
-    animation: fadeUp 0.8s ease 0.4s both;
+  .card-num {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    font-family: 'Fraunces', serif;
+    font-size: 5rem;
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.025;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
   }
- 
-  .about-card {
-    background: var(--paper);
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
-    padding: 2.25rem;
-    box-shadow: 3px 3px 0px var(--border-light);
-    display: grid;
-    grid-template-columns: 1fr 180px;
+
+  .card-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-dark);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--sage-dark);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-top: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-link:hover { color: var(--sage-dark); }
+
+  /* Coming soon overlay on card */
+  .card-soon { opacity: 0.55; }
+
+  /* ── Sidebar ── */
+  .sidebar-col { position: relative; }
+
+  .sidebar-inner {
+    background: rgba(244,228,233,0.35);
+    border: 1px solid rgba(244,228,233,0.6);
+    border-radius: 40px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    align-items: start;
+    min-height: 500px;
   }
- 
-  .about-text p {
-    font-size: 0.925rem;
-    line-height: 1.85;
-    color: var(--ink-light);
+
+  @media (min-width: 768px) {
+    .sidebar-inner {
+      position: sticky;
+      top: 7rem;
+    }
+  }
+
+  .sidebar-section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(66,63,58,0.5);
     margin-bottom: 1rem;
   }
- 
-  .about-text p:last-child { margin-bottom: 0; }
-  .about-text p strong { color: var(--ink); font-weight: 600; }
- 
-  /* Right column: photo on top, chips below */
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.85rem;
-  }
- 
-  .about-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 15%;
-    border: 3px solid var(--border);
-    box-shadow: 3px 3px 0px var(--border-light);
-    display: block;
-    flex-shrink: 0;
-  }
- 
-  .about-facts {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
+
+  .sidebar-bio p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
   }
 
-  .fact {
-    background: rgba(255, 255, 255, 0.252);
-    border: 1.5px solid var(--border-light);
-    border-radius: 7px;
-    padding: 0.5rem 0.85rem;
-    font-size: 0.835rem;
-    font-style: italic;
-    color: var(--ink-light);
+  .sidebar-bio p:last-child { margin-bottom: 0; }
+  .sidebar-bio strong { color: var(--ink); font-weight: 500; }
+
+  .sidebar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .sidebar-list li {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 500;
+    color: var(--ink);
+  }
+
+  .sidebar-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(66,63,58,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sidebar-location {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(66,63,58,0.35);
+  }
+
+  .about-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  /* ── Bird doodles ── */
+  .bird-wrap {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    opacity: 0.4;
+  }
+
+  .bird {
+    color: var(--sage-dark);
+    animation: birdfloat 6s ease-in-out infinite;
+  }
+
+  .bird:nth-child(2) { animation-delay: 1.5s; }
+  .bird:nth-child(3) { animation-delay: 3s; }
+
+  @keyframes birdfloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-8px) rotate(5deg); }
   }
 
   /* ── Contact ── */
   .contact {
-    margin-bottom: 4rem;
-    animation: fadeUp 0.8s ease 0.5s both;
+    margin-top: 8rem;
+    margin-bottom: 5rem;
   }
 
   .contact-card {
-    background: var(--terracotta);
-    border-radius: 14px;
-    padding: 2.5rem;
+    background: var(--ink-dark);
+    color: var(--paper);
+    padding: 5rem 3rem;
+    border-radius: 40px;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
 
-  .contact-card::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: repeating-linear-gradient(
-      45deg, transparent, transparent 10px,
-      rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px
-    );
-  }
-
   .contact-card h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2rem;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 400;
-    color: white;
-    margin-bottom: 0.5rem;
-    position: relative;
+    font-style: italic;
+    color: var(--paper);
+    margin-bottom: 1rem;
   }
 
-  .contact-card p {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 1.75rem;
-    position: relative;
+  .contact-card > p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(253,251,247,0.55);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
   }
 
-  .contact-links {
+  .contact-btns {
     display: flex;
-    gap: 0.85rem;
     justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
-    position: relative;
   }
 
   .contact-btn {
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 0.6rem 1.4rem;
-    border-radius: 7px;
-    text-decoration: none;
-    transition: transform 0.2s, opacity 0.2s;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
   }
 
-  .contact-btn:hover { transform: translateY(-2px); opacity: 0.92; }
-  .btn-white { background: white; color: var(--terracotta); }
-  .btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.5); }
+  .contact-btn:hover { transform: scale(1.04); }
+
+  .btn-outline {
+    border: 1px solid rgba(253,251,247,0.2);
+    color: var(--paper);
+  }
+
+  .btn-solid {
+    background: var(--paper);
+    color: var(--ink-dark);
+  }
+
+  .contact-wave {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    pointer-events: none;
+    opacity: 0.1;
+  }
 
   /* ── Footer ── */
   footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.82rem;
-    color: var(--border);
-    border-top: 1.5px dashed var(--border-light);
     position: relative;
     z-index: 1;
-    letter-spacing: 0.04em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(66,63,58,0.35);
+    flex-wrap: wrap;
+    gap: 1rem;
   }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(66,63,58,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--ink); }
 
   /* ── Animations ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(-2deg); }
-    50%       { transform: translateY(-12px) rotate(2deg); }
-  }
-
+  /* ── Responsive ── */
   @media (max-width: 640px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-monster { display: none; }
-    .hero-text h1 { font-size: 2.2rem; }
-    .about-card { grid-template-columns: 1fr; }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: 0.78rem; }
-  }
-
-  /* ── Deploy date label ── */
-  .project-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    flex-wrap: wrap;
-  }
-
-  .deploy-date {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--ink-faint);
-    padding: 0.22rem 0.6rem;
-    border-radius: 4px;
-    background: rgba(42,33,24,0.05);
-    border: 1px solid var(--border-light);
-  }
-
-  /* ── Coming soon card ── */
-  .project-card-soon {
-    background: var(--cream);
-    border: 1.5px dashed var(--border);
-    border-radius: 14px;
-    padding: 1.75rem 2rem;
-    margin-bottom: 1.75rem;
-    opacity: 0.65;
-    position: relative;
-  }
-
-  .project-card-soon::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px; height: 100%;
-    background: var(--border);
-    border-radius: 14px 0 0 14px;
-  }
-
-  .soon-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-  }
-
-  .soon-header h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink-light);
-  }
-
-  .soon-badge {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.6rem;
-    border-radius: 4px;
-    background: var(--border-light);
-    color: var(--ink-faint);
-  }
-
-  .soon-subtitle {
-    font-size: 0.875rem;
-    color: var(--ink-faint);
-    margin-bottom: 0.65rem;
-  }
-
-  .soon-desc {
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: var(--ink-faint);
+    nav { padding: 1.25rem 1.5rem; }
+    main { padding: 8rem 1.5rem 4rem; }
+    .hero h1 { font-size: 3rem; }
+    .contact-card { padding: 3rem 1.5rem; }
+    footer { padding: 2rem 0; }
   }
 </style>
 </head>
 <body>
 
+<!-- Background blobs -->
+<div class="blob blob-pink"></div>
+<div class="blob blob-blue"></div>
+<div class="blob blob-green"></div>
+<div class="paper-texture"></div>
+
+<!-- Nav -->
 <nav>
-  <a class="nav-logo" href="#">🐧 mel.builds</a>
+  <a class="nav-logo" href="#">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0-4.418-3.582-8-8-8s-8 3.582-8 8a8 8 0 0 0 16 0Z"/>
+      <path d="M12 2v4"/>
+      <path d="m12 18-3 3h6l-3-3Z"/>
+    </svg>
+    mel.builds
+  </a>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -678,283 +636,203 @@
 
 <main>
 
-  <!-- ── Hero ── -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm <em>Melissa</em> —<br></h1>
-      <p class="hero-subtitle">
-        On a sabbatical after 14 years in transfer pricing
-      </p>
-      <p class="hero-bio">
-        I'm a tax professional currently taking time off from the office to explore, learn, and build tools that interest me - starting with everyday problems in my own life and those around me.
-        <br><br>
-        Right now, I'm focused on improving my coding skills (primarily Python), automation, and deploying things that work in the real world. I use AI as a teacher and core part of my workflow to help solve things quicker.
-      </p>
-      <div class="hero-tags">
-        <span class="tag tag-red">Python</span>
-        <span class="tag tag-blue">Automation</span>
-        <span class="tag tag-green">AI Tools</span>
-        <span class="tag tag-yellow">Data Analytics</span>
-        <span class="tag tag-purple">Tax Tech</span>
-      </div>
+    <h1>
+      Hi, I'm Melissa —<br>
+      <em>on sabbatical.</em>
+    </h1>
+    <p class="hero-lead">
+      After 14 years in <span class="hl-pink">transfer pricing</span>, I'm taking time off to build tools at the
+      intersection of <span class="hl-blue">automation</span> and everyday life — starting with problems in my own world.
+    </p>
+    <div class="hero-pills">
+      <span class="pill pill-pink">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Singapore
+      </span>
+      <span class="pill pill-blue">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        Python
+      </span>
     </div>
-
-    <!-- Chopper SVG -->
-    <svg class="hero-monster" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="100" cy="72" rx="52" ry="10" fill="#b5522a"/>
-      <rect x="68" y="32" width="64" height="42" rx="8" fill="#b5522a"/>
-      <rect x="60" y="66" width="80" height="12" rx="4" fill="#e8d5b7"/>
-      <rect x="104" y="36" width="5" height="22" rx="2" fill="white" opacity="0.9"/>
-      <ellipse cx="100" cy="59" rx="9" ry="7" fill="white" opacity="0.9" transform="rotate(-15 100 59)"/>
-      <rect x="116" y="36" width="5" height="18" rx="2" fill="white" opacity="0.9"/>
-      <ellipse cx="112" cy="55" rx="8" ry="6" fill="white" opacity="0.9" transform="rotate(-15 112 55)"/>
-      <rect x="104" y="36" width="17" height="4" rx="2" fill="white" opacity="0.9"/>
-      <ellipse cx="100" cy="120" rx="52" ry="48" fill="#f5deb3"/>
-      <ellipse cx="52" cy="108" rx="14" ry="18" fill="#f5deb3" stroke="#d4a76a" stroke-width="2"/>
-      <ellipse cx="148" cy="108" rx="14" ry="18" fill="#f5deb3" stroke="#d4a76a" stroke-width="2"/>
-      <ellipse cx="52" cy="108" rx="8" ry="11" fill="#e8a0a0"/>
-      <ellipse cx="148" cy="108" rx="8" ry="11" fill="#e8a0a0"/>
-      <ellipse cx="84" cy="112" rx="14" ry="15" fill="white"/>
-      <ellipse cx="116" cy="112" rx="14" ry="15" fill="white"/>
-      <ellipse cx="84" cy="112" rx="8" ry="9" fill="#2c2416"/>
-      <ellipse cx="116" cy="112" rx="8" ry="9" fill="#2c2416"/>
-      <circle cx="88" cy="108" r="3" fill="white"/>
-      <circle cx="120" cy="108" r="3" fill="white"/>
-      <ellipse cx="100" cy="128" rx="8" ry="6" fill="#d4a76a"/>
-      <ellipse cx="100" cy="128" rx="5" ry="4" fill="#c49050"/>
-      <path d="M 86 140 Q 100 155 114 140" stroke="#2c2416" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <ellipse cx="72" cy="132" rx="10" ry="7" fill="#e8a0a0" opacity="0.5"/>
-      <ellipse cx="128" cy="132" rx="10" ry="7" fill="#e8a0a0" opacity="0.5"/>
-      <ellipse cx="100" cy="175" rx="35" ry="18" fill="#e8d5b7" opacity="0.6"/>
-      <ellipse cx="62" cy="158" rx="12" ry="10" fill="#f5deb3" stroke="#d4a76a" stroke-width="1.5"/>
-      <ellipse cx="138" cy="158" rx="12" ry="10" fill="#f5deb3" stroke="#d4a76a" stroke-width="1.5"/>
-    </svg>
   </section>
 
-  <!-- ── Projects ── -->
-  <section class="projects" id="projects">
-    <div class="section-header">
-      <span class="section-icon">🗂</span>
-      <h2>Projects</h2>
-      <div class="section-doodle"></div>
-    </div>
+  <!-- Content Grid -->
+  <div class="content-grid">
 
-    <!-- DumplingThoughts -->
-    <div class="project-card">
-      <img class="project-screenshot" src="screenshot-dashboard-charts.png" alt="DumplingThoughts dashboard preview">
-      <div class="project-header">
-        <div class="project-title-group">
-          <h3>🥟 DumplingThoughts</h3>
-          <div class="project-subtitle">Personal Second Brain — Telegram Bot + Dashboard</div>
+    <!-- Projects (8 cols) -->
+    <section id="projects">
+      <div class="section-label-row">
+        <span class="section-label">Selected Work</span>
+        <span class="section-hint">4 projects</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- DumplingThoughts -->
+        <div class="project-card">
+          <div class="card-top">
+            <div class="card-banner banner-green">
+              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">DumplingThoughts</h3>
+              <span class="card-status">Live</span>
+            </div>
+            <p class="card-subtitle">Personal Second Brain</p>
+            <p class="card-description">A Telegram bot + dashboard that captures reflections, vocab, and links — categorised via Google Sheets and visualised in a real-time dashboard. Runs 24/7 on Railway.</p>
+          </div>
+          <div>
+            <div class="card-tags">
+              <span class="card-tag">Python</span>
+              <span class="card-tag">Telegram API</span>
+              <span class="card-tag">Streamlit</span>
+              <span class="card-tag">Google Sheets</span>
+            </div>
+            <a class="card-link" href="dumpling-thoughts.html">Read More →</a>
+          </div>
+          <span class="card-num">1</span>
         </div>
-        <div class="project-meta">
-          <span class="deploy-date">Mar 2026</span>
-          <span class="project-status status-live">Live</span>
+
+        <!-- Sunbee Cam -->
+        <div class="project-card">
+          <div class="card-top">
+            <div class="card-banner banner-blue">
+              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">Sunbee Cam</h3>
+              <span class="card-status">Live</span>
+            </div>
+            <p class="card-subtitle">Live Nest Cam</p>
+            <p class="card-description">Streaming live sunbird nests from my Singapore balcony. Built with HLS.js and Firebase to share the joy of urban nature with friends and family. Fully static — no backend.</p>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">HLS.js</span>
+            <span class="card-tag">Firebase</span>
+            <span class="card-tag">HTML / CSS / JS</span>
+          </div>
+          <span class="card-num">2</span>
         </div>
-      </div>
-      <p class="project-description">
-        My thoughts used to live everywhere — Telegram messages to myself,
-        multiple open browser tabs, a notes app graveyard. So I built a second brain to track everything.
-        <br><br>
-        <strong>DumplingThoughts</strong> is a Telegram bot that captures anything I send it —
-        reflections, to-dos, Thai vocabulary, links, photos — categorises it with one tap, sends it to a Google Sheet,
-        and visualizes it in a searchable web dashboard. It runs 24/7 on Railway so it works
-        whether my laptop is open or not.
-      </p>
-      <div class="project-stack">
-        <span class="stack-tag">Python</span>
-        <span class="stack-tag">Telegram Bot API</span>
-        <span class="stack-tag">Google Sheets</span>
-        <span class="stack-tag">Streamlit</span>
-        <span class="stack-tag">Plotly</span>
-        <span class="stack-tag">Pandas</span>
-        <span class="stack-tag">Cloudinary</span>
-        <span class="stack-tag">Railway</span>
-        <span class="stack-tag">Streamlit Cloud</span>
-      </div>
-      <div class="project-links">
-        <a class="project-link" href="dumpling-thoughts.html">Read More →</a>
-      </div>
-    </div>
 
-    <!-- PyPath — Coming Soon -->
-    <div class="project-card-soon">
-      <div class="soon-header">
-        <h3>🐍 PyPath (NotebookLM)</h3>
-        <span class="soon-badge">Coming Soon</span>
+        <!-- LogBees -->
+        <div class="project-card">
+          <div class="card-top">
+            <div class="card-banner banner-pink">
+              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">LogBees</h3>
+              <span class="card-status">Live</span>
+            </div>
+            <p class="card-subtitle">Travel Scrapbook Bot</p>
+            <p class="card-description">Travel scrapbook that can be updated on-the-go by sending photos, locations, and notes through a Telegram bot. Handles GPS extraction, reverse geocoding, and Cloudinary uploads from Telegram — feeding a live scrapbook website with no backend.</p>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">Python</span>
+            <span class="card-tag">Leaflet.js</span>
+            <span class="card-tag">Railway</span>
+            <span class="card-tag">Cloudinary</span>
+          </div>
+          <span class="card-num">3</span>
+        </div>
+
+        <!-- PyPath -->
+        <div class="project-card card-soon">
+          <div class="card-top">
+            <div class="card-banner banner-blue">
+              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">PyPath</h3>
+              <span class="card-status">Soon</span>
+            </div>
+            <p class="card-subtitle">AI Learning Companion</p>
+            <p class="card-description">Turning study notes into structured quizzes and course materials using NotebookLM. Personalising the path from vibe-coding to precision.</p>
+          </div>
+          <div class="card-tags">
+            <span class="card-tag">NotebookLM</span>
+            <span class="card-tag">LLMs</span>
+            <span class="card-tag">Python</span>
+          </div>
+          <span class="card-num">4</span>
+        </div>
+
       </div>
-      <div class="soon-subtitle">An AI-Powered Python Learning Companion</div>
-      <p class="soon-desc">
-        A NotebookLM tool that turns my own learning notes and experiments into
-        structured course materials and quizzes — customized for my experience level and the
-        way I learn.
-      </p>
-    </div>
+    </section>
 
-    <!-- Personal expense analyzer — Coming Soon -->
-    <div class="project-card-soon">
-      <div class="soon-header">
-        <h3>💳 Follow the Paper Trail </h3>
-        <span class="soon-badge">Coming Soon</span>
+    <!-- Sidebar (4 cols) -->
+    <aside class="sidebar-col" id="about">
+      <div class="sidebar-inner">
+
+        <div class="sidebar-bio">
+          <p class="sidebar-section-label">About</p>
+          <p>
+            Transitioning from 14 years in <strong>transfer pricing</strong> to wherever my interests take me. I took on a tax automation scope in my last role and discovered a real passion for building systems that work.
+          </p>
+          <p>
+            Now using this sabbatical to <strong>upskill and ship</strong> — one practical tool at a time.
+          </p>
+        </div>
+
+        <div>
+          <p class="sidebar-section-label">Right Now</p>
+          <ul class="sidebar-list">
+            <li><span class="sidebar-dot" style="background:#f4a261"></span>Automation &amp; AI tools</li>
+            <li><span class="sidebar-dot" style="background:#a3b18a"></span>Building in Python</li>
+            <li><span class="sidebar-dot" style="background:#8da9c4"></span>Travel + languages</li>
+            <li><span class="sidebar-dot" style="background:#e76f51"></span>Running + Tennis</li>
+          </ul>
+        </div>
+
+        <div class="bird-wrap">
+          <!-- Bird SVG repeated with animation -->
+          <svg class="bird" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+          <svg class="bird" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+          <svg class="bird" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="sidebar-location">Singapore · Remote</span>
+          <img class="about-photo" src="me.jpg" alt="Melissa">
+        </div>
+
       </div>
-      <div class="soon-subtitle">A Personal Finance Data Pipeline</div>
-      <p class="soon-desc">
-       A tool that uses Python to scrape my bank transaction data from various formats and sources, and turns them into a clean dataset I can explore.  From there, I can analyze patterns, track cash flow and surface insights through a dashboard. 
-      </p>
-    </div>
+    </aside>
 
-
-  </section>
-
-  <!-- ── Monster divider ── -->
-  <div class="monster-divider">
-    <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="24" cy="28" rx="16" ry="14" fill="#f2e4da"/>
-      <ellipse cx="24" cy="28" rx="16" ry="14" fill="none" stroke="#cbbfa8" stroke-width="1.5"/>
-      <circle cx="19" cy="25" r="3" fill="#2c2416"/>
-      <circle cx="29" cy="25" r="3" fill="#2c2416"/>
-      <circle cx="20" cy="24" r="1" fill="white"/>
-      <circle cx="30" cy="24" r="1" fill="white"/>
-      <path d="M 18 33 Q 24 39 30 33" stroke="#2c2416" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="14" cy="20" rx="5" ry="7" fill="#f2e4da" stroke="#cbbfa8" stroke-width="1.5"/>
-      <ellipse cx="34" cy="20" rx="5" ry="7" fill="#f2e4da" stroke="#cbbfa8" stroke-width="1.5"/>
-      <ellipse cx="14" cy="24" rx="2" ry="3" fill="#e8a0a0" opacity="0.5"/>
-      <ellipse cx="34" cy="24" rx="2" ry="3" fill="#e8a0a0" opacity="0.5"/>
-    </svg>
-    <svg width="32" height="32" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="18" cy="20" rx="12" ry="11" fill="#dde3ee"/>
-      <ellipse cx="18" cy="20" rx="12" ry="11" fill="none" stroke="#cbbfa8" stroke-width="1.5"/>
-      <circle cx="14" cy="18" r="2.5" fill="#2c2416"/>
-      <circle cx="22" cy="18" r="2.5" fill="#2c2416"/>
-      <circle cx="15" cy="17" r="1" fill="white"/>
-      <circle cx="23" cy="17" r="1" fill="white"/>
-      <path d="M 13 25 Q 18 30 23 25" stroke="#2c2416" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <rect x="12" y="8" width="5" height="8" rx="2" fill="#dde3ee" stroke="#cbbfa8" stroke-width="1.5"/>
-      <rect x="19" y="6" width="5" height="10" rx="2" fill="#dde3ee" stroke="#cbbfa8" stroke-width="1.5"/>
-    </svg>
-    <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="24" cy="30" rx="14" ry="12" fill="#dfe8df"/>
-      <ellipse cx="24" cy="30" rx="14" ry="12" fill="none" stroke="#cbbfa8" stroke-width="1.5"/>
-      <circle cx="20" cy="28" r="2.5" fill="#2c2416"/>
-      <circle cx="28" cy="28" r="2.5" fill="#2c2416"/>
-      <circle cx="21" cy="27" r="1" fill="white"/>
-      <circle cx="29" cy="27" r="1" fill="white"/>
-      <path d="M 19 35 Q 24 40 29 35" stroke="#2c2416" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <polygon points="18,18 22,10 26,18" fill="#dfe8df" stroke="#cbbfa8" stroke-width="1.5"/>
-      <polygon points="26,16 30,8 34,16" fill="#dfe8df" stroke="#cbbfa8" stroke-width="1.5"/>
-    </svg>
   </div>
 
-  <!-- ── Skills ── -->
-  <section class="skills" id="skills">
-    <div class="section-header">
-      <span class="section-icon">⚡</span>
-      <h2>Skills</h2>
-      <div class="section-doodle"></div>
-    </div>
-    <div class="skills-grid">
-            <div class="skill-card">
-        <h4>📊 Data & BI</h4>
-        <ul class="skill-list">
-          <li>Advanced Excel & Macros</li>
-          <li>Power Query</li>
-          <li>Power BI</li>
-          <li>Tableau</li>
-          <li>Amazon Quicksight</li>
-        </ul>
-      </div>
-
-      <div class="skill-card">
-        <h4>🐍 Python</h4>
-        <ul class="skill-list">
-          <li>Telegram Bot API</li>
-          <li>Pandas & data wrangling</li>
-          <li>API integration</li>
-          <li>Async programming</li>
-          <li>Streamlit dashboards</li>
-        </ul>
-      </div>
-
-
-      <div class="skill-card">
-        <h4>🤖 AI Tools</h4>
-        <ul class="skill-list">
-          <li>Prompt design</li>
-          <li>LLM integration (basic pipelines)</li>
-          <li>Workflow automation with AI</li>
-          <li>AI-assisted problem solving (ideation, iteration)</li>
-        </ul>
-      </div>
-
-
-
-
-    </div>
-  </section>
-
-  <!-- ── About ── -->
-  <section class="about" id="about">
-    <div class="section-header">
-      <span class="section-icon">🌱</span>
-      <h2>About</h2>
-      <div class="section-doodle"></div>
-    </div>
-    <div class="about-card">
-      <div class="about-text">
-        <p>
-          I spent 14 years working in transfer pricing in both consulting and in-house roles.
-        </p>
-        <p>
-          In my most recent role, I took on a tax automation scope, focusing on improving processes, reducing manual work, and integrating technology into tax workflows. That experience made it clear how much opportunity there is to build better tools, and I developed a real passion for data, automation, and system design.
-        </p>
-        <p>
-          I'm now using this sabbatical to push further in that direction — upskilling and building practical tools. 
-        </p>
-        <p>I'm based in Singapore and currently spending my time:</p>
-        <ul style="list-style:none;margin:0.6rem 0 0.85rem 0;display:flex;flex-direction:column;gap:0.4rem">
-          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Building small tools and experimenting with automation and AI</li>
-          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Developing my coding skills (primarily Python)</li>
-          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Exploring interests outside of work — travel, languages, and music</li>
-          <li style="font-size:0.925rem;color:var(--ink-light);display:flex;align-items:flex-start;gap:0.6rem"><span style="color:var(--terracotta);font-weight:700;flex-shrink:0">→</span>Documenting the process for others navigating similar transitions</li>
-        </ul>
-        <p>
-          Right now, I'm most interested in projects that make work simpler, more efficient, or just more fun.
-        </p>
-      </div>
-      <!-- Right column: photo on top, fact chips below -->
-      <div class="about-right">
-        <img class="about-photo" src="me.jpg" alt="Melissa on a beach in Spain">
-        <div class="about-facts">
-        <div class="fact">🍁 Canadian</div>
-        <div class="fact">📍 Based in Singapore</div>
-        <div class="fact">⚖️ 14 yrs in TP</div>
-        <div class="fact"> 💗 Running + Tennis </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Contact ── -->
+  <!-- Contact -->
   <section class="contact" id="contact">
     <div class="contact-card">
-      <h2>Let's talk</h2>
-      <p>Open to brainstorming with you on how to improve your processes through automation and data</p>
-      <div class="contact-links">
-        <a class="contact-btn btn-white" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">
-          💼 LinkedIn
+      <h2>Let's connect in the wild.</h2>
+      <p>Curious about tax tech automation, sabbatical life, or want to talk about sunbirds — I'm all ears.</p>
+      <div class="contact-btns">
+        <a class="contact-btn btn-outline" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
         </a>
-        <a class="contact-btn btn-white" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">
-          ✉️ Email me
+        <a class="contact-btn btn-solid" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
         </a>
-
       </div>
+      <svg class="contact-wave" width="240" height="160" viewBox="0 0 120 80">
+        <path d="M10 40 Q 30 10, 50 40 T 90 40" fill="none" stroke="white" stroke-width="1.5"/>
+        <path d="M15 45 Q 35 15, 55 45 T 95 45" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+      </svg>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <p>Melissa · Singapore · 2026</p>
+  <div>2026 · Melissa Yong · Singapore</div>
+  <ul class="footer-links">
+    <li><a href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">linkedin</a></li>
+    <li><a href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">email</a></li>
+  </ul>
 </footer>
 
 </body>
