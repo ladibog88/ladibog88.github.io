@@ -160,6 +160,7 @@
 
   /* ── Screenshots ── */
   .screenshots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .screenshot-card-wide { grid-column: 1 / -1; }
 
   .screenshot-card {
     border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden;
@@ -304,16 +305,18 @@
       <span>Mar 2026</span>
     </div>
     <h1>Dumpling<em>Thoughts</em></h1>
-    <p class="hero-tagline">Personal Second Brain — Telegram Bot + Web Dashboard</p>
+    <p class="hero-tagline">Family Second Brain — React Web App + Telegram Bot</p>
     <p class="hero-desc">
-      A Telegram bot that captures anything I send it — reflections, to-dos, Thai vocabulary, links, photos — categorises it with one tap, and visualises it in a searchable web dashboard. It runs 24/7 on Railway so it works whether my laptop is open or not.
+      What started as a personal Telegram bot to capture thoughts evolved into a full-stack family web app — built so my parents could use it too. A PIN-authenticated React dashboard lets the whole family add, browse, and complete entries across 9 categories, backed by Google Sheets as the database and designed with senior accessibility front of mind.
     </p>
     <div class="hero-tags">
+      <span class="hero-tag">React 19</span>
+      <span class="hero-tag">TypeScript</span>
+      <span class="hero-tag">Node.js / Express</span>
+      <span class="hero-tag">Google Sheets API</span>
+      <span class="hero-tag">Tailwind CSS v4</span>
       <span class="hero-tag">Python</span>
       <span class="hero-tag">Telegram Bot API</span>
-      <span class="hero-tag">Google Sheets</span>
-      <span class="hero-tag">Streamlit</span>
-      <span class="hero-tag">Plotly</span>
       <span class="hero-tag">Railway</span>
     </div>
   </section>
@@ -324,9 +327,9 @@
   <section class="page-section">
     <h2 class="section-title">The Problem</h2>
     <div class="content-box">
-      <p>As someone on a sabbatical juggling career development, language learning, personal reflection, and constant curiosity — my thoughts lived everywhere. Ideas in Telegram messages to myself. Buried in multiple browser tabs. Thai vocabulary disappearing into the notes app. To-dos spread across three different tools.</p>
-      <p>I had no single place where everything lived — and no way to look back at how my thinking had evolved over time. I needed a <strong>second brain</strong>. So I built one.</p>
-      <p>On top of that, I wasn't going to be sitting in front of a laptop all day. I needed something that worked on the go, from my phone, with minimal friction.</p>
+      <p>On sabbatical, my thoughts lived everywhere — ideas in Telegram messages to myself, Thai vocabulary disappearing into the notes app, to-dos spread across three tools, links buried in browser tabs. I had no single place where everything lived, and no way to look back at how my thinking had evolved over time.</p>
+      <p>I needed a <strong>second brain</strong>. So I built one — starting with a Telegram bot for fast capture, then realising the people I most wanted to share it with (my parents) were never going to use Telegram for this.</p>
+      <p>That's what pushed it to v2: a proper web app the whole family could open, navigate, and use independently — without me having to explain anything.</p>
     </div>
   </section>
 
@@ -335,45 +338,45 @@
     <h2 class="section-title">How It Works</h2>
     <div class="flow-list">
       <div class="flow-step">
+        <div class="flow-icon">🔐</div>
+        <div class="flow-text">
+          <h4>Log in with a 4-digit PIN</h4>
+          <p>Each family member has their own PIN — and their own private Google Sheet behind it</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-icon">✏️</div>
+        <div class="flow-text">
+          <h4>Tap "+ New Entry" to add anything</h4>
+          <p>Choose from 9 categories, fill in a title and optional notes, set priority and due date for to-dos</p>
+        </div>
+      </div>
+      <div class="flow-step">
         <div class="flow-icon">📲</div>
         <div class="flow-text">
-          <h4>Send anything to the Telegram bot</h4>
-          <p>A thought, link, photo, Thai word, to-do — whatever's on your mind</p>
+          <h4>Or send via the Telegram bot</h4>
+          <p>Capture on the go — the bot asks for a category with one tap and saves to the same Google Sheet</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">🗂</div>
+        <div class="flow-icon">🔍</div>
         <div class="flow-text">
-          <h4>Choose a category with one tap</h4>
-          <p>6 categories appear as inline buttons — no typing needed</p>
+          <h4>Browse, filter, and search</h4>
+          <p>Large category filter buttons, full-text search, and sort by newest or due date</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">⚡</div>
+        <div class="flow-icon">↕️</div>
         <div class="flow-text">
-          <h4>Set priority + due date (To-Dos only)</h4>
-          <p>High / Medium / Low, then type a date or skip</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">🏷</div>
-        <div class="flow-text">
-          <h4>Add an optional keyword tag</h4>
-          <p>e.g. "python", "thai", "career" — for filtering later</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">✅</div>
-        <div class="flow-text">
-          <h4>Saved to Google Sheets</h4>
-          <p>With timestamp, category, priority, content, and keyword</p>
+          <h4>Tap any entry to expand it</h4>
+          <p>Cards default to a compact one-liner; tap to reveal the full text and notes</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-icon">📊</div>
         <div class="flow-text">
-          <h4>View anytime in the dashboard</h4>
-          <p>Filter, search, visualise, and mark things done</p>
+          <h4>See the bigger picture</h4>
+          <p>Charts show entry distribution by category, activity over time, and your most-used keywords</p>
         </div>
       </div>
     </div>
@@ -384,51 +387,63 @@
     <h2 class="section-title">Categories</h2>
     <div class="card-grid">
       <div class="grid-card">
-        <h4>To-Do</h4>
+        <h4>✅ To-Do</h4>
         <p>Tasks with High / Medium / Low priority and optional due dates. Overdue items surface automatically.</p>
       </div>
       <div class="grid-card">
-        <h4>Explore</h4>
-        <p>Learning resources, courses, articles, and things to research. My Python journey lives here.</p>
+        <h4>🔍 Explore</h4>
+        <p>Learning resources, courses, articles, and things to research.</p>
       </div>
       <div class="grid-card">
-        <h4>Buy</h4>
-        <p>Products I want to purchase — so they stop living in browser tabs.</p>
+        <h4>🛒 Buy</h4>
+        <p>Products to purchase — so they stop living in browser tabs.</p>
       </div>
       <div class="grid-card">
-        <h4>Reflection</h4>
-        <p>Personal thoughts, sabbatical observations, and lessons learned along the way.</p>
+        <h4>🎵 Enjoy</h4>
+        <p>Movies, music, restaurants, and experiences worth savouring.</p>
       </div>
       <div class="grid-card">
-        <h4>Language</h4>
-        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary. Keyword "thai" or "spanish" auto-flags the right flag.</p>
+        <h4>💡 Idea</h4>
+        <p>Sparks of inspiration and half-formed thoughts worth keeping.</p>
       </div>
       <div class="grid-card">
-        <h4>Reference</h4>
-        <p>Facts, processes, and permanent information I want to keep accessible forever.</p>
+        <h4>📚 Learn</h4>
+        <p>Skills, topics, and concepts to dig deeper into.</p>
+      </div>
+      <div class="grid-card">
+        <h4>💭 Reflection</h4>
+        <p>Personal thoughts, observations, and lessons learned along the way.</p>
+      </div>
+      <div class="grid-card">
+        <h4>🌏 Language</h4>
+        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary with definitions and language tags.</p>
+      </div>
+      <div class="grid-card">
+        <h4>📌 Reference</h4>
+        <p>Facts, processes, and permanent information to keep accessible forever.</p>
       </div>
     </div>
   </section>
 
-  <!-- Dashboard -->
+  <!-- Web App -->
   <section class="page-section">
-    <h2 class="section-title">The Dashboard</h2>
+    <h2 class="section-title">The Web App</h2>
     <div class="card-grid">
       <div class="grid-card">
-        <h4>Main Table</h4>
-        <p>Every entry filterable by category, keyword, and status. Mark anything done with one click.</p>
+        <h4>PIN Authentication</h4>
+        <p>Each family member has their own 4-digit PIN, with a separate Google Sheet behind it — fully independent data per user.</p>
       </div>
       <div class="grid-card">
-        <h4>To-Do Tracker</h4>
-        <p>Tasks grouped by priority. Overdue items surface automatically based on due date.</p>
+        <h4>Compact List View</h4>
+        <p>Entries show as single-line items with category emoji and label. Tap any card to expand and see the full title and notes.</p>
       </div>
       <div class="grid-card">
-        <h4>Language Log</h4>
-        <p>A clean vocab list for Thai and Spanish. Filterable by language, searchable by word.</p>
+        <h4>Accessibility First</h4>
+        <p>Large scrollable category filter buttons, a Large Text mode that increases font sizes and button tap targets, and higher-contrast text — designed with senior users in mind.</p>
       </div>
       <div class="grid-card">
-        <h4>Breakdown</h4>
-        <p>Category donut chart, weekly activity bar chart, and top keywords — a visual map of where your mind has been.</p>
+        <h4>Charts & Insights</h4>
+        <p>Category donut, activity bar chart, heatmap, and top keywords — a visual map of where your collective mind has been.</p>
       </div>
     </div>
   </section>
@@ -437,32 +452,39 @@
   <section class="page-section">
     <h2 class="section-title">Screenshots</h2>
     <div class="screenshots-grid">
-      <div class="screenshot-card" onclick="openLightbox('screenshot-telegram.png', 'Telegram Bot — category selection')">
-        <img src="screenshot-telegram.png" alt="Telegram bot">
+      <div class="screenshot-card" onclick="openLightbox('dt_screenshot_pin.jpg', 'PIN Login — 4-digit keypad')">
+        <img src="dt_screenshot_pin.jpg" alt="PIN login screen">
         <div class="screenshot-caption">
-          <h4>Telegram Bot</h4>
-          <p>Sending a message and selecting a category with one tap</p>
+          <h4>PIN Login</h4>
+          <p>Simple 4-digit keypad — no accounts, no passwords</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-table.png', 'Main Table — all entries with filters')">
-        <img src="screenshot-dashboard-table.png" alt="Main table view">
+      <div class="screenshot-card" onclick="openLightbox('dt_screenshot_dashboard.jpg', 'Dashboard — entry list with category filters')">
+        <img src="dt_screenshot_dashboard.jpg" alt="Main dashboard">
         <div class="screenshot-caption">
-          <h4>Main Table</h4>
-          <p>All entries filterable by category, keyword, and status</p>
+          <h4>Dashboard</h4>
+          <p>Compact list view with large scrollable category filter buttons</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-todo.png', 'To-Do Tracker — tasks by priority')">
-        <img src="screenshot-dashboard-todo.png" alt="To-do tracker">
+      <div class="screenshot-card" onclick="openLightbox('dt_screenshot_entry.jpg', 'New Entry form')">
+        <img src="dt_screenshot_entry.jpg" alt="New entry form">
         <div class="screenshot-caption">
-          <h4>To-Do Tracker</h4>
-          <p>Tasks grouped by priority with overdue items surfaced automatically</p>
+          <h4>New Entry Form</h4>
+          <p>Add anything across 9 categories with title, notes, priority, and tags</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-charts.png', 'Category Breakdown — charts and keywords')">
-        <img src="screenshot-dashboard-charts.png" alt="Charts">
+      <div class="screenshot-card" onclick="openLightbox('dt_screenshot_chart.jpg', 'Charts — activity and category breakdown')">
+        <img src="dt_screenshot_chart.jpg" alt="Charts view">
         <div class="screenshot-caption">
-          <h4>Category Breakdown</h4>
-          <p>Visual charts showing entry distribution and top keywords over time</p>
+          <h4>Charts</h4>
+          <p>Category donut, activity heatmap, and keyword cloud</p>
+        </div>
+      </div>
+      <div class="screenshot-card screenshot-card-wide" onclick="openLightbox('screenshot-telegram.png', 'Telegram Bot — the original capture tool')">
+        <img src="screenshot-telegram.png" alt="Telegram bot" style="height: 175px; object-fit: cover; object-position: top;">
+        <div class="screenshot-caption">
+          <h4>Telegram Bot (v1)</h4>
+          <p>The original capture method — send anything from your phone and pick a category with one tap. Still runs alongside the web app for quick on-the-go capture.</p>
         </div>
       </div>
     </div>
@@ -472,18 +494,18 @@
   <section class="page-section">
     <h2 class="section-title">Tech Stack</h2>
     <div class="stack-grid">
-      <div class="stack-item"><div class="stack-layer">Capture</div><div class="stack-name">Telegram Bot API</div></div>
-      <div class="stack-item"><div class="stack-layer">Bot Framework</div><div class="stack-name">python-telegram-bot</div></div>
+      <div class="stack-item"><div class="stack-layer">Frontend</div><div class="stack-name">React 19 + TypeScript</div></div>
+      <div class="stack-item"><div class="stack-layer">Build Tool</div><div class="stack-name">Vite 8</div></div>
+      <div class="stack-item"><div class="stack-layer">Styling</div><div class="stack-name">Tailwind CSS v4</div></div>
+      <div class="stack-item"><div class="stack-layer">Animation</div><div class="stack-name">Framer Motion</div></div>
+      <div class="stack-item"><div class="stack-layer">Charts</div><div class="stack-name">Recharts</div></div>
+      <div class="stack-item"><div class="stack-layer">Backend</div><div class="stack-name">Express 5 (Node.js)</div></div>
+      <div class="stack-item"><div class="stack-layer">Auth</div><div class="stack-name">JWT (7-day sessions)</div></div>
+      <div class="stack-item"><div class="stack-layer">Database</div><div class="stack-name">Google Sheets + googleapis</div></div>
+      <div class="stack-item"><div class="stack-layer">Bot</div><div class="stack-name">python-telegram-bot</div></div>
       <div class="stack-item"><div class="stack-layer">Photo Hosting</div><div class="stack-name">Cloudinary</div></div>
-      <div class="stack-item"><div class="stack-layer">Database</div><div class="stack-name">Google Sheets + gspread</div></div>
-      <div class="stack-item"><div class="stack-layer">Dashboard</div><div class="stack-name">Streamlit</div></div>
-      <div class="stack-item"><div class="stack-layer">Charts</div><div class="stack-name">Plotly</div></div>
-      <div class="stack-item"><div class="stack-layer">Data</div><div class="stack-name">Pandas</div></div>
-      <div class="stack-item"><div class="stack-layer">Bot Hosting</div><div class="stack-name">Railway</div></div>
-      <div class="stack-item"><div class="stack-layer">Dashboard Hosting</div><div class="stack-name">Streamlit Cloud</div></div>
+      <div class="stack-item"><div class="stack-layer">Hosting</div><div class="stack-name">Railway</div></div>
       <div class="stack-item"><div class="stack-layer">Version Control</div><div class="stack-name">Git + GitHub</div></div>
-      <div class="stack-item"><div class="stack-layer">Config</div><div class="stack-name">python-dotenv</div></div>
-      <div class="stack-item"><div class="stack-layer">Language</div><div class="stack-name">Python 3.11</div></div>
     </div>
   </section>
 
@@ -492,21 +514,24 @@
     <h2 class="section-title">Skills Developed</h2>
     <div class="content-box">
       <div class="tags-cloud">
+        <span class="skill-chip">React 19</span>
+        <span class="skill-chip">TypeScript</span>
+        <span class="skill-chip">Node.js / Express</span>
+        <span class="skill-chip">REST API design</span>
+        <span class="skill-chip">JWT authentication</span>
+        <span class="skill-chip">Google Sheets API (Node)</span>
+        <span class="skill-chip">Tailwind CSS v4</span>
+        <span class="skill-chip">Framer Motion</span>
+        <span class="skill-chip">Recharts</span>
+        <span class="skill-chip">Responsive design</span>
+        <span class="skill-chip">Accessibility / senior UX</span>
+        <span class="skill-chip">Full-stack deployment</span>
         <span class="skill-chip">Async Python</span>
-        <span class="skill-chip">API integration</span>
         <span class="skill-chip">Telegram Bot API</span>
-        <span class="skill-chip">Google Sheets API</span>
         <span class="skill-chip">Cloudinary API</span>
-        <span class="skill-chip">Pandas DataFrames</span>
-        <span class="skill-chip">Plotly charts</span>
-        <span class="skill-chip">Streamlit</span>
-        <span class="skill-chip">Multi-page dashboards</span>
+        <span class="skill-chip">Secrets management</span>
         <span class="skill-chip">Git &amp; GitHub</span>
         <span class="skill-chip">Railway deployment</span>
-        <span class="skill-chip">Streamlit Cloud</span>
-        <span class="skill-chip">Environment variables</span>
-        <span class="skill-chip">Secrets management</span>
-        <span class="skill-chip">Python version management</span>
         <span class="skill-chip">Product thinking</span>
         <span class="skill-chip">UX flow design</span>
       </div>
@@ -518,38 +543,38 @@
     <h2 class="section-title">What I Learned</h2>
     <div class="lesson-list">
       <div class="lesson-item">
-        <div class="lesson-icon">🔐</div>
+        <div class="lesson-icon">👨‍👩‍👧</div>
         <div class="lesson-body">
-          <h4>Secrets Management — The Hard Way</h4>
-          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch.</p>
+          <h4>Build for Your Real Users, Not Yourself</h4>
+          <p>The Telegram bot worked perfectly for me — and was completely inaccessible to my parents. Rebuilding as a web app forced me to think about tap target sizes, contrast, discoverable interactions, and reducing cognitive load for people who didn't grow up with smartphones.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">⚙️</div>
+        <div class="lesson-icon">🔐</div>
         <div class="lesson-body">
-          <h4>Async Python</h4>
-          <p>Telegram bots run on asyncio under the hood. Debugging async errors — especially Python version compatibility issues — taught me how the event loop works and why version pinning matters.</p>
+          <h4>Secrets Management — The Hard Way</h4>
+          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch. Cloud platforms like Railway also mangle private keys in subtle ways — stripping quotes, breaking newlines — that only surface in production.</p>
         </div>
       </div>
       <div class="lesson-item">
         <div class="lesson-icon">🌐</div>
         <div class="lesson-body">
-          <h4>Multi-Environment Deployment</h4>
-          <p>Getting identical code to run on Windows locally, Railway (Linux), and Streamlit Cloud (Linux) required understanding how each platform handles Python versions and secrets differently.</p>
+          <h4>The Browser Can't Touch Google Sheets Directly</h4>
+          <p>A key architectural decision: the Google Sheets API requires a service account private key, which can never be in client-side code. This pushed me to build a proper Express backend — not just a thin proxy, but a real authenticated API layer with JWT sessions.</p>
         </div>
       </div>
       <div class="lesson-item">
         <div class="lesson-icon">🏗</div>
         <div class="lesson-body">
-          <h4>Building in Phases</h4>
-          <p>Starting with raw capture only meant I had something working from day one. Each phase built on a stable foundation rather than trying to build everything at once.</p>
+          <h4>V1 Made V2 Possible</h4>
+          <p>Having real data flowing into Google Sheets from day one — via the Telegram bot — meant the web app had something meaningful to display the moment it launched. Shipping something simple first de-risked the whole project.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">🔌</div>
+        <div class="lesson-icon">⚙️</div>
         <div class="lesson-body">
-          <h4>API Limitations Are Real</h4>
-          <p>Google service accounts can't upload to Drive due to storage quota restrictions. Pivoting to Cloudinary was a good lesson in reading API documentation before building.</p>
+          <h4>Framework Gotchas Are Everywhere</h4>
+          <p>Express 5 changed wildcard route syntax. Tailwind v4 moved to a CSS-first config. Railway encodes environment variables differently than local .env files. Each one cost debugging time — and taught me to read changelogs before upgrading.</p>
         </div>
       </div>
     </div>
@@ -559,10 +584,11 @@
   <section class="page-section">
     <h2 class="section-title">What's Next</h2>
     <div class="next-list">
-      <div class="next-item"><span class="next-dot"></span>AI enrichment — Claude API to summarise links, detect mood in reflections, enrich language entries with translations</div>
-      <div class="next-item"><span class="next-dot"></span>Migrate to Supabase (PostgreSQL) for proper multi-user support</div>
-      <div class="next-item"><span class="next-dot"></span>Timeline view — chronological visual map of ideas over time</div>
-      <div class="next-item"><span class="next-dot"></span>Rebuild frontend in Flask / React as frontend skills develop</div>
+      <div class="next-item"><span class="next-dot"></span>AI enrichment — Claude API to auto-summarise links, suggest categories, and enrich language entries with example sentences</div>
+      <div class="next-item"><span class="next-dot"></span>Push notifications for overdue to-dos — so items with a due date actually surface on your phone</div>
+      <div class="next-item"><span class="next-dot"></span>Image capture in the web app — currently photos only work via the Telegram bot</div>
+      <div class="next-item"><span class="next-dot"></span>Timeline view — a chronological visual map of ideas and reflections over time</div>
+      <div class="next-item"><span class="next-dot"></span>Migrate to a proper database (Supabase / PostgreSQL) as the family grows and Google Sheets hits its limits</div>
     </div>
   </section>
 
