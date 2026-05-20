@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DumplingThoughts — Melissa Yong</title>
+<title>Sunbee Cam — Melissa Yong</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,7 +16,7 @@
     --accent-blue: #e2eaf3;
     --accent-green: #e9f3e2;
     --sage-dark: #7a9a88;
-    --page-accent: var(--accent-green);
+    --page-accent: var(--accent-blue);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -301,32 +301,30 @@
       <span>·</span>
       <span class="hero-status">Live</span>
       <span>·</span>
-      <span>Mar 2026</span>
+      <span>May 2026</span>
     </div>
-    <h1>Dumpling<em>Thoughts</em></h1>
-    <p class="hero-tagline">Personal Second Brain — Telegram Bot + Web Dashboard</p>
+    <h1>Sunbee <em>Cam</em></h1>
+    <p class="hero-tagline">Live Nest Cam — Olive-Backed Sunbirds on My Balcony</p>
     <p class="hero-desc">
-      A Telegram bot that captures anything I send it — reflections, to-dos, Thai vocabulary, links, photos — categorises it with one tap, and visualises it in a searchable web dashboard. It runs 24/7 on Railway so it works whether my laptop is open or not.
+      A pair of olive-backed sunbirds decided to build their nest on my Singapore apartment balcony. I set up a camera and built a live streaming site so family and friends could watch the nest from anywhere in the world. It runs on HLS.js for smooth adaptive streaming and Firebase for a real-time live/offline indicator.
     </p>
     <div class="hero-tags">
-      <span class="hero-tag">Python</span>
-      <span class="hero-tag">Telegram Bot API</span>
-      <span class="hero-tag">Google Sheets</span>
-      <span class="hero-tag">Streamlit</span>
-      <span class="hero-tag">Plotly</span>
-      <span class="hero-tag">Railway</span>
+      <span class="hero-tag">HTML/CSS/JS</span>
+      <span class="hero-tag">HLS.js</span>
+      <span class="hero-tag">Firebase Realtime DB</span>
+      <span class="hero-tag">HLS Streaming</span>
     </div>
   </section>
 
   <div class="section-sep"></div>
 
-  <!-- Problem -->
+  <!-- The Story -->
   <section class="page-section">
-    <h2 class="section-title">The Problem</h2>
+    <h2 class="section-title">How It Started</h2>
     <div class="content-box">
-      <p>As someone on a sabbatical juggling career development, language learning, personal reflection, and constant curiosity — my thoughts lived everywhere. Ideas in Telegram messages to myself. Buried in multiple browser tabs. Thai vocabulary disappearing into the notes app. To-dos spread across three different tools.</p>
-      <p>I had no single place where everything lived — and no way to look back at how my thinking had evolved over time. I needed a <strong>second brain</strong>. So I built one.</p>
-      <p>On top of that, I wasn't going to be sitting in front of a laptop all day. I needed something that worked on the go, from my phone, with minimal friction.</p>
+      <p>One morning I noticed something unusual hanging from my balcony ledge — a small, carefully woven grass pouch. Within days, a female olive-backed sunbird had built herself a cozy nest and was sitting in it.</p>
+      <p>I wanted to share this moment with people I love without them having to come over. So I rigged up a camera, figured out live streaming on a Saturday afternoon, and had a working site up by evening. The nest cam became a small daily ritual — checking in on the bird, seeing if the eggs had hatched, watching fledglings take their first flights.</p>
+      <p>It's one of those projects that reminded me that <strong>building something for a specific, real moment</strong> is deeply satisfying — more than any tutorial project ever was.</p>
     </div>
   </section>
 
@@ -335,100 +333,62 @@
     <h2 class="section-title">How It Works</h2>
     <div class="flow-list">
       <div class="flow-step">
-        <div class="flow-icon">📲</div>
+        <div class="flow-icon">📷</div>
         <div class="flow-text">
-          <h4>Send anything to the Telegram bot</h4>
-          <p>A thought, link, photo, Thai word, to-do — whatever's on your mind</p>
+          <h4>Camera captures the nest</h4>
+          <p>A small camera positioned on the balcony records the sunbird nest continuously</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">🗂</div>
+        <div class="flow-icon">📡</div>
         <div class="flow-text">
-          <h4>Choose a category with one tap</h4>
-          <p>6 categories appear as inline buttons — no typing needed</p>
+          <h4>HLS stream is generated</h4>
+          <p>The footage is encoded into HTTP Live Streaming (HLS) format — small chunks of video served over HTTP</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">⚡</div>
+        <div class="flow-icon">🌐</div>
         <div class="flow-text">
-          <h4>Set priority + due date (To-Dos only)</h4>
-          <p>High / Medium / Low, then type a date or skip</p>
+          <h4>HLS.js handles playback</h4>
+          <p>The browser-side HLS.js library picks up the stream and plays it back smoothly with adaptive bitrate support</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">🏷</div>
+        <div class="flow-icon">🔴</div>
         <div class="flow-text">
-          <h4>Add an optional keyword tag</h4>
-          <p>e.g. "python", "thai", "career" — for filtering later</p>
+          <h4>Firebase shows live status</h4>
+          <p>A Firebase Realtime Database flag updates when the stream is active or offline — the site shows a live indicator in real time</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">✅</div>
+        <div class="flow-icon">🔗</div>
         <div class="flow-text">
-          <h4>Saved to Google Sheets</h4>
-          <p>With timestamp, category, priority, content, and keyword</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">📊</div>
-        <div class="flow-text">
-          <h4>View anytime in the dashboard</h4>
-          <p>Filter, search, visualise, and mark things done</p>
+          <h4>Share via link</h4>
+          <p>Anyone with the URL can watch from anywhere — no app, no login, no faff</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Categories -->
+  <!-- Features -->
   <section class="page-section">
-    <h2 class="section-title">Categories</h2>
+    <h2 class="section-title">Features</h2>
     <div class="card-grid">
       <div class="grid-card">
-        <h4>To-Do</h4>
-        <p>Tasks with High / Medium / Low priority and optional due dates. Overdue items surface automatically.</p>
+        <h4>Live Video Stream</h4>
+        <p>Adaptive HLS playback that adjusts quality based on the viewer's connection speed. Works on mobile and desktop.</p>
       </div>
       <div class="grid-card">
-        <h4>Explore</h4>
-        <p>Learning resources, courses, articles, and things to research. My Python journey lives here.</p>
+        <h4>Live / Offline Indicator</h4>
+        <p>A real-time status badge powered by Firebase Realtime Database. Updates instantly when the stream goes live or offline.</p>
       </div>
       <div class="grid-card">
-        <h4>Buy</h4>
-        <p>Products I want to purchase — so they stop living in browser tabs.</p>
+        <h4>No Backend Required</h4>
+        <p>The site itself is fully static — no server, no backend. Firebase handles the one piece of dynamic state.</p>
       </div>
       <div class="grid-card">
-        <h4>Reflection</h4>
-        <p>Personal thoughts, sabbatical observations, and lessons learned along the way.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Language</h4>
-        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary. Keyword "thai" or "spanish" auto-flags the right flag.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Reference</h4>
-        <p>Facts, processes, and permanent information I want to keep accessible forever.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dashboard -->
-  <section class="page-section">
-    <h2 class="section-title">The Dashboard</h2>
-    <div class="card-grid">
-      <div class="grid-card">
-        <h4>Main Table</h4>
-        <p>Every entry filterable by category, keyword, and status. Mark anything done with one click.</p>
-      </div>
-      <div class="grid-card">
-        <h4>To-Do Tracker</h4>
-        <p>Tasks grouped by priority. Overdue items surface automatically based on due date.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Language Log</h4>
-        <p>A clean vocab list for Thai and Spanish. Filterable by language, searchable by word.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Breakdown</h4>
-        <p>Category donut chart, weekly activity bar chart, and top keywords — a visual map of where your mind has been.</p>
+        <h4>Dark Nature Theme</h4>
+        <p>A dark green, nature-inspired design so the nest footage stays centre stage. Minimal chrome, maximum bird.</p>
       </div>
     </div>
   </section>
@@ -437,32 +397,32 @@
   <section class="page-section">
     <h2 class="section-title">Screenshots</h2>
     <div class="screenshots-grid">
-      <div class="screenshot-card" onclick="openLightbox('screenshot-telegram.png', 'Telegram Bot — category selection')">
-        <img src="screenshot-telegram.png" alt="Telegram bot">
+      <div class="screenshot-card" onclick="openLightbox('sunbee-live.png', 'Sunbee Cam — live stream view')">
+        <img src="sunbee-live.png" alt="Live stream view">
         <div class="screenshot-caption">
-          <h4>Telegram Bot</h4>
-          <p>Sending a message and selecting a category with one tap</p>
+          <h4>Live Stream</h4>
+          <p>The nest cam with live status indicator and HLS player</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-table.png', 'Main Table — all entries with filters')">
-        <img src="screenshot-dashboard-table.png" alt="Main table view">
+      <div class="screenshot-card" onclick="openLightbox('sunbee-offline.png', 'Sunbee Cam — offline state')">
+        <img src="sunbee-offline.png" alt="Offline state">
         <div class="screenshot-caption">
-          <h4>Main Table</h4>
-          <p>All entries filterable by category, keyword, and status</p>
+          <h4>Offline State</h4>
+          <p>Graceful offline message when the stream isn't running</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-todo.png', 'To-Do Tracker — tasks by priority')">
-        <img src="screenshot-dashboard-todo.png" alt="To-do tracker">
+      <div class="screenshot-card" onclick="openLightbox('sunbee-mobile.png', 'Sunbee Cam — mobile view')">
+        <img src="sunbee-mobile.png" alt="Mobile view">
         <div class="screenshot-caption">
-          <h4>To-Do Tracker</h4>
-          <p>Tasks grouped by priority with overdue items surfaced automatically</p>
+          <h4>Mobile View</h4>
+          <p>Responsive design — family can check in from their phones</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-charts.png', 'Category Breakdown — charts and keywords')">
-        <img src="screenshot-dashboard-charts.png" alt="Charts">
+      <div class="screenshot-card" onclick="openLightbox('sunbee-nest.png', 'The nest — olive-backed sunbird')">
+        <img src="sunbee-nest.png" alt="The nest">
         <div class="screenshot-caption">
-          <h4>Category Breakdown</h4>
-          <p>Visual charts showing entry distribution and top keywords over time</p>
+          <h4>The Nest</h4>
+          <p>Our little resident — the olive-backed sunbird herself</p>
         </div>
       </div>
     </div>
@@ -472,18 +432,12 @@
   <section class="page-section">
     <h2 class="section-title">Tech Stack</h2>
     <div class="stack-grid">
-      <div class="stack-item"><div class="stack-layer">Capture</div><div class="stack-name">Telegram Bot API</div></div>
-      <div class="stack-item"><div class="stack-layer">Bot Framework</div><div class="stack-name">python-telegram-bot</div></div>
-      <div class="stack-item"><div class="stack-layer">Photo Hosting</div><div class="stack-name">Cloudinary</div></div>
-      <div class="stack-item"><div class="stack-layer">Database</div><div class="stack-name">Google Sheets + gspread</div></div>
-      <div class="stack-item"><div class="stack-layer">Dashboard</div><div class="stack-name">Streamlit</div></div>
-      <div class="stack-item"><div class="stack-layer">Charts</div><div class="stack-name">Plotly</div></div>
-      <div class="stack-item"><div class="stack-layer">Data</div><div class="stack-name">Pandas</div></div>
-      <div class="stack-item"><div class="stack-layer">Bot Hosting</div><div class="stack-name">Railway</div></div>
-      <div class="stack-item"><div class="stack-layer">Dashboard Hosting</div><div class="stack-name">Streamlit Cloud</div></div>
-      <div class="stack-item"><div class="stack-layer">Version Control</div><div class="stack-name">Git + GitHub</div></div>
-      <div class="stack-item"><div class="stack-layer">Config</div><div class="stack-name">python-dotenv</div></div>
-      <div class="stack-item"><div class="stack-layer">Language</div><div class="stack-name">Python 3.11</div></div>
+      <div class="stack-item"><div class="stack-layer">Streaming Protocol</div><div class="stack-name">HLS (HTTP Live Streaming)</div></div>
+      <div class="stack-item"><div class="stack-layer">Playback</div><div class="stack-name">HLS.js</div></div>
+      <div class="stack-item"><div class="stack-layer">Live Status</div><div class="stack-name">Firebase Realtime Database</div></div>
+      <div class="stack-item"><div class="stack-layer">Frontend</div><div class="stack-name">HTML / CSS / Vanilla JS</div></div>
+      <div class="stack-item"><div class="stack-layer">Hosting</div><div class="stack-name">Static (no server needed)</div></div>
+      <div class="stack-item"><div class="stack-layer">Hardware</div><div class="stack-name">Balcony camera</div></div>
     </div>
   </section>
 
@@ -492,23 +446,15 @@
     <h2 class="section-title">Skills Developed</h2>
     <div class="content-box">
       <div class="tags-cloud">
-        <span class="skill-chip">Async Python</span>
-        <span class="skill-chip">API integration</span>
-        <span class="skill-chip">Telegram Bot API</span>
-        <span class="skill-chip">Google Sheets API</span>
-        <span class="skill-chip">Cloudinary API</span>
-        <span class="skill-chip">Pandas DataFrames</span>
-        <span class="skill-chip">Plotly charts</span>
-        <span class="skill-chip">Streamlit</span>
-        <span class="skill-chip">Multi-page dashboards</span>
-        <span class="skill-chip">Git &amp; GitHub</span>
-        <span class="skill-chip">Railway deployment</span>
-        <span class="skill-chip">Streamlit Cloud</span>
-        <span class="skill-chip">Environment variables</span>
-        <span class="skill-chip">Secrets management</span>
-        <span class="skill-chip">Python version management</span>
-        <span class="skill-chip">Product thinking</span>
-        <span class="skill-chip">UX flow design</span>
+        <span class="skill-chip">HLS streaming protocol</span>
+        <span class="skill-chip">HLS.js integration</span>
+        <span class="skill-chip">Adaptive bitrate video</span>
+        <span class="skill-chip">Firebase Realtime Database</span>
+        <span class="skill-chip">Real-time UI updates</span>
+        <span class="skill-chip">Hardware-software integration</span>
+        <span class="skill-chip">Responsive design</span>
+        <span class="skill-chip">Offline state handling</span>
+        <span class="skill-chip">Static site deployment</span>
       </div>
     </div>
   </section>
@@ -518,38 +464,38 @@
     <h2 class="section-title">What I Learned</h2>
     <div class="lesson-list">
       <div class="lesson-item">
-        <div class="lesson-icon">🔐</div>
+        <div class="lesson-icon">📡</div>
         <div class="lesson-body">
-          <h4>Secrets Management — The Hard Way</h4>
-          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch.</p>
+          <h4>HLS is Simpler Than It Looks</h4>
+          <p>HTTP Live Streaming just serves small video chunks as regular files. Once I understood that, the whole protocol clicked — it's cleverly simple, which is why it works on almost every device and network.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">⚙️</div>
+        <div class="lesson-icon">🔴</div>
         <div class="lesson-body">
-          <h4>Async Python</h4>
-          <p>Telegram bots run on asyncio under the hood. Debugging async errors — especially Python version compatibility issues — taught me how the event loop works and why version pinning matters.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🌐</div>
-        <div class="lesson-body">
-          <h4>Multi-Environment Deployment</h4>
-          <p>Getting identical code to run on Windows locally, Railway (Linux), and Streamlit Cloud (Linux) required understanding how each platform handles Python versions and secrets differently.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🏗</div>
-        <div class="lesson-body">
-          <h4>Building in Phases</h4>
-          <p>Starting with raw capture only meant I had something working from day one. Each phase built on a stable foundation rather than trying to build everything at once.</p>
+          <h4>Real-Time State Without a Backend</h4>
+          <p>Firebase Realtime Database let me add a live/offline indicator without spinning up any server. Writing a single boolean to Firebase and reading it client-side felt like magic the first time it worked.</p>
         </div>
       </div>
       <div class="lesson-item">
         <div class="lesson-icon">🔌</div>
         <div class="lesson-body">
-          <h4>API Limitations Are Real</h4>
-          <p>Google service accounts can't upload to Drive due to storage quota restrictions. Pivoting to Cloudinary was a good lesson in reading API documentation before building.</p>
+          <h4>Hardware Is the Hard Part</h4>
+          <p>Getting the camera positioned correctly, stable, and outputting the right format took longer than writing the entire website. Software is forgiving; physics is not.</p>
+        </div>
+      </div>
+      <div class="lesson-item">
+        <div class="lesson-icon">🎨</div>
+        <div class="lesson-body">
+          <h4>Design for the Offline State First</h4>
+          <p>Streams go down. Designing the offline experience — a graceful message rather than a broken player — was just as important as the live view. Users notice when something handles failure well.</p>
+        </div>
+      </div>
+      <div class="lesson-item">
+        <div class="lesson-icon">🐦</div>
+        <div class="lesson-body">
+          <h4>Real Purpose Makes Better Projects</h4>
+          <p>I built this to share a specific moment with specific people. That constraint made every decision easier — no feature creep, no second-guessing the scope. Build for a real reason and the project almost designs itself.</p>
         </div>
       </div>
     </div>
@@ -559,17 +505,17 @@
   <section class="page-section">
     <h2 class="section-title">What's Next</h2>
     <div class="next-list">
-      <div class="next-item"><span class="next-dot"></span>AI enrichment — Claude API to summarise links, detect mood in reflections, enrich language entries with translations</div>
-      <div class="next-item"><span class="next-dot"></span>Migrate to Supabase (PostgreSQL) for proper multi-user support</div>
-      <div class="next-item"><span class="next-dot"></span>Timeline view — chronological visual map of ideas over time</div>
-      <div class="next-item"><span class="next-dot"></span>Rebuild frontend in Flask / React as frontend skills develop</div>
+      <div class="next-item"><span class="next-dot"></span>Motion detection alerts — ping family when the bird returns to the nest</div>
+      <div class="next-item"><span class="next-dot"></span>Photo archive of nest milestones — egg laying, hatching, fledging</div>
+      <div class="next-item"><span class="next-dot"></span>Time-lapse generation from recorded footage</div>
+      <div class="next-item"><span class="next-dot"></span>Viewer count — see how many people are watching at once</div>
     </div>
   </section>
 
   <!-- CTA -->
   <div class="page-cta">
-    <h2>Want to build something similar?</h2>
-    <p>I'm open to chatting about automation, data pipelines, or sabbatical life.</p>
+    <h2>Have a nest on your balcony too?</h2>
+    <p>I'm happy to share how I set this up — camera, streaming, and all.</p>
     <div class="cta-btns">
       <a class="cta-btn btn-outline" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">✉️ Email me</a>
       <a class="cta-btn btn-solid" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">💼 LinkedIn</a>

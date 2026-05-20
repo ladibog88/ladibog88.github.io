@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DumplingThoughts — Melissa Yong</title>
+<title>LogBees — Melissa Yong</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,7 +16,7 @@
     --accent-blue: #e2eaf3;
     --accent-green: #e9f3e2;
     --sage-dark: #7a9a88;
-    --page-accent: var(--accent-green);
+    --page-accent: var(--accent-pink);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -301,134 +301,104 @@
       <span>·</span>
       <span class="hero-status">Live</span>
       <span>·</span>
-      <span>Mar 2026</span>
+      <span>May 2026</span>
     </div>
-    <h1>Dumpling<em>Thoughts</em></h1>
-    <p class="hero-tagline">Personal Second Brain — Telegram Bot + Web Dashboard</p>
+    <h1>Log<em>Bees</em></h1>
+    <p class="hero-tagline">Travel Logging Bot + Live Scrapbook — South America 2026</p>
     <p class="hero-desc">
-      A Telegram bot that captures anything I send it — reflections, to-dos, Thai vocabulary, links, photos — categorises it with one tap, and visualises it in a searchable web dashboard. It runs 24/7 on Railway so it works whether my laptop is open or not.
+      A Telegram bot built for a 42-day journey through South America with Min. Send a photo, a Google Maps link, or a voice reflection — the bot captures it, stores it in Google Sheets, uploads media to Cloudinary, and publishes everything to a live scrapbook with an interactive map. Two sites: one public, one for family with a password gate.
     </p>
     <div class="hero-tags">
       <span class="hero-tag">Python</span>
       <span class="hero-tag">Telegram Bot API</span>
       <span class="hero-tag">Google Sheets</span>
-      <span class="hero-tag">Streamlit</span>
-      <span class="hero-tag">Plotly</span>
+      <span class="hero-tag">Cloudinary</span>
+      <span class="hero-tag">Leaflet.js</span>
       <span class="hero-tag">Railway</span>
+      <span class="hero-tag">Cloudflare Pages</span>
     </div>
   </section>
 
   <div class="section-sep"></div>
 
-  <!-- Problem -->
+  <!-- The Story -->
   <section class="page-section">
-    <h2 class="section-title">The Problem</h2>
+    <h2 class="section-title">The Story</h2>
     <div class="content-box">
-      <p>As someone on a sabbatical juggling career development, language learning, personal reflection, and constant curiosity — my thoughts lived everywhere. Ideas in Telegram messages to myself. Buried in multiple browser tabs. Thai vocabulary disappearing into the notes app. To-dos spread across three different tools.</p>
-      <p>I had no single place where everything lived — and no way to look back at how my thinking had evolved over time. I needed a <strong>second brain</strong>. So I built one.</p>
-      <p>On top of that, I wasn't going to be sitting in front of a laptop all day. I needed something that worked on the go, from my phone, with minimal friction.</p>
+      <p>Min and I had a 42-day trip through South America lined up — Colombia, Ecuador, Peru, Bolivia, Chile, Argentina. We both wanted to document it properly. Not just Instagram posts after the fact, but a real-time record: where we were, what we ate, what we thought, what surprised us.</p>
+      <p>I built LogBees before we left. The idea was simple: <strong>a Telegram bot that required zero friction to use</strong>. Take a photo — send it. Drop a Google Maps link from the restaurant you just loved — send it. Type a thought before you sleep — send it. Everything gets captured, timestamped, and geolocated automatically.</p>
+      <p>Two different audiences needed two different sites. The public TravelBees scrapbook is open to anyone. The family site is password-gated and shows a bit more — it's anonymous (no names) but lets family feel close to the journey. The hard deadline of May 31st departure focused every design decision perfectly.</p>
     </div>
   </section>
 
-  <!-- How It Works -->
+  <!-- Bot Commands -->
   <section class="page-section">
-    <h2 class="section-title">How It Works</h2>
+    <h2 class="section-title">How the Bot Works</h2>
     <div class="flow-list">
       <div class="flow-step">
-        <div class="flow-icon">📲</div>
+        <div class="flow-icon">📸</div>
         <div class="flow-text">
-          <h4>Send anything to the Telegram bot</h4>
-          <p>A thought, link, photo, Thai word, to-do — whatever's on your mind</p>
+          <h4>Send a photo</h4>
+          <p>Bot uploads it to Cloudinary, stores the URL and caption in Google Sheets with timestamp and location</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">🗂</div>
+        <div class="flow-icon">📍</div>
         <div class="flow-text">
-          <h4>Choose a category with one tap</h4>
-          <p>6 categories appear as inline buttons — no typing needed</p>
+          <h4>Send a Google Maps link</h4>
+          <p>Bot parses the URL (many formats — short links, place names, coords), reverse geocodes it, and extracts a clean place name + coordinates for the map</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">⚡</div>
+        <div class="flow-icon">✍️</div>
         <div class="flow-text">
-          <h4>Set priority + due date (To-Dos only)</h4>
-          <p>High / Medium / Low, then type a date or skip</p>
+          <h4>Send a reflection</h4>
+          <p>Any plain text message gets logged as a reflection entry — timestamped and ready to browse in the scrapbook</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">🏷</div>
+        <div class="flow-icon">🔄</div>
         <div class="flow-text">
-          <h4>Add an optional keyword tag</h4>
-          <p>e.g. "python", "thai", "career" — for filtering later</p>
+          <h4>/undo</h4>
+          <p>Instantly removes the last entry — for when you send something to the wrong chat or change your mind</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">✅</div>
+        <div class="flow-icon">📋</div>
         <div class="flow-text">
-          <h4>Saved to Google Sheets</h4>
-          <p>With timestamp, category, priority, content, and keyword</p>
+          <h4>/summary</h4>
+          <p>Generates a quick stats rundown: total entries, photos, places visited, days logged</p>
         </div>
       </div>
       <div class="flow-step">
-        <div class="flow-icon">📊</div>
+        <div class="flow-icon">💭</div>
         <div class="flow-text">
-          <h4>View anytime in the dashboard</h4>
-          <p>Filter, search, visualise, and mark things done</p>
+          <h4>/reflect</h4>
+          <p>Sends a daily prompt — a gentle nudge to write something reflective before sleeping</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Categories -->
+  <!-- Two Sites -->
   <section class="page-section">
-    <h2 class="section-title">Categories</h2>
+    <h2 class="section-title">Two Sites, Two Audiences</h2>
     <div class="card-grid">
       <div class="grid-card">
-        <h4>To-Do</h4>
-        <p>Tasks with High / Medium / Low priority and optional due dates. Overdue items surface automatically.</p>
+        <h4>TravelBees (Public)</h4>
+        <p>Open to anyone with the link. Leaflet.js interactive map with all visited locations, photo gallery, and reflections. Compact card view with expandable details.</p>
       </div>
       <div class="grid-card">
-        <h4>Explore</h4>
-        <p>Learning resources, courses, articles, and things to research. My Python journey lives here.</p>
+        <h4>Family Site (Private)</h4>
+        <p>Password-gated (password set before departure). Anonymous — no names used, just "we." Shows more detail than the public site. Feels close to the journey without being a public blog.</p>
       </div>
       <div class="grid-card">
-        <h4>Buy</h4>
-        <p>Products I want to purchase — so they stop living in browser tabs.</p>
+        <h4>Interactive Map</h4>
+        <p>Every Google Maps link becomes a pin on a Leaflet.js map. Click a pin to see what happened there — photos, notes, timestamp. The journey unfolds geographically.</p>
       </div>
       <div class="grid-card">
-        <h4>Reflection</h4>
-        <p>Personal thoughts, sabbatical observations, and lessons learned along the way.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Language</h4>
-        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary. Keyword "thai" or "spanish" auto-flags the right flag.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Reference</h4>
-        <p>Facts, processes, and permanent information I want to keep accessible forever.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dashboard -->
-  <section class="page-section">
-    <h2 class="section-title">The Dashboard</h2>
-    <div class="card-grid">
-      <div class="grid-card">
-        <h4>Main Table</h4>
-        <p>Every entry filterable by category, keyword, and status. Mark anything done with one click.</p>
-      </div>
-      <div class="grid-card">
-        <h4>To-Do Tracker</h4>
-        <p>Tasks grouped by priority. Overdue items surface automatically based on due date.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Language Log</h4>
-        <p>A clean vocab list for Thai and Spanish. Filterable by language, searchable by word.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Breakdown</h4>
-        <p>Category donut chart, weekly activity bar chart, and top keywords — a visual map of where your mind has been.</p>
+        <h4>Live Updates</h4>
+        <p>The site updates in real-time as entries come in. Family watching at home see new photos appear as we send them — no refresh needed, no waiting for a blog post.</p>
       </div>
     </div>
   </section>
@@ -437,32 +407,32 @@
   <section class="page-section">
     <h2 class="section-title">Screenshots</h2>
     <div class="screenshots-grid">
-      <div class="screenshot-card" onclick="openLightbox('screenshot-telegram.png', 'Telegram Bot — category selection')">
-        <img src="screenshot-telegram.png" alt="Telegram bot">
+      <div class="screenshot-card" onclick="openLightbox('logbees-bot.png', 'LogBees bot — sending a photo')">
+        <img src="logbees-bot.png" alt="Telegram bot">
         <div class="screenshot-caption">
           <h4>Telegram Bot</h4>
-          <p>Sending a message and selecting a category with one tap</p>
+          <p>Sending a photo and capturing location in one message</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-table.png', 'Main Table — all entries with filters')">
-        <img src="screenshot-dashboard-table.png" alt="Main table view">
+      <div class="screenshot-card" onclick="openLightbox('logbees-map.png', 'TravelBees — interactive map')">
+        <img src="logbees-map.png" alt="Interactive map">
         <div class="screenshot-caption">
-          <h4>Main Table</h4>
-          <p>All entries filterable by category, keyword, and status</p>
+          <h4>Interactive Map</h4>
+          <p>Leaflet.js map with every visited location pinned</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-todo.png', 'To-Do Tracker — tasks by priority')">
-        <img src="screenshot-dashboard-todo.png" alt="To-do tracker">
+      <div class="screenshot-card" onclick="openLightbox('logbees-gallery.png', 'TravelBees — photo gallery')">
+        <img src="logbees-gallery.png" alt="Photo gallery">
         <div class="screenshot-caption">
-          <h4>To-Do Tracker</h4>
-          <p>Tasks grouped by priority with overdue items surfaced automatically</p>
+          <h4>Photo Gallery</h4>
+          <p>All trip photos in compact card view with expandable details</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('screenshot-dashboard-charts.png', 'Category Breakdown — charts and keywords')">
-        <img src="screenshot-dashboard-charts.png" alt="Charts">
+      <div class="screenshot-card" onclick="openLightbox('logbees-family.png', 'Family site — password gate')">
+        <img src="logbees-family.png" alt="Family site">
         <div class="screenshot-caption">
-          <h4>Category Breakdown</h4>
-          <p>Visual charts showing entry distribution and top keywords over time</p>
+          <h4>Family Site</h4>
+          <p>Password-gated view with more detail for close family</p>
         </div>
       </div>
     </div>
@@ -472,18 +442,18 @@
   <section class="page-section">
     <h2 class="section-title">Tech Stack</h2>
     <div class="stack-grid">
-      <div class="stack-item"><div class="stack-layer">Capture</div><div class="stack-name">Telegram Bot API</div></div>
+      <div class="stack-item"><div class="stack-layer">Bot Language</div><div class="stack-name">Python 3.11</div></div>
       <div class="stack-item"><div class="stack-layer">Bot Framework</div><div class="stack-name">python-telegram-bot</div></div>
-      <div class="stack-item"><div class="stack-layer">Photo Hosting</div><div class="stack-name">Cloudinary</div></div>
+      <div class="stack-item"><div class="stack-layer">Capture</div><div class="stack-name">Telegram Bot API</div></div>
       <div class="stack-item"><div class="stack-layer">Database</div><div class="stack-name">Google Sheets + gspread</div></div>
-      <div class="stack-item"><div class="stack-layer">Dashboard</div><div class="stack-name">Streamlit</div></div>
-      <div class="stack-item"><div class="stack-layer">Charts</div><div class="stack-name">Plotly</div></div>
-      <div class="stack-item"><div class="stack-layer">Data</div><div class="stack-name">Pandas</div></div>
+      <div class="stack-item"><div class="stack-layer">Media</div><div class="stack-name">Cloudinary</div></div>
+      <div class="stack-item"><div class="stack-layer">Geocoding</div><div class="stack-name">Google Maps API</div></div>
+      <div class="stack-item"><div class="stack-layer">Map</div><div class="stack-name">Leaflet.js</div></div>
       <div class="stack-item"><div class="stack-layer">Bot Hosting</div><div class="stack-name">Railway</div></div>
-      <div class="stack-item"><div class="stack-layer">Dashboard Hosting</div><div class="stack-name">Streamlit Cloud</div></div>
+      <div class="stack-item"><div class="stack-layer">Site Hosting</div><div class="stack-name">Cloudflare Pages</div></div>
+      <div class="stack-item"><div class="stack-layer">Frontend</div><div class="stack-name">HTML / CSS / Vanilla JS</div></div>
       <div class="stack-item"><div class="stack-layer">Version Control</div><div class="stack-name">Git + GitHub</div></div>
       <div class="stack-item"><div class="stack-layer">Config</div><div class="stack-name">python-dotenv</div></div>
-      <div class="stack-item"><div class="stack-layer">Language</div><div class="stack-name">Python 3.11</div></div>
     </div>
   </section>
 
@@ -493,22 +463,19 @@
     <div class="content-box">
       <div class="tags-cloud">
         <span class="skill-chip">Async Python</span>
-        <span class="skill-chip">API integration</span>
         <span class="skill-chip">Telegram Bot API</span>
         <span class="skill-chip">Google Sheets API</span>
         <span class="skill-chip">Cloudinary API</span>
-        <span class="skill-chip">Pandas DataFrames</span>
-        <span class="skill-chip">Plotly charts</span>
-        <span class="skill-chip">Streamlit</span>
-        <span class="skill-chip">Multi-page dashboards</span>
-        <span class="skill-chip">Git &amp; GitHub</span>
+        <span class="skill-chip">Google Maps URL parsing</span>
+        <span class="skill-chip">Reverse geocoding</span>
+        <span class="skill-chip">GPS &amp; coordinates</span>
+        <span class="skill-chip">Leaflet.js</span>
         <span class="skill-chip">Railway deployment</span>
-        <span class="skill-chip">Streamlit Cloud</span>
-        <span class="skill-chip">Environment variables</span>
+        <span class="skill-chip">Cloudflare Pages</span>
+        <span class="skill-chip">Password-gated auth</span>
+        <span class="skill-chip">Multi-audience UX design</span>
+        <span class="skill-chip">Hard deadline shipping</span>
         <span class="skill-chip">Secrets management</span>
-        <span class="skill-chip">Python version management</span>
-        <span class="skill-chip">Product thinking</span>
-        <span class="skill-chip">UX flow design</span>
       </div>
     </div>
   </section>
@@ -518,38 +485,38 @@
     <h2 class="section-title">What I Learned</h2>
     <div class="lesson-list">
       <div class="lesson-item">
-        <div class="lesson-icon">🔐</div>
+        <div class="lesson-icon">🗺</div>
         <div class="lesson-body">
-          <h4>Secrets Management — The Hard Way</h4>
-          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch.</p>
+          <h4>Google Maps URLs Are a Jungle</h4>
+          <p>There are at least six different Google Maps URL formats in the wild — short links, place names, coordinates, embedded maps, search results. I had to handle them all. Reading the actual URL spec carefully saved hours of debugging on the road.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">⚙️</div>
+        <div class="lesson-icon">📅</div>
         <div class="lesson-body">
-          <h4>Async Python</h4>
-          <p>Telegram bots run on asyncio under the hood. Debugging async errors — especially Python version compatibility issues — taught me how the event loop works and why version pinning matters.</p>
+          <h4>Hard Deadlines Are a Gift</h4>
+          <p>The trip started May 31st. That date was non-negotiable. It forced me to scope ruthlessly — build the logging core first, ship by departure, iterate during the trip. The hardest design constraint was also the most clarifying.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">🌐</div>
+        <div class="lesson-icon">👥</div>
         <div class="lesson-body">
-          <h4>Multi-Environment Deployment</h4>
-          <p>Getting identical code to run on Windows locally, Railway (Linux), and Streamlit Cloud (Linux) required understanding how each platform handles Python versions and secrets differently.</p>
+          <h4>Two Audiences, Two Designs</h4>
+          <p>Public and family are different audiences with different needs. The public site is curated and polished. The family site is more raw and personal. Designing for two audiences simultaneously — and keeping them coherent — was harder than designing either one in isolation.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">🏗</div>
+        <div class="lesson-icon">📍</div>
         <div class="lesson-body">
-          <h4>Building in Phases</h4>
-          <p>Starting with raw capture only meant I had something working from day one. Each phase built on a stable foundation rather than trying to build everything at once.</p>
+          <h4>Reverse Geocoding Is Surprisingly Tricky</h4>
+          <p>Getting a human-readable "Café Tortoni, Buenos Aires" from a set of coordinates — especially in countries with inconsistent address data — required building fallbacks for when the API returns nothing useful.</p>
         </div>
       </div>
       <div class="lesson-item">
-        <div class="lesson-icon">🔌</div>
+        <div class="lesson-icon">🚀</div>
         <div class="lesson-body">
-          <h4>API Limitations Are Real</h4>
-          <p>Google service accounts can't upload to Drive due to storage quota restrictions. Pivoting to Cloudinary was a good lesson in reading API documentation before building.</p>
+          <h4>Ship Before You're Ready</h4>
+          <p>I used the bot from day one of the trip, bugs and all. That real usage on the road surfaced issues no amount of local testing would have caught — and forced me to fix them quickly. Shipping early is always better than shipping perfect.</p>
         </div>
       </div>
     </div>
@@ -559,17 +526,17 @@
   <section class="page-section">
     <h2 class="section-title">What's Next</h2>
     <div class="next-list">
-      <div class="next-item"><span class="next-dot"></span>AI enrichment — Claude API to summarise links, detect mood in reflections, enrich language entries with translations</div>
-      <div class="next-item"><span class="next-dot"></span>Migrate to Supabase (PostgreSQL) for proper multi-user support</div>
-      <div class="next-item"><span class="next-dot"></span>Timeline view — chronological visual map of ideas over time</div>
-      <div class="next-item"><span class="next-dot"></span>Rebuild frontend in Flask / React as frontend skills develop</div>
+      <div class="next-item"><span class="next-dot"></span>AI-powered daily summaries — use Claude API to generate a narrative recap from the day's entries</div>
+      <div class="next-item"><span class="next-dot"></span>Offline-first bot — queue entries locally when internet is spotty, sync when connection returns</div>
+      <div class="next-item"><span class="next-dot"></span>Export to PDF — generate a printable travel diary at the end of the trip</div>
+      <div class="next-item"><span class="next-dot"></span>Route animation — show the map journey as an animated path over time</div>
     </div>
   </section>
 
   <!-- CTA -->
   <div class="page-cta">
-    <h2>Want to build something similar?</h2>
-    <p>I'm open to chatting about automation, data pipelines, or sabbatical life.</p>
+    <h2>Planning a big trip?</h2>
+    <p>I'm happy to share how LogBees is set up — bot, maps, and all.</p>
     <div class="cta-btns">
       <a class="cta-btn btn-outline" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">✉️ Email me</a>
       <a class="cta-btn btn-solid" href="https://www.linkedin.com/in/melissa-yong-1baaa047" target="_blank">💼 LinkedIn</a>
