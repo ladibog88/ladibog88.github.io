@@ -450,13 +450,14 @@
   }
 
   .about-photo {
-    width: 72px;
-    height: 72px;
+    width: 100%;
+    height: 220px;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     object-fit: cover;
     object-position: center 15%;
     border: 2px solid var(--border);
-    flex-shrink: 0;
+    display: block;
+    margin-bottom: 1.5rem;
   }
 
   /* ── Bird doodles ── */
@@ -643,8 +644,7 @@
       <em>on sabbatical.</em>
     </h1>
     <p class="hero-lead">
-      After 14 years in <span class="hl-pink">transfer pricing</span>, I'm taking time off to build tools at the
-      intersection of <span class="hl-blue">automation</span> and everyday life — starting with problems in my own world.
+      After 14 years in <span class="hl-pink">transfer pricing</span>, I'm taking time off to rest, travel, play, and explore interests. This website is to document my journey of using AI/technology to create projects I'm using in my everyday life.
     </p>
     <div class="hero-pills">
       <span class="pill pill-pink">
@@ -751,7 +751,7 @@
               <span class="card-status">Soon</span>
             </div>
             <p class="card-subtitle">AI Learning Companion</p>
-            <p class="card-description">Turning study notes into structured quizzes and course materials using NotebookLM. Personalising the path from vibe-coding to precision.</p>
+            <p class="card-description">Turning study notes into structured quizzes and course materials using NotebookLM.</p>
           </div>
           <div class="card-tags">
             <span class="card-tag">NotebookLM</span>
@@ -768,23 +768,25 @@
     <aside class="sidebar-col" id="about">
       <div class="sidebar-inner">
 
+        <img class="about-photo" src="me.jpg" alt="Melissa">
+
         <div class="sidebar-bio">
           <p class="sidebar-section-label">About</p>
           <p>
             Transitioning from 14 years in <strong>transfer pricing</strong> to wherever my interests take me. I took on a tax automation scope in my last role and discovered a real passion for building systems that work.
           </p>
           <p>
-            Now using this sabbatical to <strong>upskill and ship</strong> — one practical tool at a time.
+            Now using this sabbatical to explore building tools.
           </p>
         </div>
 
         <div>
           <p class="sidebar-section-label">Right Now</p>
           <ul class="sidebar-list">
-            <li><span class="sidebar-dot" style="background:#f4a261"></span>Automation &amp; AI tools</li>
-            <li><span class="sidebar-dot" style="background:#a3b18a"></span>Building in Python</li>
+            <li><span class="sidebar-dot" style="background:#f4a261"></span>Automation, Coding &amp; AI tools</li>
+            <li><span class="sidebar-dot" style="background:#a3b18a"></span>Nature + wildlife</li>
             <li><span class="sidebar-dot" style="background:#8da9c4"></span>Travel + languages</li>
-            <li><span class="sidebar-dot" style="background:#e76f51"></span>Running + Tennis</li>
+            <li><span class="sidebar-dot" style="background:#e76f51"></span>Running + Cycling</li>
           </ul>
         </div>
 
@@ -797,7 +799,6 @@
 
         <div class="sidebar-footer">
           <span class="sidebar-location">Singapore · Remote</span>
-          <img class="about-photo" src="me.jpg" alt="Melissa">
         </div>
 
       </div>
