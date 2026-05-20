@@ -128,35 +128,133 @@
   .content-box p:last-child { margin-bottom: 0; }
   .content-box p strong { color: var(--ink); font-weight: 500; }
 
-  /* ── Flow list ── */
-  .flow-list {
+  /* ── How It Works Diagram ── */
+  .how-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .how-row {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+  }
+
+  .how-node {
+    flex: 1;
     background: rgba(255,255,255,0.5);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .how-node:hover { transform: translate(-1px, -1px); box-shadow: 2px 2px 0 var(--page-accent); }
+
+  .how-node-img {
+    width: 100%; height: 130px;
+    object-fit: cover; object-position: top;
+    border-bottom: 1px solid var(--border);
+    display: block;
+  }
+
+  .how-node-body { padding: 0.85rem 1rem; }
+
+  .how-node-icon { font-size: 1rem; display: block; margin-bottom: 0.2rem; }
+
+  .how-node-body h4 {
+    font-size: 0.875rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.2rem;
+  }
+
+  .how-node-body p {
+    font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5;
+  }
+
+  .how-or {
+    display: flex; align-items: center; justify-content: center;
+    min-width: 2.5rem; flex-shrink: 0;
+  }
+  .how-or span {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-muted); background: var(--paper);
+    padding: 0.15rem 0.4rem; border: 1px solid var(--border); border-radius: 3px;
+  }
+
+  .how-arrow {
+    font-size: 1.4rem; color: var(--ink-muted);
+    padding: 0.5rem 0; line-height: 1;
+  }
+
+  .how-db {
+    background: rgba(255,255,255,0.65);
     border: 2px solid var(--ink);
     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-    overflow: hidden; box-shadow: 4px 4px 0 var(--page-accent);
+    padding: 1.25rem 3rem; text-align: center;
+    box-shadow: 4px 4px 0 var(--page-accent);
+    width: 100%; max-width: 420px;
+  }
+  .how-db-icon { font-size: 1.75rem; display: block; margin-bottom: 0.3rem; }
+  .how-db h4 { font-size: 1rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.2rem; }
+  .how-db p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5; }
+
+  /* ── Categories Panel ── */
+  .cat-panel {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    border: 2px solid var(--ink);
+    border-radius: 16px 8px 16px 8px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 var(--page-accent);
+    background: rgba(255,255,255,0.5);
+    min-height: 360px;
   }
 
-  .flow-step {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
+  .cat-list {
+    border-right: 1.5px solid var(--border);
+    background: rgba(255,255,255,0.2);
   }
-  .flow-step:last-child { border-bottom: none; }
 
-  .flow-icon { font-size: 1.1rem; min-width: 1.5rem; margin-top: 0.1rem; flex-shrink: 0; }
-
-  .flow-text h4 { font-size: 0.9rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.15rem; }
-  .flow-text p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5; }
-
-  /* ── Card grid ── */
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; }
-
-  .grid-card {
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 12px 6px 14px 8px; padding: 1rem 1.25rem; transition: transform 0.15s;
+  .cat-btn {
+    display: block; width: 100%; text-align: left;
+    padding: 0.7rem 1.1rem;
+    border: none; border-bottom: 1px solid var(--border);
+    background: transparent; cursor: pointer;
+    font-size: 0.875rem; font-weight: 400;
+    font-family: 'Outfit', sans-serif; color: var(--ink-muted);
+    transition: background 0.15s, color 0.15s;
+    line-height: 1.4;
   }
-  .grid-card:hover { transform: translate(-1px, -1px); }
-  .grid-card h4 { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 400; color: var(--ink-dark); margin-bottom: 0.35rem; }
-  .grid-card p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.6; }
+  .cat-btn:last-child { border-bottom: none; }
+  .cat-btn:hover { background: rgba(255,255,255,0.65); color: var(--ink-dark); }
+  .cat-btn.active {
+    background: rgba(255,255,255,0.95);
+    color: var(--ink-dark);
+    font-weight: 500;
+    box-shadow: inset -3px 0 0 var(--ink);
+  }
+
+  .cat-desc-area {
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .cat-desc-item { display: none; }
+  .cat-desc-item.active {
+    display: block;
+    animation: fadeIn 0.18s ease;
+  }
+  .cat-desc-item h4 {
+    font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 400;
+    color: var(--ink-dark); margin-bottom: 0.6rem; line-height: 1.2;
+  }
+  .cat-desc-item p {
+    font-size: 0.9rem; font-weight: 300;
+    color: var(--ink-muted); line-height: 1.85;
+  }
 
   /* ── Screenshots ── */
   .screenshots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
@@ -187,27 +285,6 @@
     padding: 0.25rem 0.65rem; background: rgba(66,63,58,0.05);
     border: 1px solid var(--border); border-radius: 4px; color: var(--ink-muted);
   }
-
-  /* ── Lessons ── */
-  .lesson-list { display: flex; flex-direction: column; gap: 0.75rem; }
-  .lesson-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 1rem 1.25rem;
-  }
-  .lesson-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .lesson-body h4 { font-size: 0.875rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.25rem; }
-  .lesson-body p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.65; }
-
-  /* ── What's next ── */
-  .next-list { display: flex; flex-direction: column; gap: 0.55rem; }
-  .next-item {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 0.75rem 1rem;
-    font-size: 0.875rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5;
-  }
-  .next-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage-dark); flex-shrink: 0; margin-top: 0.45rem; }
 
   /* ── CTA ── */
   .page-cta {
@@ -276,8 +353,31 @@
     main { padding: 6rem 1.5rem 3rem; }
     .project-hero h1 { font-size: 2.2rem; }
     .screenshots-grid { grid-template-columns: 1fr; }
-    .card-grid { grid-template-columns: 1fr; }
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .how-row { flex-direction: column; gap: 0.75rem; }
+    .how-or { height: 1.5rem; width: 100%; }
+
+    .cat-panel {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .cat-list {
+      border-right: none;
+      border-bottom: 1.5px solid var(--border);
+      display: flex; flex-wrap: wrap;
+    }
+    .cat-btn {
+      flex: 1 0 auto;
+      border-bottom: none;
+      border-right: 1px solid var(--border);
+      padding: 0.5rem 0.6rem;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    .cat-btn:last-child { border-right: none; }
+    .cat-btn.active { box-shadow: inset 0 -3px 0 var(--ink); }
+    .cat-desc-area { padding: 1.25rem; }
   }
 </style>
 </head>
@@ -336,114 +436,116 @@
   <!-- How It Works -->
   <section class="page-section">
     <h2 class="section-title">How It Works</h2>
-    <div class="flow-list">
-      <div class="flow-step">
-        <div class="flow-icon">🔐</div>
-        <div class="flow-text">
-          <h4>Log in with a 4-digit PIN</h4>
-          <p>Each family member has their own PIN — and their own private Google Sheet behind it</p>
+    <div class="how-diagram">
+
+      <!-- Input methods -->
+      <div class="how-row">
+        <div class="how-node">
+          <img src="screenshot-telegram.png" alt="Telegram bot" class="how-node-img">
+          <div class="how-node-body">
+            <span class="how-node-icon">📲</span>
+            <h4>Telegram Bot</h4>
+            <p>Capture on the go — send any message, pick a category with one tap</p>
+          </div>
+        </div>
+        <div class="how-or"><span>or</span></div>
+        <div class="how-node">
+          <img src="dt_screenshot_entry.jpg" alt="Web App new entry form" class="how-node-img">
+          <div class="how-node-body">
+            <span class="how-node-icon">🌐</span>
+            <h4>Web App</h4>
+            <p>Log in with your 4-digit PIN and tap "+ New Entry"</p>
+          </div>
         </div>
       </div>
-      <div class="flow-step">
-        <div class="flow-icon">✏️</div>
-        <div class="flow-text">
-          <h4>Tap "+ New Entry" to add anything</h4>
-          <p>Choose from 9 categories, fill in a title and optional notes, set priority and due date for to-dos</p>
+
+      <div class="how-arrow">↓</div>
+
+      <!-- Database -->
+      <div class="how-db">
+        <span class="how-db-icon">📊</span>
+        <h4>Google Sheets</h4>
+        <p>One private sheet per family member — every entry persisted automatically</p>
+      </div>
+
+      <div class="how-arrow">↓</div>
+
+      <!-- Output views -->
+      <div class="how-row">
+        <div class="how-node">
+          <img src="dt_screenshot_dashboard.jpg" alt="Dashboard" class="how-node-img">
+          <div class="how-node-body">
+            <span class="how-node-icon">📋</span>
+            <h4>Dashboard</h4>
+            <p>Browse, filter, search, and complete entries across all 9 categories</p>
+          </div>
+        </div>
+        <div class="how-or"><span>&amp;</span></div>
+        <div class="how-node">
+          <img src="dt_screenshot_chart.jpg" alt="Charts and insights" class="how-node-img">
+          <div class="how-node-body">
+            <span class="how-node-icon">📈</span>
+            <h4>Charts &amp; Insights</h4>
+            <p>Visual breakdown of categories, activity over time, and top keywords</p>
+          </div>
         </div>
       </div>
-      <div class="flow-step">
-        <div class="flow-icon">📲</div>
-        <div class="flow-text">
-          <h4>Or send via the Telegram bot</h4>
-          <p>Capture on the go — the bot asks for a category with one tap and saves to the same Google Sheet</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">🔍</div>
-        <div class="flow-text">
-          <h4>Browse, filter, and search</h4>
-          <p>Large category filter buttons, full-text search, and sort by newest or due date</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">↕️</div>
-        <div class="flow-text">
-          <h4>Tap any entry to expand it</h4>
-          <p>Cards default to a compact one-liner; tap to reveal the full text and notes</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">📊</div>
-        <div class="flow-text">
-          <h4>See the bigger picture</h4>
-          <p>Charts show entry distribution by category, activity over time, and your most-used keywords</p>
-        </div>
-      </div>
+
     </div>
   </section>
 
   <!-- Categories -->
   <section class="page-section">
     <h2 class="section-title">Categories</h2>
-    <div class="card-grid">
-      <div class="grid-card">
-        <h4>✅ To-Do</h4>
-        <p>Tasks with High / Medium / Low priority and optional due dates. Overdue items surface automatically.</p>
+    <div class="cat-panel">
+      <div class="cat-list">
+        <button class="cat-btn active" data-key="todo" onclick="selectCat('todo')">✅ To-Do</button>
+        <button class="cat-btn" data-key="explore" onclick="selectCat('explore')">🔍 Explore</button>
+        <button class="cat-btn" data-key="buy" onclick="selectCat('buy')">🛒 Buy</button>
+        <button class="cat-btn" data-key="enjoy" onclick="selectCat('enjoy')">🎵 Enjoy</button>
+        <button class="cat-btn" data-key="idea" onclick="selectCat('idea')">💡 Idea</button>
+        <button class="cat-btn" data-key="learn" onclick="selectCat('learn')">📚 Learn</button>
+        <button class="cat-btn" data-key="reflection" onclick="selectCat('reflection')">💭 Reflection</button>
+        <button class="cat-btn" data-key="language" onclick="selectCat('language')">🌏 Language</button>
+        <button class="cat-btn" data-key="reference" onclick="selectCat('reference')">📌 Reference</button>
       </div>
-      <div class="grid-card">
-        <h4>🔍 Explore</h4>
-        <p>Learning resources, courses, articles, and things to research.</p>
-      </div>
-      <div class="grid-card">
-        <h4>🛒 Buy</h4>
-        <p>Products to purchase — so they stop living in browser tabs.</p>
-      </div>
-      <div class="grid-card">
-        <h4>🎵 Enjoy</h4>
-        <p>Movies, music, restaurants, and experiences worth savouring.</p>
-      </div>
-      <div class="grid-card">
-        <h4>💡 Idea</h4>
-        <p>Sparks of inspiration and half-formed thoughts worth keeping.</p>
-      </div>
-      <div class="grid-card">
-        <h4>📚 Learn</h4>
-        <p>Skills, topics, and concepts to dig deeper into.</p>
-      </div>
-      <div class="grid-card">
-        <h4>💭 Reflection</h4>
-        <p>Personal thoughts, observations, and lessons learned along the way.</p>
-      </div>
-      <div class="grid-card">
-        <h4>🌏 Language</h4>
-        <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary with definitions and language tags.</p>
-      </div>
-      <div class="grid-card">
-        <h4>📌 Reference</h4>
-        <p>Facts, processes, and permanent information to keep accessible forever.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Web App -->
-  <section class="page-section">
-    <h2 class="section-title">The Web App</h2>
-    <div class="card-grid">
-      <div class="grid-card">
-        <h4>PIN Authentication</h4>
-        <p>Each family member has their own 4-digit PIN, with a separate Google Sheet behind it — fully independent data per user.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Compact List View</h4>
-        <p>Entries show as single-line items with category emoji and label. Tap any card to expand and see the full title and notes.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Accessibility First</h4>
-        <p>Large scrollable category filter buttons, a Large Text mode that increases font sizes and button tap targets, and higher-contrast text — designed with senior users in mind.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Charts & Insights</h4>
-        <p>Category donut, activity bar chart, heatmap, and top keywords — a visual map of where your collective mind has been.</p>
+      <div class="cat-desc-area">
+        <div class="cat-desc-item active" id="cat-todo">
+          <h4>✅ To-Do</h4>
+          <p>Tasks with High / Medium / Low priority and optional due dates. Overdue items surface automatically so nothing slips through the cracks.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-explore">
+          <h4>🔍 Explore</h4>
+          <p>Learning resources, courses, articles, and things to research — a running list of rabbit holes worth going down.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-buy">
+          <h4>🛒 Buy</h4>
+          <p>Products to purchase — so they stop living in open browser tabs and forgotten cart pages.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-enjoy">
+          <h4>🎵 Enjoy</h4>
+          <p>Movies, music, restaurants, and experiences worth savouring. Everything recommended that you actually want to remember.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-idea">
+          <h4>💡 Idea</h4>
+          <p>Sparks of inspiration and half-formed thoughts worth keeping. The 2am observations and shower thoughts that usually vanish by morning.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-learn">
+          <h4>📚 Learn</h4>
+          <p>Skills, topics, and concepts to dig deeper into — distinct from Explore in that these are things you've already committed to learning.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-reflection">
+          <h4>💭 Reflection</h4>
+          <p>Personal thoughts, observations, and lessons learned along the way. A private journal layer inside your second brain.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-language">
+          <h4>🌏 Language</h4>
+          <p>Thai 🇹🇭 and Spanish 🇪🇸 vocabulary with definitions and language tags — so new words don't evaporate after you look them up.</p>
+        </div>
+        <div class="cat-desc-item" id="cat-reference">
+          <h4>📌 Reference</h4>
+          <p>Facts, processes, and permanent information to keep accessible forever. The stuff you look up more than twice.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -538,60 +640,6 @@
     </div>
   </section>
 
-  <!-- Lessons -->
-  <section class="page-section">
-    <h2 class="section-title">What I Learned</h2>
-    <div class="lesson-list">
-      <div class="lesson-item">
-        <div class="lesson-icon">👨‍👩‍👧</div>
-        <div class="lesson-body">
-          <h4>Build for Your Real Users, Not Yourself</h4>
-          <p>The Telegram bot worked perfectly for me — and was completely inaccessible to my parents. Rebuilding as a web app forced me to think about tap target sizes, contrast, discoverable interactions, and reducing cognitive load for people who didn't grow up with smartphones.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🔐</div>
-        <div class="lesson-body">
-          <h4>Secrets Management — The Hard Way</h4>
-          <p>Accidentally pushed API keys to a public GitHub repo early on. Immediately revoked everything, scrubbed the git history, and rebuilt security practices from scratch. Cloud platforms like Railway also mangle private keys in subtle ways — stripping quotes, breaking newlines — that only surface in production.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🌐</div>
-        <div class="lesson-body">
-          <h4>The Browser Can't Touch Google Sheets Directly</h4>
-          <p>A key architectural decision: the Google Sheets API requires a service account private key, which can never be in client-side code. This pushed me to build a proper Express backend — not just a thin proxy, but a real authenticated API layer with JWT sessions.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🏗</div>
-        <div class="lesson-body">
-          <h4>V1 Made V2 Possible</h4>
-          <p>Having real data flowing into Google Sheets from day one — via the Telegram bot — meant the web app had something meaningful to display the moment it launched. Shipping something simple first de-risked the whole project.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">⚙️</div>
-        <div class="lesson-body">
-          <h4>Framework Gotchas Are Everywhere</h4>
-          <p>Express 5 changed wildcard route syntax. Tailwind v4 moved to a CSS-first config. Railway encodes environment variables differently than local .env files. Each one cost debugging time — and taught me to read changelogs before upgrading.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What's Next -->
-  <section class="page-section">
-    <h2 class="section-title">What's Next</h2>
-    <div class="next-list">
-      <div class="next-item"><span class="next-dot"></span>AI enrichment — Claude API to auto-summarise links, suggest categories, and enrich language entries with example sentences</div>
-      <div class="next-item"><span class="next-dot"></span>Push notifications for overdue to-dos — so items with a due date actually surface on your phone</div>
-      <div class="next-item"><span class="next-dot"></span>Image capture in the web app — currently photos only work via the Telegram bot</div>
-      <div class="next-item"><span class="next-dot"></span>Timeline view — a chronological visual map of ideas and reflections over time</div>
-      <div class="next-item"><span class="next-dot"></span>Migrate to a proper database (Supabase / PostgreSQL) as the family grows and Google Sheets hits its limits</div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <div class="page-cta">
     <h2>Want to build something similar?</h2>
@@ -620,6 +668,11 @@
 </footer>
 
 <script>
+  function selectCat(key) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.key === key));
+    document.querySelectorAll('.cat-desc-item').forEach(d => d.classList.toggle('active', d.id === 'cat-' + key));
+  }
+
   function openLightbox(src, caption) {
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox-caption').textContent = caption;
