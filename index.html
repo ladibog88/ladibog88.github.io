@@ -674,20 +674,40 @@
         <div class="project-card">
           <div class="card-top">
             <div class="card-banner banner-green">
-              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height:5.5rem;width:5.5rem;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+                <defs>
+                  <linearGradient id="bg-dt" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FFD4E5"/>
+                    <stop offset="100%" stop-color="#D4C1FF"/>
+                  </linearGradient>
+                </defs>
+                <rect width="512" height="512" rx="115" fill="url(#bg-dt)"/>
+                <g transform="translate(16, 40) scale(24)">
+                  <path d="M 4,14 C 2,14 1,9 5,5 C 7,2 13,2 15,5 C 19,9 18,14 16,14 C 13,16 7,16 4,14 Z" fill="#FFF9EE" stroke="#FFD4A0" stroke-width="0.5"/>
+                  <path d="M 7,5 Q 8,3.5 10,4 Q 12,3.5 13,5" fill="none" stroke="#FFD4A0" stroke-width="0.6"/>
+                  <rect x="4.5" y="5.5" width="4.5" height="3.5" rx="1.2" fill="none" stroke="#FF7597" stroke-width="0.9"/>
+                  <rect x="11" y="5.5" width="4.5" height="3.5" rx="1.2" fill="none" stroke="#FF7597" stroke-width="0.9"/>
+                  <line x1="9" y1="7.2" x2="11" y2="7.2" stroke="#FF7597" stroke-width="0.8"/>
+                  <circle cx="6.8" cy="7.2" r="0.8" fill="#FF7597" opacity="0.7"/>
+                  <circle cx="13.2" cy="7.2" r="0.8" fill="#FF7597" opacity="0.7"/>
+                  <path d="M 9,11 Q 10,12.5 11,11" stroke="#332211" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+                  <circle cx="4.5" cy="10" r="1.2" fill="#FFB6C1" opacity="0.45"/>
+                  <circle cx="15.5" cy="10" r="1.2" fill="#FFB6C1" opacity="0.45"/>
+                </g>
+              </svg>
             </div>
             <div class="card-meta">
               <h3 class="card-title">DumplingThoughts</h3>
               <span class="card-status">Live</span>
             </div>
             <p class="card-subtitle">Personal Second Brain</p>
-            <p class="card-description">A Telegram bot + dashboard that captures reflections, vocab, and links — categorised via Google Sheets and visualised in a real-time dashboard. Runs 24/7 on Railway.</p>
+            <p class="card-description">A web app that captures to do lists, reflections, vocab, and links — categorised via Google Sheets and visualised in a real-time dashboard. Runs 24/7 on Railway.</p>
           </div>
           <div>
             <div class="card-tags">
               <span class="card-tag">Python</span>
               <span class="card-tag">Telegram API</span>
-              <span class="card-tag">Streamlit</span>
+              <span class="card-tag">React</span>
               <span class="card-tag">Google Sheets</span>
             </div>
             <a class="card-link" href="dumpling-thoughts.html">Read More →</a>
@@ -698,11 +718,11 @@
         <!-- Sunbee Cam -->
         <div class="project-card">
           <div class="card-top">
-            <div class="card-banner banner-blue">
-              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+            <div class="card-banner banner-blue" style="padding:0">
+              <img src="Sunbirdnestcam.jpg" alt="Sunbird Nest Cam" style="width:100%;height:100%;object-fit:cover;display:block;">
             </div>
             <div class="card-meta">
-              <h3 class="card-title">Sunbee Cam</h3>
+              <h3 class="card-title">Sunbird Nest Cam</h3>
               <span class="card-status">Live</span>
             </div>
             <p class="card-subtitle">Live Nest Cam</p>
@@ -717,14 +737,14 @@
           <span class="card-num">2</span>
         </div>
 
-        <!-- LogBees -->
+        <!-- Travel Bees -->
         <div class="project-card">
           <div class="card-top">
             <div class="card-banner banner-pink">
-              <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <img src="travelbees-logo.png" alt="Travel Bees" style="height:5.5rem;width:auto;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
             </div>
             <div class="card-meta">
-              <h3 class="card-title">LogBees</h3>
+              <h3 class="card-title">Travel Bees</h3>
               <span class="card-status">Live</span>
             </div>
             <p class="card-subtitle">Travel Scrapbook Bot</p>
@@ -736,7 +756,7 @@
             <span class="card-tag">Railway</span>
             <span class="card-tag">Cloudinary</span>
           </div>
-          <a class="card-link" href="logbees.html">Read More →</a>
+          <a class="card-link" href="travelbees.html">Read More →</a>
           <span class="card-num">3</span>
         </div>
 
@@ -773,7 +793,7 @@
         <div class="sidebar-bio">
           <p class="sidebar-section-label">About</p>
           <p>
-            Transitioning from transfer pricing to wherever my interests take me. I took on a tax automation scope in my last role and discovered a real passion for building systems that work.
+            Taking a pause from a transfer pricing career to see what happens when I have free time to myself. I took on a tax automation scope in my last role and discovered a real passion for building systems that work.
           </p>
           <p>
             Now using this sabbatical to explore what else I can create.
@@ -783,10 +803,10 @@
         <div>
           <p class="sidebar-section-label">Right Now</p>
           <ul class="sidebar-list">
-            <li><span class="sidebar-dot" style="background:#f4a261"></span>Automation, Coding &amp; AI tools</li>
+            <li><span class="sidebar-dot" style="background:#f4a261"></span>Automation, coding &amp; AI tools</li>
             <li><span class="sidebar-dot" style="background:#a3b18a"></span>Nature + wildlife</li>
             <li><span class="sidebar-dot" style="background:#8da9c4"></span>Travel + languages</li>
-            <li><span class="sidebar-dot" style="background:#e76f51"></span>Running + Cycling</li>
+            <li><span class="sidebar-dot" style="background:#e76f51"></span>Running + cycling</li>
           </ul>
         </div>
 
@@ -809,8 +829,8 @@
   <!-- Contact -->
   <section class="contact" id="contact">
     <div class="contact-card">
-      <h2>Let's connect in the wild.</h2>
-      <p>Curious about tax tech automation, sabbatical life, or want to talk about sunbirds — I'm all ears.</p>
+      <h2>Let's connect!</h2>
+      <p>Curious about sabbatical life, transfer pricing, or want to talk about sunbirds — happy to  chat.</p>
       <div class="contact-btns">
         <a class="contact-btn btn-outline" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
