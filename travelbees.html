@@ -128,49 +128,37 @@
   .content-box p:last-child { margin-bottom: 0; }
   .content-box p strong { color: var(--ink); font-weight: 500; }
 
-  /* ── Flow list ── */
-  .flow-list {
-    background: rgba(255,255,255,0.5);
-    border: 2px solid var(--ink);
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-    overflow: hidden; box-shadow: 4px 4px 0 var(--page-accent);
+  /* ── Screenshot Strip ── */
+  .screenshot-strip {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.25rem 0.25rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
+  .screenshot-strip::-webkit-scrollbar { height: 6px; }
+  .screenshot-strip::-webkit-scrollbar-track { background: transparent; }
+  .screenshot-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  .flow-step {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
-  }
-  .flow-step:last-child { border-bottom: none; }
-
-  .flow-icon { font-size: 1.1rem; min-width: 1.5rem; margin-top: 0.1rem; flex-shrink: 0; }
-
-  .flow-text h4 { font-size: 0.9rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.15rem; }
-  .flow-text p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5; }
-
-  /* ── Card grid ── */
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; }
-
-  .grid-card {
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 12px 6px 14px 8px; padding: 1rem 1.25rem; transition: transform 0.15s;
-  }
-  .grid-card:hover { transform: translate(-1px, -1px); }
-  .grid-card h4 { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 400; color: var(--ink-dark); margin-bottom: 0.35rem; }
-  .grid-card p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.6; }
-
-  /* ── Screenshots ── */
-  .screenshots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-
-  .screenshot-card {
-    border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden;
-    background: rgba(255,255,255,0.4); cursor: pointer;
+  .screenshot-strip-card {
+    flex: 0 0 auto;
+    width: 240px;
+    scroll-snap-align: start;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s;
   }
-  .screenshot-card:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--page-accent); }
-  .screenshot-card img { width: 100%; height: 175px; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--border); }
-  .screenshot-caption { padding: 0.75rem 1rem; }
-  .screenshot-caption h4 { font-size: 0.85rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.15rem; }
-  .screenshot-caption p { font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); }
+  .screenshot-strip-card:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--page-accent); }
+  .screenshot-strip-card img { width: 100%; height: auto; display: block; border-bottom: 1px solid var(--border); }
+  .screenshot-strip-caption { padding: 0.75rem 1rem; }
+  .screenshot-strip-caption h4 { font-size: 0.85rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.15rem; }
+  .screenshot-strip-caption p { font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5; }
 
   /* ── Stack grid ── */
   .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.65rem; }
@@ -186,27 +174,6 @@
     padding: 0.25rem 0.65rem; background: rgba(66,63,58,0.05);
     border: 1px solid var(--border); border-radius: 4px; color: var(--ink-muted);
   }
-
-  /* ── Lessons ── */
-  .lesson-list { display: flex; flex-direction: column; gap: 0.75rem; }
-  .lesson-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 1rem 1.25rem;
-  }
-  .lesson-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .lesson-body h4 { font-size: 0.875rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.25rem; }
-  .lesson-body p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.65; }
-
-  /* ── What's next ── */
-  .next-list { display: flex; flex-direction: column; gap: 0.55rem; }
-  .next-item {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 0.75rem 1rem;
-    font-size: 0.875rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5;
-  }
-  .next-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage-dark); flex-shrink: 0; margin-top: 0.45rem; }
 
   /* ── CTA ── */
   .page-cta {
@@ -274,9 +241,8 @@
     nav { padding: 1rem 1.5rem; }
     main { padding: 6rem 1.5rem 3rem; }
     .project-hero h1 { font-size: 2.2rem; }
-    .screenshots-grid { grid-template-columns: 1fr; }
-    .card-grid { grid-template-columns: 1fr; }
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .screenshot-strip-card { width: 200px; }
   }
 </style>
 </head>
@@ -304,9 +270,9 @@
       <span>May 2026</span>
     </div>
     <h1>Travel <em>Bees</em></h1>
-    <p class="hero-tagline">Travel Logging Bot + Live Scrapbook — South America 2026</p>
+    <p class="hero-tagline">Travel Logging Bot + Live Scrapbook </p>
     <p class="hero-desc">
-      A Telegram bot initially built for a 6-week journey through South America, but now rolled out for all types of trips. Send a photo, a Google Maps link, or a daily reflection — the bot captures it, stores it in Google Sheets, uploads media to Cloudinary, and publishes everything to a live scrapbook with an interactive map. 
+      A Telegram bot initially built for a 6-week journey through South America, but now rolled out for all types of trips. Send a photo, a Google Maps link, or a daily reflection — the bot captures it, stores it in Google Sheets, and publishes everything to a live scrapbook with an interactive map. 
     </p>
     <div class="hero-tags">
       <span class="hero-tag">Python</span>
@@ -325,93 +291,42 @@
   <section class="page-section">
     <h2 class="section-title">The Story</h2>
     <div class="content-box">
-      <p>Min and I had a 6-week trip to Peru and Ecuador lined up. We both wanted to document it properly. Not just Instagram posts after the fact, but a real-time record: where we were, what we ate, what we thought, what surprised us.</p>
+      <p>Min and I had a 6-week trip to Peru and Ecuador lined up. We both wanted to document it properly. Not just Instagram posts after the fact, but a real-time record and timeline: where we were, what we ate, what we thought, what surprised us.</p>
       <p>I built Travel Bees before we left. The idea was simple: <strong>a Telegram bot that required zero friction to use</strong>. Take a photo — send it. Drop a Google Maps link from the restaurant you just loved — send it. Type a thought before you sleep — send it. Everything gets captured, timestamped, and geolocated automatically.</p>
       <p> The hard deadline of May 31st departure focused every design decision perfectly.</p>
     </div>
   </section>
 
-  <!-- Bot Commands -->
-  <section class="page-section">
-    <h2 class="section-title">How the Bot Works</h2>
-    <div class="flow-list">
-      <div class="flow-step">
-        <div class="flow-icon">📸</div>
-        <div class="flow-text">
-          <h4>Send a photo</h4>
-          <p>Bot uploads it to Cloudinary, stores the URL and caption in Google Sheets with timestamp and location</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">📍</div>
-        <div class="flow-text">
-          <h4>Send a Google Maps link</h4>
-          <p>Bot parses the URL (many formats — short links, place names, coords), reverse geocodes it, and extracts a clean place name + coordinates for the map</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">✍️</div>
-        <div class="flow-text">
-          <h4>Send a reflection</h4>
-          <p>Any plain text message gets logged as a reflection entry — timestamped and ready to browse in the scrapbook</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">🔄</div>
-        <div class="flow-text">
-          <h4>/undo</h4>
-          <p>Instantly removes the last entry — for when you send something to the wrong chat or change your mind</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">📋</div>
-        <div class="flow-text">
-          <h4>/summary</h4>
-          <p>Generates a quick stats rundown: total entries, photos, places visited, days logged</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">💭</div>
-        <div class="flow-text">
-          <h4>/reflect</h4>
-          <p>Sends a daily prompt — a gentle nudge to write something reflective before sleeping</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
   <!-- Screenshots -->
   <section class="page-section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots-grid">
-      <div class="screenshot-card" onclick="openLightbox('logbees-bot.png', 'Travel Bees bot — sending a photo')">
-        <img src="logbees-bot.png" alt="Telegram bot">
-        <div class="screenshot-caption">
+    <h2 class="section-title">The App</h2>
+    <div class="screenshot-strip">
+      <div class="screenshot-strip-card" onclick="openLightbox('tb_telegram.jpg', 'Telegram Bot — all the commands to capture your trip')">
+        <img src="tb_telegram.jpg" alt="Telegram bot commands">
+        <div class="screenshot-strip-caption">
           <h4>Telegram Bot</h4>
-          <p>Sending a photo and capturing location in one message</p>
+          <p>All the commands to capture your trip</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('logbees-map.png', 'TravelBees — interactive map')">
-        <img src="logbees-map.png" alt="Interactive map">
-        <div class="screenshot-caption">
+      <div class="screenshot-strip-card" onclick="openLightbox('tb_map.jpg', 'Interactive map — every location pinned from your trip')">
+        <img src="tb_map.jpg" alt="Interactive map">
+        <div class="screenshot-strip-caption">
           <h4>Interactive Map</h4>
-          <p>Leaflet.js map with every visited location pinned</p>
+          <p>Every location pinned from your trip</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('logbees-gallery.png', 'TravelBees — photo gallery')">
-        <img src="logbees-gallery.png" alt="Photo gallery">
-        <div class="screenshot-caption">
-          <h4>Photo Gallery</h4>
-          <p>All trip photos in compact card view with expandable details</p>
+      <div class="screenshot-strip-card" onclick="openLightbox('tb_south_america.jpg', 'South America scrapbook — live during the trip')">
+        <img src="tb_south_america.jpg" alt="South America scrapbook">
+        <div class="screenshot-strip-caption">
+          <h4>South America</h4>
+          <p>Live scrapbook during the trip</p>
         </div>
       </div>
-      <div class="screenshot-card" onclick="openLightbox('logbees-family.png', 'Family site — password gate')">
-        <img src="logbees-family.png" alt="Family site">
-        <div class="screenshot-caption">
-          <h4>Family Site</h4>
-          <p>Password-gated view with more detail for close family</p>
+      <div class="screenshot-strip-card" onclick="openLightbox('tb_singapore.jpg', 'Singapore — testing the app for a local trip')">
+        <img src="tb_singapore.jpg" alt="Singapore scrapbook">
+        <div class="screenshot-strip-caption">
+          <h4>Singapore</h4>
+          <p>Testing the app for a local trip</p>
         </div>
       </div>
     </div>
@@ -456,59 +371,6 @@
         <span class="skill-chip">Hard deadline shipping</span>
         <span class="skill-chip">Secrets management</span>
       </div>
-    </div>
-  </section>
-
-  <!-- Lessons -->
-  <section class="page-section">
-    <h2 class="section-title">What I Learned</h2>
-    <div class="lesson-list">
-      <div class="lesson-item">
-        <div class="lesson-icon">🗺</div>
-        <div class="lesson-body">
-          <h4>Google Maps URLs Are a Jungle</h4>
-          <p>There are at least six different Google Maps URL formats in the wild — short links, place names, coordinates, embedded maps, search results. I had to handle them all. Reading the actual URL spec carefully saved hours of debugging on the road.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">📅</div>
-        <div class="lesson-body">
-          <h4>Hard Deadlines Are a Gift</h4>
-          <p>The trip started May 31st. That date was non-negotiable. It forced me to scope ruthlessly — build the logging core first, ship by departure, iterate during the trip. The hardest design constraint was also the most clarifying.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">👥</div>
-        <div class="lesson-body">
-          <h4>Two Audiences, Two Designs</h4>
-          <p>Public and family are different audiences with different needs. The public site is curated and polished. The family site is more raw and personal. Designing for two audiences simultaneously — and keeping them coherent — was harder than designing either one in isolation.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">📍</div>
-        <div class="lesson-body">
-          <h4>Reverse Geocoding Is Surprisingly Tricky</h4>
-          <p>Getting a human-readable "Café Tortoni, Buenos Aires" from a set of coordinates — especially in countries with inconsistent address data — required building fallbacks for when the API returns nothing useful.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🚀</div>
-        <div class="lesson-body">
-          <h4>Ship Before You're Ready</h4>
-          <p>I used the bot from day one of the trip, bugs and all. That real usage on the road surfaced issues no amount of local testing would have caught — and forced me to fix them quickly. Shipping early is always better than shipping perfect.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What's Next -->
-  <section class="page-section">
-    <h2 class="section-title">What's Next</h2>
-    <div class="next-list">
-      <div class="next-item"><span class="next-dot"></span>AI-powered daily summaries — use Claude API to generate a narrative recap from the day's entries</div>
-      <div class="next-item"><span class="next-dot"></span>Offline-first bot — queue entries locally when internet is spotty, sync when connection returns</div>
-      <div class="next-item"><span class="next-dot"></span>Export to PDF — generate a printable travel diary at the end of the trip</div>
-      <div class="next-item"><span class="next-dot"></span>Route animation — show the map journey as an animated path over time</div>
     </div>
   </section>
 
