@@ -235,7 +235,7 @@
   /* ── Footer ── */
   footer {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 2.5rem 0 2rem; border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem 2rem; border-top: 1px solid var(--border);
     font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
     color: rgba(66,63,58,0.35); flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1;
   }
@@ -276,8 +276,9 @@
   @keyframes scaleIn { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
 
   @media (max-width: 640px) {
-    nav { padding: 1rem 1.5rem; }
-    main { padding: 6rem 1.5rem 3rem; }
+    nav { padding: 0.75rem 1.5rem; }
+    .nav-logo-img { height: 52px; max-width: 45vw; }
+    main { padding: 5.5rem 1.5rem 3rem; }
     .project-hero h1 { font-size: 2.2rem; }
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
     .screenshot-strip-card { width: 200px; }

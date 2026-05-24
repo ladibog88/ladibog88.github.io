@@ -552,7 +552,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 0 2rem;
+    padding: 3rem 3rem 2rem;
     border-top: 1px solid var(--border);
     font-size: 0.68rem;
     font-weight: 700;
@@ -591,11 +591,14 @@
 
   /* ── Responsive ── */
   @media (max-width: 640px) {
-    nav { padding: 1.25rem 1.5rem; }
-    main { padding: 8rem 1.5rem 4rem; }
+    nav { padding: 0.75rem 1.5rem; }
+    .nav-logo-img { height: 52px; max-width: 45vw; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a { font-size: 0.65rem; letter-spacing: 0.1em; }
+    main { padding: 7rem 1.5rem 4rem; }
     .hero h1 { font-size: 3rem; }
     .contact-card { padding: 3rem 1.5rem; }
-    footer { padding: 2rem 0; }
+    footer { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
@@ -625,7 +628,7 @@
   <section class="hero">
     <h1>
       Hi, I'm Melissa —<br>
-      <em>on sabbatical.</em>
+      <em>on detour.</em>
     </h1>
     <p class="hero-lead">
       After more than a decade in transfer pricing, I'm taking time off to rest, travel, play, and explore interests. This website is to document my journey of using AI/technology to create projects I'm using in my everyday life.
