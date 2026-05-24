@@ -49,10 +49,10 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-logo {
-    font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; font-style: italic;
-    color: var(--ink-dark); text-decoration: none;
-  }
+  .nav-left { display: flex; align-items: center; gap: 1.25rem; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo-img { height: 44px; width: auto; mix-blend-mode: multiply; display: block; }
+  .nav-birds { display: flex; align-items: center; gap: 0.6rem; opacity: 0.18; color: var(--ink); }
 
   .nav-back {
     font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
@@ -157,6 +157,49 @@
   .screenshot-strip-card:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--page-accent); }
   .screenshot-strip-card img { width: 100%; height: auto; display: block; }
 
+  /* ── Live button + visit card ── */
+  @keyframes pulse-red {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.35); }
+  }
+  .live-dot {
+    display: inline-block; width: 8px; height: 8px;
+    background: #e53e3e; border-radius: 50%; flex-shrink: 0;
+    animation: pulse-red 1.5s ease-in-out infinite;
+  }
+  .hero-live { margin-top: 1.25rem; }
+  .btn-live {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #e53e3e; text-decoration: none;
+    border: 1.5px solid #e53e3e; border-radius: 6px;
+    padding: 0.45rem 1rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-live:hover { background: #e53e3e; color: #fff; }
+
+  .visit-live-card {
+    text-decoration: none;
+    background: var(--ink-dark) !important;
+    border-color: transparent !important;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 140px;
+  }
+  .visit-live-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+    padding: 1.75rem 1.25rem; text-align: center;
+  }
+  .visit-live-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem; font-weight: 600; color: #fdfbf7;
+    letter-spacing: 0.04em;
+  }
+  .visit-live-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem; color: rgba(253,251,247,0.45);
+  }
+
   /* ── Stack grid ── */
   .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.65rem; }
 
@@ -251,7 +294,17 @@
 <div class="paper-texture"></div>
 
 <nav>
-  <a class="nav-logo" href="index.html">mel.builds</a>
+  <div class="nav-left">
+    <a class="nav-logo" href="index.html">
+      <img src="mel%20logo%20top%20left.png" alt="Mel" class="nav-logo-img">
+    </a>
+    <div class="nav-birds" aria-hidden="true">
+      <svg width="32" height="13" viewBox="0 0 40 16"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+      <svg width="22" height="9" viewBox="0 0 40 16" style="margin-top:5px"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+      <svg width="16" height="6" viewBox="0 0 40 16" style="margin-top:-2px"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+      <svg width="26" height="10" viewBox="0 0 40 16" style="margin-top:7px"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+    </div>
+  </div>
   <a class="nav-back" href="index.html">← Back to Projects</a>
 </nav>
 
@@ -277,6 +330,11 @@
       <span class="hero-tag">Firebase Realtime DB</span>
       <span class="hero-tag">HLS Streaming</span>
     </div>
+    <div class="hero-live">
+      <a href="https://melissa.helloo.ooo/sunbird-cam/" target="_blank" rel="noopener" class="btn-live">
+        <span class="live-dot"></span> Watch live →
+      </a>
+    </div>
   </section>
 
   <div class="section-sep"></div>
@@ -298,15 +356,13 @@
       <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot1.png', 'Sunbird Nest Cam')">
         <img src="sunbird_screenshot1.png" alt="Sunbird Nest Cam screenshot 1">
       </div>
-      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot2.png', 'Sunbird Nest Cam')">
-        <img src="sunbird_screenshot2.png" alt="Sunbird Nest Cam screenshot 2">
-      </div>
-      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot3.png', 'Sunbird Nest Cam')">
-        <img src="sunbird_screenshot3.png" alt="Sunbird Nest Cam screenshot 3">
-      </div>
-      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot4.png', 'Sunbird Nest Cam')">
-        <img src="sunbird_screenshot4.png" alt="Sunbird Nest Cam screenshot 4">
-      </div>
+      <a class="screenshot-strip-card visit-live-card" href="https://melissa.helloo.ooo/sunbird-cam/" target="_blank" rel="noopener">
+        <div class="visit-live-inner">
+          <span class="live-dot"></span>
+          <span class="visit-live-label">Watch Live</span>
+          <span class="visit-live-url">melissa.helloo.ooo/sunbird-cam</span>
+        </div>
+      </a>
     </div>
   </section>
 

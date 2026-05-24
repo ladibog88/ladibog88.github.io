@@ -65,19 +65,10 @@
     backdrop-filter: blur(4px);
   }
 
-  .nav-logo {
-    font-family: 'Fraunces', serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-    font-style: italic;
-    color: var(--ink-dark);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .nav-logo svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .nav-left { display: flex; align-items: center; gap: 1.25rem; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo-img { height: 44px; width: auto; mix-blend-mode: multiply; display: block; }
+  .nav-birds { display: flex; align-items: center; gap: 0.6rem; opacity: 0.18; color: var(--ink); }
 
   .nav-links {
     display: flex;
@@ -620,14 +611,17 @@
 
 <!-- Nav -->
 <nav>
-  <a class="nav-logo" href="#">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20 10c0-4.418-3.582-8-8-8s-8 3.582-8 8a8 8 0 0 0 16 0Z"/>
-      <path d="M12 2v4"/>
-      <path d="m12 18-3 3h6l-3-3Z"/>
-    </svg>
-    mel.builds
-  </a>
+  <div class="nav-left">
+    <a class="nav-logo" href="#">
+      <img src="mel%20logo%20top%20left.png" alt="Mel" class="nav-logo-img">
+    </a>
+    <div class="nav-birds" aria-hidden="true">
+      <svg width="32" height="13" viewBox="0 0 40 16"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+      <svg width="22" height="9" viewBox="0 0 40 16" style="margin-top:5px"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+      <svg width="16" height="6" viewBox="0 0 40 16" style="margin-top:-2px"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+      <svg width="26" height="10" viewBox="0 0 40 16" style="margin-top:7px"><ellipse cx="20" cy="9" rx="4.5" ry="2.5" fill="currentColor"/><circle cx="23.5" cy="7.5" r="2" fill="currentColor"/><path d="M15.5 9 Q8 3 0 7 Q6 11 15.5 9Z" fill="currentColor"/><path d="M24.5 9 Q32 3 40 7 Q34 11 24.5 9Z" fill="currentColor"/></svg>
+    </div>
+  </div>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#about">About</a></li>
@@ -830,7 +824,7 @@
   <section class="contact" id="contact">
     <div class="contact-card">
       <h2>Let's connect!</h2>
-      <p>Curious about sabbatical life, transfer pricing, or want to talk about sunbirds — happy to  chat.</p>
+      <p>Curious about sabbatical life, transfer pricing, or want to talk about sunbirds? I'm happy to chat.</p>
       <div class="contact-btns">
         <a class="contact-btn btn-outline" href="https://mail.google.com/mail/?view=cm&to=yong.melissa@gmail.com" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
