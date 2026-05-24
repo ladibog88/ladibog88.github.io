@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunbee Cam — Melissa Yong</title>
+<title>Sunbird Nest Cam — Melissa Yong</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -128,49 +128,34 @@
   .content-box p:last-child { margin-bottom: 0; }
   .content-box p strong { color: var(--ink); font-weight: 500; }
 
-  /* ── Flow list ── */
-  .flow-list {
-    background: rgba(255,255,255,0.5);
-    border: 2px solid var(--ink);
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-    overflow: hidden; box-shadow: 4px 4px 0 var(--page-accent);
+  /* ── Screenshot Strip ── */
+  .screenshot-strip {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.25rem 0.25rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
+  .screenshot-strip::-webkit-scrollbar { height: 6px; }
+  .screenshot-strip::-webkit-scrollbar-track { background: transparent; }
+  .screenshot-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  .flow-step {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
-  }
-  .flow-step:last-child { border-bottom: none; }
-
-  .flow-icon { font-size: 1.1rem; min-width: 1.5rem; margin-top: 0.1rem; flex-shrink: 0; }
-
-  .flow-text h4 { font-size: 0.9rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.15rem; }
-  .flow-text p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5; }
-
-  /* ── Card grid ── */
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; }
-
-  .grid-card {
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 12px 6px 14px 8px; padding: 1rem 1.25rem; transition: transform 0.15s;
-  }
-  .grid-card:hover { transform: translate(-1px, -1px); }
-  .grid-card h4 { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 400; color: var(--ink-dark); margin-bottom: 0.35rem; }
-  .grid-card p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.6; }
-
-  /* ── Screenshots ── */
-  .screenshots-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-
-  .screenshot-card {
-    border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden;
-    background: rgba(255,255,255,0.4); cursor: pointer;
+  .screenshot-strip-card {
+    flex: 0 0 auto;
+    width: 240px;
+    scroll-snap-align: start;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s;
   }
-  .screenshot-card:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--page-accent); }
-  .screenshot-card img { width: 100%; height: 175px; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--border); }
-  .screenshot-caption { padding: 0.75rem 1rem; }
-  .screenshot-caption h4 { font-size: 0.85rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.15rem; }
-  .screenshot-caption p { font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); }
+  .screenshot-strip-card:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--page-accent); }
+  .screenshot-strip-card img { width: 100%; height: auto; display: block; }
 
   /* ── Stack grid ── */
   .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.65rem; }
@@ -186,27 +171,6 @@
     padding: 0.25rem 0.65rem; background: rgba(66,63,58,0.05);
     border: 1px solid var(--border); border-radius: 4px; color: var(--ink-muted);
   }
-
-  /* ── Lessons ── */
-  .lesson-list { display: flex; flex-direction: column; gap: 0.75rem; }
-  .lesson-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 1rem 1.25rem;
-  }
-  .lesson-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
-  .lesson-body h4 { font-size: 0.875rem; font-weight: 500; color: var(--ink-dark); margin-bottom: 0.25rem; }
-  .lesson-body p { font-size: 0.82rem; font-weight: 300; color: var(--ink-muted); line-height: 1.65; }
-
-  /* ── What's next ── */
-  .next-list { display: flex; flex-direction: column; gap: 0.55rem; }
-  .next-item {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    background: rgba(255,255,255,0.4); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 0.75rem 1rem;
-    font-size: 0.875rem; font-weight: 300; color: var(--ink-muted); line-height: 1.5;
-  }
-  .next-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage-dark); flex-shrink: 0; margin-top: 0.45rem; }
 
   /* ── CTA ── */
   .page-cta {
@@ -274,9 +238,8 @@
     nav { padding: 1rem 1.5rem; }
     main { padding: 6rem 1.5rem 3rem; }
     .project-hero h1 { font-size: 2.2rem; }
-    .screenshots-grid { grid-template-columns: 1fr; }
-    .card-grid { grid-template-columns: 1fr; }
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .screenshot-strip-card { width: 200px; }
   }
 </style>
 </head>
@@ -303,7 +266,7 @@
       <span>·</span>
       <span>May 2026</span>
     </div>
-    <h1>Sunbee <em>Cam</em></h1>
+    <h1>Sunbird Nest <em>Cam</em></h1>
     <p class="hero-tagline">Live Nest Cam — Olive-Backed Sunbirds on our Balcony</p>
     <p class="hero-desc">
       A pair of olive-backed sunbirds started building their nest on our Singapore apartment balcony. I set up a camera and built a live streaming site so family and friends could watch the nest from anywhere in the world. It runs on HLS.js for smooth adaptive streaming and Firebase for a real-time live/offline indicator.
@@ -328,102 +291,21 @@
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section class="page-section">
-    <h2 class="section-title">How It Works</h2>
-    <div class="flow-list">
-      <div class="flow-step">
-        <div class="flow-icon">📷</div>
-        <div class="flow-text">
-          <h4>Camera captures the nest</h4>
-          <p>A small camera positioned on the balcony records the sunbird nest continuously</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">📡</div>
-        <div class="flow-text">
-          <h4>HLS stream is generated</h4>
-          <p>The footage is encoded into HTTP Live Streaming (HLS) format — small chunks of video served over HTTP</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">🌐</div>
-        <div class="flow-text">
-          <h4>HLS.js handles playback</h4>
-          <p>The browser-side HLS.js library picks up the stream and plays it back smoothly with adaptive bitrate support</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">🔴</div>
-        <div class="flow-text">
-          <h4>Firebase shows live status</h4>
-          <p>A Firebase Realtime Database flag updates when the stream is active or offline — the site shows a live indicator in real time</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-icon">🔗</div>
-        <div class="flow-text">
-          <h4>Share via link</h4>
-          <p>Anyone with the URL can watch from anywhere — no app, no login, no faff</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="page-section">
-    <h2 class="section-title">Features</h2>
-    <div class="card-grid">
-      <div class="grid-card">
-        <h4>Live Video Stream</h4>
-        <p>Adaptive HLS playback that adjusts quality based on the viewer's connection speed. Works on mobile and desktop.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Live / Offline Indicator</h4>
-        <p>A real-time status badge powered by Firebase Realtime Database. Updates instantly when the stream goes live or offline.</p>
-      </div>
-      <div class="grid-card">
-        <h4>No Backend Required</h4>
-        <p>The site itself is fully static — no server, no backend. Firebase handles the one piece of dynamic state.</p>
-      </div>
-      <div class="grid-card">
-        <h4>Dark Nature Theme</h4>
-        <p>A dark green, nature-inspired design so the nest footage stays centre stage. Minimal chrome, maximum bird.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Screenshots -->
   <section class="page-section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots-grid">
-      <div class="screenshot-card" onclick="openLightbox('sunbee-live.png', 'Sunbee Cam — live stream view')">
-        <img src="sunbee-live.png" alt="Live stream view">
-        <div class="screenshot-caption">
-          <h4>Live Stream</h4>
-          <p>The nest cam with live status indicator and HLS player</p>
-        </div>
+    <h2 class="section-title">The Cam</h2>
+    <div class="screenshot-strip">
+      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot1.png', 'Sunbird Nest Cam')">
+        <img src="sunbird_screenshot1.png" alt="Sunbird Nest Cam screenshot 1">
       </div>
-      <div class="screenshot-card" onclick="openLightbox('sunbee-offline.png', 'Sunbee Cam — offline state')">
-        <img src="sunbee-offline.png" alt="Offline state">
-        <div class="screenshot-caption">
-          <h4>Offline State</h4>
-          <p>Graceful offline message when the stream isn't running</p>
-        </div>
+      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot2.png', 'Sunbird Nest Cam')">
+        <img src="sunbird_screenshot2.png" alt="Sunbird Nest Cam screenshot 2">
       </div>
-      <div class="screenshot-card" onclick="openLightbox('sunbee-mobile.png', 'Sunbee Cam — mobile view')">
-        <img src="sunbee-mobile.png" alt="Mobile view">
-        <div class="screenshot-caption">
-          <h4>Mobile View</h4>
-          <p>Responsive design — family can check in from their phones</p>
-        </div>
+      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot3.png', 'Sunbird Nest Cam')">
+        <img src="sunbird_screenshot3.png" alt="Sunbird Nest Cam screenshot 3">
       </div>
-      <div class="screenshot-card" onclick="openLightbox('sunbee-nest.png', 'The nest — olive-backed sunbird')">
-        <img src="sunbee-nest.png" alt="The nest">
-        <div class="screenshot-caption">
-          <h4>The Nest</h4>
-          <p>Our little resident — the olive-backed sunbird herself</p>
-        </div>
+      <div class="screenshot-strip-card" onclick="openLightbox('sunbird_screenshot4.png', 'Sunbird Nest Cam')">
+        <img src="sunbird_screenshot4.png" alt="Sunbird Nest Cam screenshot 4">
       </div>
     </div>
   </section>
@@ -456,59 +338,6 @@
         <span class="skill-chip">Offline state handling</span>
         <span class="skill-chip">Static site deployment</span>
       </div>
-    </div>
-  </section>
-
-  <!-- Lessons -->
-  <section class="page-section">
-    <h2 class="section-title">What I Learned</h2>
-    <div class="lesson-list">
-      <div class="lesson-item">
-        <div class="lesson-icon">📡</div>
-        <div class="lesson-body">
-          <h4>HLS is Simpler Than It Looks</h4>
-          <p>HTTP Live Streaming just serves small video chunks as regular files. Once I understood that, the whole protocol clicked — it's cleverly simple, which is why it works on almost every device and network.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🔴</div>
-        <div class="lesson-body">
-          <h4>Real-Time State Without a Backend</h4>
-          <p>Firebase Realtime Database let me add a live/offline indicator without spinning up any server. Writing a single boolean to Firebase and reading it client-side felt like magic the first time it worked.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🔌</div>
-        <div class="lesson-body">
-          <h4>Hardware Is the Hard Part</h4>
-          <p>Getting the camera positioned correctly, stable, and outputting the right format took longer than writing the entire website. Software is forgiving; physics is not.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🎨</div>
-        <div class="lesson-body">
-          <h4>Design for the Offline State First</h4>
-          <p>Streams go down. Designing the offline experience — a graceful message rather than a broken player — was just as important as the live view. Users notice when something handles failure well.</p>
-        </div>
-      </div>
-      <div class="lesson-item">
-        <div class="lesson-icon">🐦</div>
-        <div class="lesson-body">
-          <h4>Real Purpose Makes Better Projects</h4>
-          <p>I built this to share a specific moment with specific people. That constraint made every decision easier — no feature creep, no second-guessing the scope. Build for a real reason and the project almost designs itself.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What's Next -->
-  <section class="page-section">
-    <h2 class="section-title">What's Next</h2>
-    <div class="next-list">
-      <div class="next-item"><span class="next-dot"></span>Motion detection alerts — ping family when the bird returns to the nest</div>
-      <div class="next-item"><span class="next-dot"></span>Photo archive of nest milestones — egg laying, hatching, fledging</div>
-      <div class="next-item"><span class="next-dot"></span>Time-lapse generation from recorded footage</div>
-      <div class="next-item"><span class="next-dot"></span>Viewer count — see how many people are watching at once</div>
     </div>
   </section>
 
